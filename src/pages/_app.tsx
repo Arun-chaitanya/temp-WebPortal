@@ -5,12 +5,20 @@ import type { AppProps } from "next/app";
 // import "@styles/globals.scss";
 
 import { AuthProvider } from "@contexts/AuthContext";
+import QueryProvider from "@contexts/QueryProvider";
 
 function MyApp({ Component, pageProps }: AppProps) {
+  //  const { data, error, isLoading } = useQuery(["todos"], () =>
+  //    callApi({ url: "https://jsonplaceholder.typicode.com/todos" })
+  //  );
+
+  //  console.log(data, isLoading, "harsh");
   return (
-    <AuthProvider>
-      <Component {...pageProps} />
-    </AuthProvider>
+    <QueryProvider>
+      <AuthProvider>
+        <Component {...pageProps} />
+      </AuthProvider>
+    </QueryProvider>
   );
 }
 

@@ -1,17 +1,25 @@
 import Navbar from "@components/NavBar";
 import { Avatar, Box, Button, Divider, Typography } from "@mui/material";
-import Image from "next/image";
 import React from "react";
-import clsx from "clsx";
-import styles from "./aboutus.module.scss";
 import BannerImage from "../../../public/banner.png";
 import Innovation from "@icons/Innovation";
 import Inclusion from "@icons/Inclusion";
 import TrustIcon from "@icons/TrustIcon";
 import Compassion from "@icons/Compassion";
 
-//static values
-export const OUR_VALUES = [
+interface Value {
+  icon: JSX.Element;
+  label: string;
+  description: string;
+}
+
+interface TeamMember {
+  image: JSX.Element;
+  name: string;
+  role: string | JSX.Element;
+}
+
+export const OUR_VALUES: Value[] = [
   {
     icon: <Compassion />,
     label: "Compassion",
@@ -38,7 +46,7 @@ export const OUR_VALUES = [
   },
 ];
 
-export const OUR_TEAM = [
+export const OUR_TEAM: TeamMember[] = [
   {
     image: <Avatar sx={{ width: "6rem", height: "6rem" }}>A</Avatar>,
     name: "Alice  Lewis",
@@ -71,11 +79,10 @@ export const OUR_TEAM = [
   },
 ];
 
-const AboutUs = () => {
+const AboutUs: React.FC = () => {
   return (
     <div>
       <Navbar />
-
       <Box marginLeft={"2rem"} marginTop={"2rem"}>
         <Typography color={"#232325"} fontSize={"1.5rem"} lineHeight={"1rem"} marginBottom={"0.25rem"}>
           About Carecove
@@ -150,6 +157,7 @@ const AboutUs = () => {
           <Typography
             fontWeight={700}
             lineHeight={"3.375rem"}
+            letterSpacing="3px"
             sx={{
               fontSize: {
                 xs: "1rem",
@@ -197,6 +205,7 @@ const AboutUs = () => {
         <Typography
           fontWeight={700}
           color={"#504E50"}
+          letterSpacing="3px"
           sx={{
             fontSize: {
               xs: "1.5rem",
