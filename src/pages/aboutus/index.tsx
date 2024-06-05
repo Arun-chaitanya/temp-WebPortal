@@ -83,7 +83,7 @@ const AboutUs: React.FC = () => {
   return (
     <div>
       <Navbar />
-      <Box marginLeft={"2rem"} marginTop={"2rem"}>
+      <Box width={"96%"} margin={"2rem auto"}>
         <Typography color={"#232325"} fontSize={"1.5rem"} lineHeight={"1rem"} marginBottom={"0.25rem"}>
           About Carecove
         </Typography>
@@ -185,7 +185,6 @@ const AboutUs: React.FC = () => {
             width={"20%"}
           ></Box>
           <Typography
-            fontSize={"1.5rem"}
             lineHeight={"150%"}
             sx={{
               fontSize: {

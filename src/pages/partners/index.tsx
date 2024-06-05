@@ -4,12 +4,58 @@ import React from "react";
 import BannerImage from "../../../public/banner2.png";
 
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
+import SponsorsIcon from "@icons/SponsorsIcon";
+import PartnerCards from "@views/PartnerCards";
+import { CONTACT_US_EMAIL } from "@config/constants";
+import { mailToCarecove } from "@utils/index";
+
+const PARTNER_OPPURTUNITIES = [
+  {
+    title: "Sponsors",
+    description:
+      "Unite with us in offering caregivers exclusive discounts, nurturing their resilience and your brand's growth.",
+    icon: <SponsorsIcon />,
+    benefits: [
+      "✔ Market Insights",
+      "✔ Positive Brand Association",
+      "✔ Positive Brand Association", // Duplicate benefit included
+      "✔ Prominent Community Placements",
+      "✔ Collaborative Joint Marketing Efforts",
+    ],
+  },
+  {
+    title: "Community Champions",
+    description:
+      "Create a dedicated following by empowering caregivers by sharing your expertise and connecting with caregivers who value your guidance.",
+    icon: <SponsorsIcon />,
+    benefits: [
+      "✔ Personal Brand Growth",
+      "✔ Dedicated Follower Base",
+      "✔ Community Impact",
+      "✔ Engagement Opportunities",
+      "✔ Content Amplification",
+    ],
+  },
+  {
+    title: "Wellness Partners",
+    description:
+      "Showcase your offerings with Carecove, ensuring that the right caregivers discover the benefits of your product or service.",
+    icon: <SponsorsIcon />,
+    benefits: [
+      "✔ Product Visibility",
+      "✔ Market Insights",
+      "✔ Solution Spotlight",
+      "✔ Champion Connection",
+      "✔ Caring Certification",
+    ],
+  },
+];
 
 const Partners: React.FC = () => {
   return (
     <div>
       <Navbar />
-      <Box marginLeft={"2rem"} marginTop={"2rem"}>
+      <Box width={"95%"} margin={"2rem auto"}>
         <Typography color={"#232325"} fontSize={"1.5rem"} lineHeight={"1rem"} marginBottom={"0.25rem"}>
           Partner With Us
         </Typography>
@@ -48,7 +94,22 @@ const Partners: React.FC = () => {
         >
           Invest in caregiver support & reap the rewards of compassion.
         </Typography>
+        <Button
+          onClick={mailToCarecove}
+          variant="contained"
+          sx={{
+            background: "#2B3F50",
+            color: "#ffffff",
+
+            "&:hover": {
+              backgroundColor: "#1F2D3A", // darker shade of #2B3F50
+            },
+          }}
+        >
+          {CONTACT_US_EMAIL}
+        </Button>
       </Box>
+
       <Box>
         <img src={BannerImage.src} alt={"caregiver"} width={"100%"}></img>
       </Box>
@@ -126,7 +187,7 @@ const Partners: React.FC = () => {
               },
             }}
           >
-            <FiberManualRecordIcon sx={{ color: "#ffffff", fontSize: "1rem" }} />
+            <FiberManualRecordIcon sx={{ color: "#ffffff", fontSize: "0.75rem" }} />
             Unlock new revenue opportunities by supporting a vital cause.
           </Typography>
           <Typography
@@ -146,7 +207,7 @@ const Partners: React.FC = () => {
               },
             }}
           >
-            <FiberManualRecordIcon sx={{ color: "#ffffff", fontSize: "1rem" }} />
+            <FiberManualRecordIcon sx={{ color: "#ffffff", fontSize: "0.75rem" }} />
             Extend your market reach by connecting with our caregiver community.
           </Typography>
           <Typography
@@ -166,13 +227,24 @@ const Partners: React.FC = () => {
               },
             }}
           >
-            <FiberManualRecordIcon sx={{ color: "#ffffff", fontSize: "1rem" }} />
+            <FiberManualRecordIcon sx={{ color: "#ffffff", fontSize: "0.75rem" }} />
             Gain recognition as a valued partner in Carecoves directory of trusted allies.
           </Typography>
         </Box>
       </Box>
       <Box textAlign={"center"}>
-        <Typography fontSize={"2rem"} color={"#504E50"} letterSpacing="3px">
+        <Typography
+          fontSize={"2rem"}
+          sx={{
+            fontSize: {
+              xs: "1rem",
+              sm: "2rem",
+              md: "2rem",
+            },
+          }}
+          color={"#504E50"}
+          letterSpacing="3px"
+        >
           Explore our Partnership Opportunities
         </Typography>
         <Box
@@ -188,7 +260,24 @@ const Partners: React.FC = () => {
           borderBottom={"2px solid "}
           width={"20%"}
         ></Box>
-        <Typography>Shape a world where caregivers thrive.</Typography>
+        <Typography
+          sx={{
+            fontSize: {
+              xs: "1rem",
+              sm: "1.5rem",
+              md: "1.5rem",
+              lg: "1.5rem",
+              xl: "1.5rem",
+            },
+          }}
+          color={"#504E50"}
+          lineHeight={"150%"}
+        >
+          Shape a world where caregivers thrive.
+        </Typography>
+      </Box>
+      <Box display={"flex"} flexWrap={"wrap"} justifyContent={"space-around"} marginTop={"2rem"}>
+        {PARTNER_OPPURTUNITIES?.map((oppurtunity) => <PartnerCards {...oppurtunity} key={oppurtunity?.title} />)}
       </Box>
     </div>
   );
