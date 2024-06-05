@@ -68,14 +68,41 @@ export const OUR_TEAM: TeamMember[] = [
     ),
   },
   {
+    image: <Avatar sx={{ width: "6rem", height: "6rem" }}>A</Avatar>,
+    name: "Matt Hasten",
+    role: "Chief Product Officer",
+  },
+  {
     image: <Avatar sx={{ width: "6rem", height: "6rem" }}>B</Avatar>,
     name: "Bruno Botvinik",
     role: "Technical Advisor",
   },
+
   {
-    image: <Avatar sx={{ width: "6rem", height: "6rem" }}>B</Avatar>,
+    image: <Avatar sx={{ width: "6rem", height: "6rem" }}>A</Avatar>,
     name: "Amanpreet singh",
     role: "Product Designer",
+  },
+
+  {
+    image: <Avatar sx={{ width: "6rem", height: "6rem" }}>S</Avatar>,
+    name: "Stephanie Euzebio",
+    role: "Head of Design",
+  },
+  {
+    image: <Avatar sx={{ width: "6rem", height: "6rem" }}>H</Avatar>,
+    name: "Harsh Bhagtani",
+    role: "Engineer",
+  },
+  {
+    image: <Avatar sx={{ width: "6rem", height: "6rem" }}>A</Avatar>,
+    name: "Arun Chaitanya",
+    role: "Engineer",
+  },
+  {
+    image: <Avatar sx={{ width: "6rem", height: "6rem" }}>S</Avatar>,
+    name: "Sai Krishna",
+    role: "Engineer",
   },
 ];
 
@@ -282,7 +309,7 @@ const AboutUs: React.FC = () => {
         <Typography fontSize={"1.5rem"} fontWeight={700} color={"#232325"}>
           Our team
         </Typography>
-        <Box display={"flex"} justifyContent={"space-between"} gap={4} flexWrap={"wrap"} width={"100%"}>
+        <Box display={"flex"} justifyContent={"space-around"} gap={4} flexWrap={"wrap"} width={"100%"}>
           {OUR_TEAM?.map(({ image, name, role }) => {
             return (
               <Box
@@ -296,8 +323,8 @@ const AboutUs: React.FC = () => {
                     xs: "100%", // 0px - 600px
                     sm: "40%", // 600px - 960px
                     md: "40%", // 960px - 1280px
-                    lg: "20%", // 1280px - 1920px
-                    xl: "20%", // 1920px and up
+                    lg: "30%", // 1280px - 1920px
+                    xl: "30%", // 1920px and up
                   },
                 }}
               >
