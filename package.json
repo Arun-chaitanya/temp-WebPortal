@@ -87,5 +87,9 @@
     "react-test-renderer": "^18.2.0",
     "typescript": "^5.0.2",
     "webpack": "^5.75.0"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": "eslint --cache --fix --plugin tsc --rule 'tsc/config: [2, {configFile: \"./tsconfig.json\"}]'",
+    "*.{js,ts,tsx,json,scss}": "prettier --write"
   }
 }
