@@ -1,96 +1,75 @@
-import { API_BASE_URL } from "@config/constants";
+import { BASE_SERVER } from "@config/constants";
+import axios, { AxiosResponse, Method, AxiosRequestConfig, ResponseType } from "axios";
 
-export async function apiFetcher(url: string) {
-  const response = await fetch(API_BASE_URL + url);
-  const data = await response.json();
+export const getDataFromLocalStorage = (key: string): string | null => {
+  if (typeof window === "undefined") return null;
+  return localStorage.getItem(key);
+};
 
-  if (response.status >= 200 && response.status < 300) return data.data;
-  else throw data;
+export const setLocalstorageData = (key: string, value: any): void => {
+  if (typeof window === "undefined") return;
+  localStorage.setItem(key, value);
+};
+
+const getHeaders = (contentType: string): { [key: string]: string } => {
+  const headers: { [key: string]: string } = { "Content-Type": contentType };
+
+  const token = getDataFromLocalStorage("token");
+  if (token) headers.Authorization = `Bearer ${token}`;
+
+  return headers;
+};
+
+export const clearDataFromLocalStorage = (): void => {
+  localStorage.clear();
+};
+
+interface CallApiArgs {
+  url: string;
+  method?: Method;
+  data?: any;
+  timeout?: number;
+  content_type?: string;
+  responseType?: ResponseType;
+  axios_args?: Partial<AxiosRequestConfig>;
 }
 
-export async function authApiFetcher(user: any | null, url: string) {
-  const headers = new Headers();
+export const callApi = ({
+  url,
+  method = "GET",
+  data = {},
+  timeout = 20000,
+  content_type = "application/json",
+  responseType,
+  axios_args = {},
+}: CallApiArgs): Promise<any> => {
+  const params = method === "GET" ? data : {};
+  const payload = method !== "GET" ? data : {};
 
-  if (user) {
-    const token = await user.getIdToken();
-    headers.append("Authorization", `Bearer ${token}`);
-  }
+  return new Promise((resolve, reject) => {
+    axios({
+      baseURL: BASE_SERVER,
+      url,
+      method,
+      timeout,
+      responseType,
+      params,
+      data: payload,
+      headers: getHeaders(content_type),
+      validateStatus: (status) => status >= 200 && status < 300,
+      ...axios_args,
+    })
+      .then((response: AxiosResponse) => {
+        resolve(response.data);
+      })
+      .catch((error) => {
+        if (error?.response?.status === 401 || error?.code === "ERR_NETWORK") {
+          clearDataFromLocalStorage();
 
-  const response = await fetch(API_BASE_URL + url, {
-    method: "GET",
-    headers: headers,
+          window.location.replace("/login");
+        }
+
+        reject(error);
+      });
   });
-  const data = await response.json();
-
-  if (response.status >= 200 && response.status < 300) return data.data;
-  else throw data;
-}
-
-export async function fetchAPI<T>(
-  user: any | null,
-  url: string,
-  method: string = "POST",
-  body: any = undefined
-): Promise<T | null> {
-  const headers = new Headers();
-  if (!user) return null;
-  const token = await user.getIdToken();
-  headers.append("Authorization", `Bearer ${token}`);
-  headers.append("Content-Type", "application/json");
-
-  const response = await fetch(API_BASE_URL + url, { method, headers, body });
-  const data = await response.json();
-
-  if (response.status >= 200 && response.status < 300) return data?.data;
-  else throw data;
-}
-
-export async function unAuthFetchAPI<T>(
-  url: string,
-  method: string = "POST",
-  body: any = undefined
-): Promise<T | null> {
-  const headers = new Headers();
-  headers.append("Content-Type", "application/json");
-
-  const response = await fetch(API_BASE_URL + url, { method, headers, body });
-  const data = await response.json();
-
-  if (response.status >= 200 && response.status < 300) return data?.data;
-  else throw data;
-}
-
-export async function fetchFormDataAPI<T>(
-  user: any | null,
-  url: string,
-  method: string = "POST",
-  body: any = undefined
-): Promise<T | null> {
-  const headers = new Headers();
-  if (!user) return null;
-  const token = await user.getIdToken();
-  headers.append("Authorization", `Bearer ${token}`);
-  headers.append("Content-Type", "multipart/form-data");
-
-  const response = await fetch(API_BASE_URL + url, { method, headers, body });
-  const data = await response.json();
-
-  if (response.status >= 200 && response.status < 300) return data?.data;
-  else throw data;
-}
-
-export async function fetchAPIWithToken<T>(
-    token: string,
-    url: string,
-    method: string = "POST",
-    body: any = undefined
-): Promise<T | null> {
-  const headers = new Headers();
-  if (token) headers.append("x_auth_token", token);
-
-  const response = await fetch(API_BASE_URL + url, { method, headers, body });
-  const data = await response.json();
-
-  if (response.status >= 200 && response.status < 300) return data?.data;
-  else throw data;
-}
+};

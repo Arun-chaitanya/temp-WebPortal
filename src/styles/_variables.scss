@@ -9,12 +9,10 @@ $primary-border: rgba($primary-color, 0.17);
 
 $success: #3d9244;
 $failure: #d12020;
-$failure2: #ff8888;
-$failure3: #ffeeee;
 $info: #0155a0;
 
 $light: $white;
-$dark: #151516;
+$dark: #232325;
 $dark2: #130f26; //Observed for back < arrows
 
 $grey: #555555; //Observed for time in cards
@@ -41,10 +39,34 @@ $screen_md: 1020px;
 $screen_lg: 1270px;
 $screen_xl: 1420px;
 
-$header-font: "Circular20CyrTT", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
-  Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-$body-font: "Circular20CyrTT", -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
-  Droid Sans, Helvetica Neue, sans-serif;
+$header-font:
+  "Merriweather",
+  "Circular20CyrTT",
+  -apple-system,
+  BlinkMacSystemFont,
+  Segoe UI,
+  Roboto,
+  Oxygen,
+  Ubuntu,
+  Cantarell,
+  Fira Sans,
+  Droid Sans,
+  Helvetica Neue,
+  sans-serif;
+$body-font:
+  "Poppins",
+  "Circular20CyrTT",
+  -apple-system,
+  BlinkMacSystemFont,
+  Segoe UI,
+  Roboto,
+  Oxygen,
+  Ubuntu,
+  Cantarell,
+  Fira Sans,
+  Droid Sans,
+  Helvetica Neue,
+  sans-serif;
 
 $white: #fff;
 $black: #000;

@@ -1,38 +1,51 @@
-@import "src/styles/variables";
-
+/* src/components/Header/Header.module.scss */
 .root {
-  border-bottom: 0.5px solid $border;
-  padding: 0.8rem 0;
-  z-index: 10;
+  background-color: #679749; // Green background color
+  padding: 16px 32px;
 }
 
-.dot {
-  position: absolute;
-  top: -2px;
-  right: -2px;
-  height: 8px;
-  width: 8px;
-  border-radius: 50%;
-  background-color: $primary-color;
-}
-
-div.helpPopper {
-  display: flex;
-  justify-content: space-between;
-  width: max-content;
-  min-width: 30rem;
-  background-color: $primary-color;
-  border-width: 2px;
-  padding: 0 2rem;
-}
-
-.iconLink {
-  width: 22px;
-  height: 22px;
+.header {
   display: flex;
   align-items: center;
-  justify-content: center;
-  @media (max-width: $screen_sm) {
-    margin: 1rem;
+  justify-content: space-between;
+}
+
+.container {
+  padding: 0;
+}
+
+.logo {
+  img {
+    height: 40px;
   }
+}
+
+// nav {
+//   display: flex;
+//   align-items: center;
+
+//   ul {
+//     display: flex;
+//     gap: 24px;
+//   }
+
+//   li {
+//     list-style: none;
+//     a {
+//       color: #fff;
+//       text-decoration: none;
+//       padding: 5px 10px;
+//       &:hover {
+//         text-decoration: underline;
+//       }
+
+//       &.active {
+//         font-weight: bold;
+//       }
+//     }
+//   }
+// }
+
+.text {
+  color: #fff;
 }
