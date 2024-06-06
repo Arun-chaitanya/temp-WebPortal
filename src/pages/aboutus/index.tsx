@@ -1,7 +1,7 @@
 import Navbar from "@components/NavBar";
 import { Avatar, Box, Button, Divider, Typography } from "@mui/material";
 import React from "react";
-import BannerImage from "../../../public/banner.png";
+import BannerImage from "../../../public/aboutusbanner.jpeg";
 import Innovation from "@icons/Innovation";
 import Inclusion from "@icons/Inclusion";
 import TrustIcon from "@icons/TrustIcon";
@@ -151,8 +151,22 @@ const AboutUs: React.FC = () => {
           cherish.
         </Typography>
       </Box>
-      <Box>
-        <img src={BannerImage.src} alt={"caregiver"} width={"100%"}></img>
+      <Box
+        sx={{
+          height: {
+            xs: "300px",
+            sm: "600px",
+            md: "700px",
+          },
+        }}
+      >
+        <img
+          src={BannerImage.src}
+          alt={"caregiver"}
+          width={"100%"}
+          height={"100%"}
+          style={{ objectFit: "cover" }}
+        ></img>
       </Box>
       <Box
         display={"flex"}
@@ -227,7 +241,14 @@ const AboutUs: React.FC = () => {
           </Typography>
         </Box>
       </Box>
-      <Box display={"flex"} flexDirection={"column"} justifyContent={"center"} alignItems={"center"} gap={4}>
+      <Box
+        display={"flex"}
+        flexDirection={"column"}
+        position={"relative"}
+        justifyContent={"center"}
+        alignItems={"center"}
+        gap={4}
+      >
         <Typography
           fontWeight={700}
           color={"#504E50"}

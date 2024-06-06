@@ -12,7 +12,9 @@ const PartnerCards = ({ icon, description, benefits, title }) => {
       padding={"2rem"}
       marginTop={"2rem"}
     >
-      {icon}
+      <Box height={93} display={"flex"} justifyContent={"center"} alignItems={"center"}>
+        {icon}
+      </Box>
       <Typography
         marginTop={"2rem"}
         fontWeight={700}
@@ -53,6 +55,7 @@ const PartnerCards = ({ icon, description, benefits, title }) => {
         {description}
       </Typography>
       <Button
+        size="large"
         variant="contained"
         sx={{
           background: "#2B3F50",
