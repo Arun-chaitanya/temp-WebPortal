@@ -1,13 +1,13 @@
 import clsx from "clsx";
 import Link from "next/link";
 
-import Image from "@components/Image";
+import Image from "@components/ImageNew";
 
 import styles from "./Logo.module.scss";
 
 const LOGO_SRC = {
-  header: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
-  footer: "https://upload.wikimedia.org/wikipedia/commons/2/2f/Google_2015_logo.svg",
+  header: "/assets/carecove_logo_reversed.png",
+  footer: "/assets/carecove_logo_reversed.png",
 };
 
 const LOGO_ALT = {
@@ -18,14 +18,10 @@ const LOGO_ALT = {
 const Logo: React.FC<LogoProps> = ({ variant = "header", disabled, ...props }) => {
   if (!variant) return null;
   if (disabled)
-    return (
-      <div className={clsx(styles.logo, styles[variant])}>
-        <Image alt={LOGO_ALT[variant]} src={LOGO_SRC[variant]} layout="fill" objectFit="contain" />
-      </div>
-    );
+    return <Image alt={LOGO_ALT[variant]} src={LOGO_SRC[variant]} className={clsx(styles.logo, styles[variant])} />;
   return (
-    <Link href="/" className={clsx(styles.logo, styles[variant])} data-testid="logo" {...props}>
-      <Image alt={LOGO_ALT[variant]} src={LOGO_SRC[variant]} layout="fill" objectFit="contain" />
+    <Link href="/" data-testid="logo" {...props}>
+      <Image alt={LOGO_ALT[variant]} src={LOGO_SRC[variant]} className={clsx(styles.logo, styles[variant])} />
     </Link>
   );
 };

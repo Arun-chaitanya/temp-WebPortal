@@ -9,7 +9,7 @@ const Title: React.FC<TitleProps> = (props) => {
     children,
     isUppercase,
     align,
-    color,
+    color = "dark",
     style,
     customStyles,
     font = "primary",
@@ -41,7 +41,7 @@ export type TitleProps = Omit<React.HTMLAttributes<any>, "style"> & {
   font?: "primary" | "secondary";
   isUppercase?: boolean;
   className?: string;
-  color?: "light" | "grey" | "dark" | "danger" | "success" | "black" | "primary-color";
+  color?: "light" | "grey" | "dark" | "danger" | "success" | "primary";
   variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   align?: "left" | "center" | "right";
   style?: "normal" | "italic";

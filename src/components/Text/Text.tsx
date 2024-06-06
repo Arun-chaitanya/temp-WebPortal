@@ -1,5 +1,4 @@
 import clsx from "clsx";
-
 import styles from "./Text.module.scss";
 
 const Text: React.FC<TextProps> = (props) => {
@@ -9,8 +8,8 @@ const Text: React.FC<TextProps> = (props) => {
     color,
     align,
     variant = "p",
-    font = "primary",
-    weight = "medium",
+    font = "dark",
+    weight = "normal",
     size = "md",
     noWrap = false,
     ...rest
@@ -39,21 +38,7 @@ const Text: React.FC<TextProps> = (props) => {
 
 export type TextProps = React.HTMLAttributes<any> & {
   font?: "primary" | "secondary";
-  color?:
-    | "primary"
-    | "light"
-    | "grey"
-    | "dark"
-    | "danger"
-    | "success"
-    | "grey2"
-    | "grey6"
-    | "grey7"
-    | "grey8"
-    | "primary-color"
-    | "primary-light"
-    | "black"
-    | "info";
+  color?: "primary" | "light" | "grey" | "dark" | "danger" | "success" | "info";
   weight?: "normal" | "medium" | "semi-bold" | "bold" | "heavy";
   size?: "xxxs" | "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
   align?: "left" | "center" | "right" | "justify";

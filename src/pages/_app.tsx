@@ -1,18 +1,12 @@
 import type { AppProps } from "next/app";
-
-// import "@styles/classes.scss";
-// import "@styles/fonts.scss";
-// import "@styles/globals.scss";
-
 import { AuthProvider } from "@contexts/AuthContext";
 import QueryProvider from "@contexts/QueryProvider";
 
-function MyApp({ Component, pageProps }: AppProps) {
-  //  const { data, error, isLoading } = useQuery(["todos"], () =>
-  //    callApi({ url: "https://jsonplaceholder.typicode.com/todos" })
-  //  );
+import "@styles/classes.scss";
+import "@styles/fonts.scss";
+import "@styles/globals.scss";
 
-  //  console.log(data, isLoading, "harsh");
+function MyApp({ Component, pageProps }: AppProps) {
   return (
     <QueryProvider>
       <AuthProvider>
