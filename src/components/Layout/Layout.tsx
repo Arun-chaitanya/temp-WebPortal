@@ -9,6 +9,7 @@ import SEO from "@components/SEO";
 import Text from "@components/Text";
 
 import styles from "./Layout.module.scss";
+import Footer from "@components/FooterV2";
 
 const Layout: React.FC<LayoutProps> = (props) => {
   const {
@@ -22,6 +23,9 @@ const Layout: React.FC<LayoutProps> = (props) => {
     schemaSEO,
     removeHeader,
     isPublic,
+    removeFooter,
+    disableFooter,
+    disabled,
   } = props;
 
   const isTab = useBreakpoint({ max: "md" });
@@ -54,6 +58,7 @@ const Layout: React.FC<LayoutProps> = (props) => {
           children
         )}
       </main>
+      {!removeFooter && <Footer disabled={disableFooter || disabled} className={classes?.footer} />}
       {!removeHeader && (
         <div className={styles.showMobile}>
           <MobileNavigator />
@@ -73,6 +78,9 @@ type LayoutProps = React.PropsWithChildren<{
   schemaSEO?: string;
   removeHeader?: boolean;
   isPublic?: boolean;
+  removeFooter?: boolean;
+  disableFooter?: boolean;
+  disabled?: boolean;
 }>;
 
 export default Layout;

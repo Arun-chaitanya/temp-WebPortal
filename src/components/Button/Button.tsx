@@ -1,3 +1,4 @@
+import React from "react"; // Add this import statement
 import clsx from "clsx";
 import Link, { LinkProps } from "next/link";
 import { useState } from "react";

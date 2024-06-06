@@ -44,11 +44,11 @@
 }
 
 .body {
-  @include body-font(1.6rem, 900, $dark);
+  @include body-font(2rem, 400, $white);
 }
 
 .header {
-  @include header-font(1.6rem, 900, $primary-color);
+  @include body-font(2rem, 400, $white);
 }
 
 .center {

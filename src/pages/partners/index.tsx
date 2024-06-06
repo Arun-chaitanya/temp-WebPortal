@@ -126,7 +126,7 @@ const Partners: React.FC = () => {
           alt={"caregiver"}
           width={"100%"}
           height={"100%"}
-          style={{ objectFit: "cover" }}
+          style={{ objectFit: "cover", height: "100% !important" }}
         ></img>
       </Box>
       <Box
