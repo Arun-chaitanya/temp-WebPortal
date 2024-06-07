@@ -32,28 +32,28 @@
 }
 
 .left {
-  margin-right: 2.5rem;
+  margin-right: 1.5625rem;
 }
 
 .right {
-  margin-left: 2.5rem;
+  margin-left: 1.5625rem;
 }
 
 .justify {
-  padding: 0 1rem;
+  padding: 0 0.625rem;
 }
 
 .body {
-  @include body-font(2rem, 400, $white);
+  @include body-font(1.25rem, 400, $white);
 }
 
 .header {
-  @include body-font(2rem, 400, $white);
+  @include body-font(1.25rem, 400, $white);
 }
 
 .center {
-  margin-right: 1.25rem;
-  margin-left: 1.25rem;
+  margin-right: 0.75rem;
+  margin-left: 0.75rem;
 }
 
 .fullWidth {

@@ -29,7 +29,7 @@ const SubHeader: React.FC<SubHeaderProps> = (props) => {
             </div>
 
             {description && (
-              <Text color={textColor || "grey6"} size="sm" className="mt5">
+              <Text color={textColor || "grey"} size="sm" className="mt5">
                 {description}
               </Text>
             )}
@@ -47,7 +47,7 @@ type SubHeaderProps = React.PropsWithChildren<{
   title?: string;
   description?: string;
   titleVariant?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
-  textColor?: "dark" | "grey6" | "black";
+  textColor?: "dark" | "grey";
 }>;
 
 export default SubHeader;

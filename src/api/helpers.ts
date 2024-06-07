@@ -1,4 +1,3 @@
-import { BASE_SERVER } from "@config/constants";
 import axios, { AxiosResponse, Method, AxiosRequestConfig, ResponseType } from "axios";
 
 export const getDataFromLocalStorage = (key: string): string | null => {
@@ -48,7 +47,7 @@ export const callApi = ({
 
   return new Promise((resolve, reject) => {
     axios({
-      baseURL: BASE_SERVER,
+      baseURL: "https://api-dev.carecove.com",
       url,
       method,
       timeout,

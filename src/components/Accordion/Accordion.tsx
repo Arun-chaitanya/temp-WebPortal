@@ -28,7 +28,7 @@ const Accordion: React.FC<AccordionProps> = (props) => {
         data-testid="accordion-button"
       >
         {text && (
-          <Text weight="bold" color="black">
+          <Text weight="bold" color="dark">
             {text}
           </Text>
         )}

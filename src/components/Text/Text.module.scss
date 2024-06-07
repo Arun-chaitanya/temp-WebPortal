@@ -2,11 +2,11 @@
 @import "src/styles/mixins";
 
 .primary {
-  @include body-font(1.6rem, 400);
+  @include body-font(16px, 400);
 }
 
 .secondary {
-  @include secondary-font(1.6rem, 400);
+  @include secondary-font(16px, 400);
 }
 
 .light {
@@ -16,6 +16,7 @@
 .grey {
   color: $grey5;
 }
+
 .dark {
   color: $dark;
 }
@@ -28,7 +29,7 @@
   color: $success;
 }
 
-.primary {
+.primary-color {
   color: $primary-color;
 }
 
@@ -53,35 +54,35 @@
 }
 
 .xxxs {
-  font-size: 1.1rem;
+  font-size: 11px;
 }
 
 .xxs {
-  font-size: 1.2rem;
+  font-size: 12px;
 }
 
 .xs {
-  font-size: 1.4rem;
+  font-size: 14px;
 }
 
 .sm {
-  font-size: 1.6rem;
+  font-size: 16px;
 }
 
 .md {
-  font-size: 1.8rem;
+  font-size: 18px;
 }
 
 .lg {
-  font-size: 2rem;
+  font-size: 20px;
 }
 
 .xl {
-  font-size: 2.5rem;
+  font-size: 25px;
 }
 
 .xxl {
-  font-size: 3rem;
+  font-size: 30px;
 }
 
 .left {

@@ -5,10 +5,10 @@ const Text: React.FC<TextProps> = (props) => {
   const {
     className,
     children,
-    color,
+    color = "dark",
     align,
     variant = "p",
-    font = "dark",
+    font = "primary",
     weight = "normal",
     size = "md",
     noWrap = false,
@@ -22,11 +22,11 @@ const Text: React.FC<TextProps> = (props) => {
       {...rest}
       className={clsx(
         font && styles[font],
-        color && styles[color],
         weight && styles[weight],
         size && styles[size],
         align && styles[align],
         noWrap && styles.noWrap,
+        color && styles[color],
         className
       )}
       data-testid="text"
@@ -38,7 +38,7 @@ const Text: React.FC<TextProps> = (props) => {
 
 export type TextProps = React.HTMLAttributes<any> & {
   font?: "primary" | "secondary";
-  color?: "primary" | "light" | "grey" | "dark" | "danger" | "success" | "info";
+  color?: "primary-color" | "light" | "grey" | "dark" | "danger" | "success" | "info";
   weight?: "normal" | "medium" | "semi-bold" | "bold" | "heavy";
   size?: "xxxs" | "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
   align?: "left" | "center" | "right" | "justify";

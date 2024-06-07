@@ -1,13 +1,14 @@
 import Navbar from "@components/NavBar";
 import { Avatar, Box, Button, Divider, Typography } from "@mui/material";
 import React from "react";
-import BannerImage from "../../../public/banner2.png";
-
+import BannerImage from "../../../public/banner2.jpeg";
 import FiberManualRecordIcon from "@mui/icons-material/FiberManualRecord";
 import SponsorsIcon from "@icons/SponsorsIcon";
 import PartnerCards from "@views/PartnerCards";
 import { CONTACT_US_EMAIL } from "@config/constants";
 import { mailToCarecove } from "@utils/index";
+import CommunityIcon from "@icons/CommunityIcon";
+import PartnersIcon from "@icons/PartnersIcon";
 
 const PARTNER_OPPURTUNITIES = [
   {
@@ -27,7 +28,7 @@ const PARTNER_OPPURTUNITIES = [
     title: "Community Champions",
     description:
       "Create a dedicated following by empowering caregivers by sharing your expertise and connecting with caregivers who value your guidance.",
-    icon: <SponsorsIcon />,
+    icon: <CommunityIcon />,
     benefits: [
       "✔ Personal Brand Growth",
       "✔ Dedicated Follower Base",
@@ -40,7 +41,7 @@ const PARTNER_OPPURTUNITIES = [
     title: "Wellness Partners",
     description:
       "Showcase your offerings with Carecove, ensuring that the right caregivers discover the benefits of your product or service.",
-    icon: <SponsorsIcon />,
+    icon: <PartnersIcon />,
     benefits: [
       "✔ Product Visibility",
       "✔ Market Insights",
@@ -74,7 +75,6 @@ const Partners: React.FC = () => {
           }}
           textTransform={"uppercase"}
           letterSpacing={"0.625rem"}
-          gutterBottom
         >
           Grow with Carecove.
         </Typography>
@@ -97,6 +97,7 @@ const Partners: React.FC = () => {
         <Button
           onClick={mailToCarecove}
           variant="contained"
+          size="large"
           sx={{
             background: "#2B3F50",
             color: "#ffffff",
@@ -109,9 +110,23 @@ const Partners: React.FC = () => {
           {CONTACT_US_EMAIL}
         </Button>
       </Box>
-
-      <Box>
-        <img src={BannerImage.src} alt={"caregiver"} width={"100%"}></img>
+      <Box
+        height={"700px"}
+        sx={{
+          height: {
+            xs: "300px",
+            sm: "600px",
+            md: "700px",
+          },
+        }}
+      >
+        <img
+          src={BannerImage.src}
+          alt={"caregiver"}
+          width={"100%"}
+          height={"100%"}
+          style={{ objectFit: "cover", height: "100% !important" }}
+        ></img>
       </Box>
       <Box
         display={"flex"}
@@ -257,8 +272,8 @@ const Partners: React.FC = () => {
               xl: "2rem auto",
             },
           }}
-          borderBottom={"2px solid "}
-          width={"20%"}
+          borderBottom={"2px solid #504E50"}
+          width={"15%"}
         ></Box>
         <Typography
           sx={{
@@ -278,6 +293,23 @@ const Partners: React.FC = () => {
       </Box>
       <Box display={"flex"} flexWrap={"wrap"} justifyContent={"space-around"} marginTop={"2rem"}>
         {PARTNER_OPPURTUNITIES?.map((oppurtunity) => <PartnerCards {...oppurtunity} key={oppurtunity?.title} />)}
+      </Box>
+      <Box marginY={"3rem"} textAlign={"center"}>
+        <Button
+          variant="contained"
+          size="large"
+          sx={{
+            background: "#2B3F50",
+            color: "#ffffff",
+
+            "&:hover": {
+              backgroundColor: "#1F2D3A", // darker shade of #2B3F50
+            },
+          }}
+          onClick={mailToCarecove}
+        >
+          Connect with us
+        </Button>
       </Box>
     </div>
   );

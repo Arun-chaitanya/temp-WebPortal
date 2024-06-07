@@ -11,22 +11,22 @@
 .main {
   position: relative;
   flex: 1 1 auto;
-  min-height: calc(100vh - 10rem);
+  min-height: calc(100vh - 6.25px);
 
   @media (max-width: $screen_sm) {
-    min-height: calc(100vh - 20rem);
+    min-height: calc(100vh - 12.5px);
   }
 }
 
-.showDesktop {
-  @media (max-width: $screen_md) {
-    display: none;
-  }
-}
+//.showDesktop {
+//  @media (max-width: $screen_md) {
+//    display: none;
+//  }
+//}
 
 .showMobile {
   display: none;
-  @media (max-width: $screen_md) {
-    display: block;
-  }
+  //@media (max-width: $screen_md) {
+  //  display: block;
+  //}
 }
