@@ -42,7 +42,7 @@ const nextConfig = {
     { source: "/:path*", headers: securityHeaders },
     { source: "/frame/:path*", headers: [{ key: "X-Frame-Options", value: "ALLOWALL" }] },
   ],
-  experimental: { scrollRestoration: true },
+  experimental: { scrollRestoration: true, outputStandalone: true },
 };
 
 module.exports = middlewares.reduce((config, f) => f(config), nextConfig);

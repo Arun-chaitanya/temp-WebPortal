@@ -16,15 +16,15 @@ const Footer: React.FC<React.HTMLProps<HTMLDivElement>> = (className, disabled, 
         <div className={styles.right}>
           <div className={styles.middle}>
             <p className={styles.links}>
-              <Link href="/about">About Us</Link>
+              <Link href="/aboutus">About Us</Link>
               {" | "}
-              <Link href="/partner">Partner with us</Link>
+              <Link href="/partners">Partner with us</Link>
               {" | "}
               <Link href="/contact">Contact us</Link>
             </p>
           </div>
           <div className="flex justify-end">
-            <IconButton className={styles.linkedInBox}>
+            <IconButton className={styles.linkedInBox} isExternal href={"https://www.linkedin.com/company/getcarecove/"}>
               <LinkedIn />
             </IconButton>
           </div>

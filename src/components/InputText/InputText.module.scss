@@ -7,14 +7,14 @@
 
 .input {
   @include body-font(16px, 500, $dark);
-  height: 4.6rem;
-  padding: 0 2rem;
+  height: 2.875rem;
+  padding: 0 1.25rem;
   width: 100%;
-  border: 2px solid $border;
+  border: 1.25px solid $border;
   transition: $transition-default;
 
   @media (max-width: $screen_sm) {
-    height: 6rem;
+    height: 3.75rem;
   }
 
   &::placeholder {
@@ -48,48 +48,48 @@
 
 .rounded {
   background-color: $white;
-  border-radius: 8px;
+  border-radius: 5px;
   @media (max-width: $screen_sm) {
     border-color: $border;
   }
 }
 
 .errorText {
-  @include body-font(1.4rem, 300, $failure);
+  @include body-font(0.875rem, 300, $failure);
 }
 
 .eye {
-  height: 4.6rem;
+  height: 2.875rem;
   display: flex;
   align-items: center;
   cursor: pointer;
   position: absolute;
   top: 0;
   right: 0;
-  padding: 0 1rem;
+  padding: 0 0.625rem;
   @media (max-width: $screen_sm) {
-    height: 6rem;
+    height: 3.75rem;
   }
   svg {
-    font-size: 2rem;
+    font-size: 1.25rem;
     color: $grey5;
   }
 }
 
 .search {
-  height: 4.6rem;
+  height: 2.875rem;
   display: flex;
   align-items: center;
   position: absolute;
   top: 0;
   left: 0;
-  padding: 0 1.5rem;
+  padding: 0 0.938rem;
   @media (max-width: $screen_sm) {
-    height: 6rem;
+    height: 3.75rem;
   }
   svg {
     transition: $transition-default;
-    font-size: 3rem;
+    font-size: 1.875rem;
     color: $grey2;
   }
 }

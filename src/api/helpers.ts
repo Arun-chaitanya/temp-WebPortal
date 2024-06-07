@@ -47,7 +47,7 @@ export const callApi = ({
 
   return new Promise((resolve, reject) => {
     axios({
-      baseURL: "",
+      baseURL: "https://api-dev.carecove.com",
       url,
       method,
       timeout,

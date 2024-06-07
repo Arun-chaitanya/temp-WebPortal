@@ -14,8 +14,8 @@ const Header: React.FC = () => {
 
   // Updated links based on provided design
   const tabs = [
-    { href: "", text: t("About Us") },
-    { href: "", text: t("Partner With Us") },
+    { href: "/aboutus", text: t("About Us") },
+    { href: "/partners", text: t("Partner With Us") },
   ];
 
   const renderLinks = () => (

@@ -188,53 +188,53 @@ $sides: (top, bottom, left, right);
 body {
   @each $space in $spaceAmounts {
     .gap#{$space} {
-      gap: #{$space * 0.1}rem;
+      gap: #{$space * 0.1 * (1 / 1.6)}rem;
     }
     .m#{$space} {
-      margin: #{$space * 0.1}rem;
+      margin: #{$space * 0.1 * (1 / 1.6)}rem;
     }
     .mv#{$space} {
-      margin-top: #{$space * 0.1}rem;
-      margin-bottom: #{$space * 0.1}rem;
+      margin-top: #{$space * 0.1 * (1 / 1.6)}rem;
+      margin-bottom: #{$space * 0.1 * (1 / 1.6)}rem;
     }
     .mh#{$space} {
-      margin-left: #{$space * 0.1}rem;
-      margin-right: #{$space * 0.1}rem;
+      margin-left: #{$space * 0.1 * (1 / 1.6)}rem;
+      margin-right: #{$space * 0.1 * (1 / 1.6)}rem;
     }
     .mt#{$space} {
-      margin-top: #{$space * 0.1}rem;
+      margin-top: #{$space * 0.1 * (1 / 1.6)}rem;
     }
     .mb#{$space} {
-      margin-bottom: #{$space * 0.1}rem;
+      margin-bottom: #{$space * 0.1 * (1 / 1.6)}rem;
     }
     .ml#{$space} {
-      margin-left: #{$space * 0.1}rem;
+      margin-left: #{$space * 0.1 * (1 / 1.6)}rem;
     }
     .mr#{$space} {
-      margin-right: #{$space * 0.1}rem;
+      margin-right: #{$space * 0.1 * (1 / 1.6)}rem;
     }
     .p#{$space} {
-      padding: #{$space * 0.1}rem;
+      padding: #{$space * 0.1 * (1 / 1.6)}rem;
     }
     .pv#{$space} {
-      padding-top: #{$space * 0.1}rem;
-      padding-bottom: #{$space * 0.1}rem;
+      padding-top: #{$space * 0.1 * (1 / 1.6)}rem;
+      padding-bottom: #{$space * 0.1 * (1 / 1.6)}rem;
     }
     .ph#{$space} {
-      padding-left: #{$space * 0.1}rem;
-      padding-right: #{$space * 0.1}rem;
+      padding-left: #{$space * 0.1 * (1 / 1.6)}rem;
+      padding-right: #{$space * 0.1 * (1 / 1.6)}rem;
     }
     .pt#{$space} {
-      padding-top: #{$space * 0.1}rem;
+      padding-top: #{$space * 0.1 * (1 / 1.6)}rem;
     }
     .pb#{$space} {
-      padding-bottom: #{$space * 0.1}rem;
+      padding-bottom: #{$space * 0.1 * (1 / 1.6)}rem;
     }
     .pl#{$space} {
-      padding-left: #{$space * 0.1}rem;
+      padding-left: #{$space * 0.1 * (1 / 1.6)}rem;
     }
     .pr#{$space} {
-      padding-right: #{$space * 0.1}rem;
+      padding-right: #{$space * 0.1 * (1 / 1.6)}rem;
     }
   }
 }
@@ -244,8 +244,8 @@ $sizes: (10, 12, 14, 16, 18, 20, 22, 24, 26, 28, 30, 32, 34, 36, 38, 40);
 body {
   @each $size in $sizes {
     .fs#{$size} {
-      font-size: #{$size}px;
-      line-height: #{$size + 4}px;
+      font-size: #{$size * (1 / 1.6)}rem;
+      line-height: #{($size + 4) * (1 / 1.6)}rem;
     }
   }
 }

@@ -1,4 +1,3 @@
-// src/pages/index.tsx
 import type { NextPage } from "next";
 import Layout from "@components/Layout";
 import Text from "@components/Text";
@@ -9,10 +8,56 @@ import Title from "@components/Title";
 import PageTitle from "@components/PageTitle";
 import InputText from "@components/InputText";
 import Button from "@components/Button";
-import { useState } from "react";
-import { useMutation } from "react-query";
+import { useCallback, useState } from "react";
+import { useJoinWaitList } from "@api/home";
+import { toast } from "react-toastify";
 const Hero: React.FC = () => {
   const [email, setEmail] = useState("");
+  const [error, setError] = useState("");
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const handleSuccess = useCallback((data: any) => {
+    toast.success("Welcome to the Caregiver community!");
+    setIsSubmitted(true);
+  }, []);
+
+  const joinWaitListMutation = useJoinWaitList(handleSuccess);
+
+  const validateEmail = useCallback((email: string): string => {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email) {
+      return "Email is required";
+    }
+    if (!emailRegex.test(email)) {
+      return "Invalid email format";
+    }
+    return "";
+  }, []);
+
+  const handleSubmit = useCallback(
+    (e: React.FormEvent<HTMLFormElement>) => {
+      e.preventDefault();
+      const validationError = validateEmail(email);
+      if (validationError) {
+        setError(validationError);
+        return;
+      }
+      setError("");
+      joinWaitListMutation.mutate({ email });
+    },
+    [email, joinWaitListMutation, validateEmail]
+  );
+
+  const handleChange = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      setEmail(e.target.value);
+      if (error) {
+        setError("");
+      }
+    },
+    [error]
+  );
+
   return (
     <section className={styles.hero}>
       <Row className={styles.row}>
@@ -27,13 +72,23 @@ const Hero: React.FC = () => {
             <Text color="light" className={styles.heroSubtitle}>
               Cashback on everyday purchases can be a lifeline of support for caregivers.
             </Text>
-            <form className={styles.heroForm}>
-              <InputText type="text" placeholder="Name" className={styles.heroInput} />
-              <InputText type="email" placeholder="Email" className={styles.heroInput} />
-              <Button type="submit" className={styles.heroButton}>
-                Reserve Your Spot Today
-              </Button>
-            </form>
+            {!isSubmitted ? (
+              <form className={styles.heroForm} onSubmit={handleSubmit}>
+                <InputText
+                  type="email"
+                  placeholder="Email"
+                  value={email}
+                  onChange={handleChange}
+                  className={styles.heroInput}
+                  error={error}
+                />
+                <Button type="submit" className={styles.heroButton}>
+                  Reserve Your Spot Today
+                </Button>
+              </form>
+            ) : (
+              <Text color="light">Thank you for joining the waitlist!</Text>
+            )}
           </div>
         </Col>
         <Col xs={12} md={7} className={styles.colRight}></Col>
@@ -96,7 +151,7 @@ const OurWhy: React.FC = () => {
           <Row nogutter className={styles.row}>
             <Col xs={12} className={styles.timelineEvent}>
               <div className={styles.timelineCircle}>
-                <Image src={"/assets/coreteam/steph.jpg"} alt="Steve" className={styles.timelineImage} />
+                <Image src={"/assets/coreteam/steve.webp"} alt="Steve" className={styles.timelineImage} />
               </div>
               <Text variant="h3" size="md" weight="bold" className={styles.timelineYear}>
                 2019
@@ -110,7 +165,7 @@ const OurWhy: React.FC = () => {
           <Row nogutter className={styles.row}>
             <Col xs={12} className={styles.timelineEvent}>
               <div className={styles.timelineCircle}>
-                <Image src={"/assets/coreteam/bruno.jpg"} alt="Bruno" className={styles.timelineImage} />
+                <Image src={"/assets/coreteam/george.webp"} alt="Bruno" className={styles.timelineImage} objectFit="cover"/>
               </div>
               <Text variant="h3" size="md" weight="bold" className={styles.timelineYear}>
                 2022
@@ -124,7 +179,7 @@ const OurWhy: React.FC = () => {
           <Row nogutter className={styles.row}>
             <Col xs={12} className={styles.timelineEvent}>
               <div className={styles.timelineCircle}>
-                <Image src={"/assets/coreteam/bruno.jpg"} alt="Alice" className={styles.timelineImage} />
+                <Image src={"/assets/coreteam/steve_and_alice.webp"} alt="Alice" className={styles.timelineImage} />
               </div>
               <Text variant="h3" size="md" weight="bold" className={styles.timelineYear}>
                 2024

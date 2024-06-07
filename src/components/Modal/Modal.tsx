@@ -55,7 +55,7 @@ const Modal: React.FC<ModalProps> = (props) => {
               </Title>
             )}
             {description && (
-              <Text align="center" color="grey6" size="sm" className="mt15">
+              <Text align="center" color="grey" size="sm" className="mt15">
                 {description}
               </Text>
             )}
