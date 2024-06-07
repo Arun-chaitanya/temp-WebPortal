@@ -149,11 +149,9 @@ const Partners: React.FC = () => {
           textAlign={"center"}
           sx={{
             width: {
-              xs: "80%", // 0px - 600px
-              sm: "80%", // 600px - 960px
-              md: "70%", // 960px - 1280px
-              lg: "70%", // 1280px - 1920px
-              xl: "70%", // 1920px and up
+              xs: "90%", // 0px - 600px
+              sm: "90%", // 600px - 960px
+              md: "80%", // 960px - 1280px
             },
           }}
         >
