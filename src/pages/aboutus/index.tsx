@@ -9,6 +9,12 @@ import Compassion from "@icons/Compassion";
 import { useRouter } from "next/router";
 import Layout from "@components/Layout";
 import styles from "./aboutus.module.scss";
+import AliceProfile from "../../../public/team/alice.jpeg";
+import ArunProfile from "../../../public/team/arun.jpeg";
+import BrunoProfile from "../../../public/team/bruno.jpg";
+import HarshProfile from "../../../public/team/harsh.jpeg";
+import StephProfile from "../../../public/team/steph.jpg";
+import SteveProfile from "../../../public/team/steve.webp";
 
 interface Value {
   icon: JSX.Element;
@@ -51,7 +57,11 @@ export const OUR_VALUES: Value[] = [
 
 export const OUR_TEAM: TeamMember[] = [
   {
-    image: <Avatar sx={{ width: "6rem", height: "6rem" }}>A</Avatar>,
+    image: (
+      <Avatar sx={{ width: "6rem", height: "6rem" }} src={AliceProfile.src}>
+        A
+      </Avatar>
+    ),
     name: "Alice  Lewis",
     role: (
       <>
@@ -61,7 +71,11 @@ export const OUR_TEAM: TeamMember[] = [
     ),
   },
   {
-    image: <Avatar sx={{ width: "6rem", height: "6rem" }}>S</Avatar>,
+    image: (
+      <Avatar sx={{ width: "6rem", height: "6rem" }} src={SteveProfile.src}>
+        S
+      </Avatar>
+    ),
     name: "Stephen lane",
     role: (
       <>
@@ -71,12 +85,16 @@ export const OUR_TEAM: TeamMember[] = [
     ),
   },
   {
-    image: <Avatar sx={{ width: "6rem", height: "6rem" }}>A</Avatar>,
+    image: <Avatar sx={{ width: "6rem", height: "6rem" }}>M</Avatar>,
     name: "Matt Hasten",
     role: "Chief Product Officer",
   },
   {
-    image: <Avatar sx={{ width: "6rem", height: "6rem" }}>B</Avatar>,
+    image: (
+      <Avatar sx={{ width: "6rem", height: "6rem" }} src={BrunoProfile.src}>
+        B
+      </Avatar>
+    ),
     name: "Bruno Botvinik",
     role: "Technical Advisor",
   },
@@ -88,17 +106,29 @@ export const OUR_TEAM: TeamMember[] = [
   },
 
   {
-    image: <Avatar sx={{ width: "6rem", height: "6rem" }}>S</Avatar>,
+    image: (
+      <Avatar sx={{ width: "6rem", height: "6rem" }} src={StephProfile.src}>
+        S
+      </Avatar>
+    ),
     name: "Stephanie Euzebio",
     role: "Head of Design",
   },
   {
-    image: <Avatar sx={{ width: "6rem", height: "6rem" }}>H</Avatar>,
+    image: (
+      <Avatar sx={{ width: "6rem", height: "6rem" }} src={HarshProfile.src}>
+        H
+      </Avatar>
+    ),
     name: "Harsh Bhagtani",
     role: "Engineer",
   },
   {
-    image: <Avatar sx={{ width: "6rem", height: "6rem" }}>A</Avatar>,
+    image: (
+      <Avatar sx={{ width: "6rem", height: "6rem" }} src={ArunProfile.src}>
+        A
+      </Avatar>
+    ),
     name: "Arun Chaitanya",
     role: "Engineer",
   },
