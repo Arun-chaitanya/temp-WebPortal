@@ -12,7 +12,7 @@ import "@styles/globals.scss";
 
 const theme = createTheme({
   typography: {
-    fontFamily: "Merriweather, sans-serif",
+    fontFamily: "Poppins, sans-serif",
   },
 });
 
