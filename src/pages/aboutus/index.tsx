@@ -6,6 +6,7 @@ import Innovation from "@icons/Innovation";
 import Inclusion from "@icons/Inclusion";
 import TrustIcon from "@icons/TrustIcon";
 import Compassion from "@icons/Compassion";
+import { useRouter } from "next/router";
 
 interface Value {
   icon: JSX.Element;
@@ -107,6 +108,12 @@ export const OUR_TEAM: TeamMember[] = [
 ];
 
 const AboutUs: React.FC = () => {
+  const router = useRouter();
+
+  const toHomePage = () => {
+    router.push("/");
+  };
+
   return (
     <div>
       <Navbar />
@@ -435,6 +442,7 @@ const AboutUs: React.FC = () => {
                 backgroundColor: "#1F2D3A", // darker shade of #2B3F50
               },
             }}
+            onClick={toHomePage}
           >
             Start earning
           </Button>
