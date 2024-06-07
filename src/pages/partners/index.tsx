@@ -260,6 +260,7 @@ const Partners: React.FC = () => {
           }}
           color={"#504E50"}
           letterSpacing="3px"
+          fontWeight={"700"}
         >
           Explore our Partnership Opportunities
         </Typography>
