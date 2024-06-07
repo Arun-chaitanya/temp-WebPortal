@@ -5,7 +5,12 @@ import React from "react";
 const PartnerCards = ({ icon, description, benefits, title }) => {
   return (
     <Box
-      width={"22rem"}
+      sx={{
+        width: {
+          xs: "20rem",
+          sm: "26rem",
+        },
+      }}
       border={"3px solid #A62152"}
       borderRadius={"1.25rem"}
       textAlign={"center"}

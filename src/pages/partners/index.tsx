@@ -75,7 +75,6 @@ const Partners: React.FC = () => {
           }}
           textTransform={"uppercase"}
           letterSpacing={"0.625rem"}
-          gutterBottom
         >
           Grow with Carecove.
         </Typography>
@@ -273,8 +272,8 @@ const Partners: React.FC = () => {
               xl: "2rem auto",
             },
           }}
-          borderBottom={"2px solid "}
-          width={"20%"}
+          borderBottom={"2px solid #504E50"}
+          width={"15%"}
         ></Box>
         <Typography
           sx={{

@@ -129,7 +129,6 @@ const AboutUs: React.FC = () => {
           }}
           textTransform={"uppercase"}
           letterSpacing={"0.625rem"}
-          gutterBottom
         >
           Boosting Caregivers. <br /> Bridging Gaps.
         </Typography>
@@ -383,6 +382,7 @@ const AboutUs: React.FC = () => {
                     {name}
                   </Typography>
                   <Typography
+                    color={"#232325"}
                     sx={{
                       fontSize: {
                         xs: "1rem",
