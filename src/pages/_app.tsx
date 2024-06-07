@@ -12,7 +12,7 @@ import "@styles/globals.scss";
 
 const theme = createTheme({
   typography: {
-    fontFamily: "Poppins, sans-serif",
+    fontFamily: "Merriweather, sans-serif",
   },
 });
 
@@ -23,7 +23,6 @@ function MyApp({ Component, pageProps }: AppProps) {
         <ThemeProvider theme={theme}>
           <Component {...pageProps} />
         </ThemeProvider>
-
         <ToastContainer />
       </AuthProvider>
     </QueryProvider>

@@ -11,6 +11,7 @@ import Button from "@components/Button";
 import { useCallback, useState } from "react";
 import { useJoinWaitList } from "@api/home";
 import { toast } from "react-toastify";
+
 const Hero: React.FC = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
@@ -165,7 +166,12 @@ const OurWhy: React.FC = () => {
           <Row nogutter className={styles.row}>
             <Col xs={12} className={styles.timelineEvent}>
               <div className={styles.timelineCircle}>
-                <Image src={"/assets/coreteam/george.webp"} alt="Bruno" className={styles.timelineImage} objectFit="cover"/>
+                <Image
+                  src={"/assets/coreteam/george.webp"}
+                  alt="Bruno"
+                  className={styles.timelineImage}
+                  objectFit="cover"
+                />
               </div>
               <Text variant="h3" size="md" weight="bold" className={styles.timelineYear}>
                 2022
