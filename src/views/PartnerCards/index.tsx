@@ -32,6 +32,7 @@ const PartnerCards = ({ icon, description, benefits, title }) => {
             xl: "1.5rem",
           },
         }}
+        fontFamily={"Merriweather"}
         color={"#504E50"}
       >
         {title}
@@ -87,6 +88,7 @@ const PartnerCards = ({ icon, description, benefits, title }) => {
             },
           }}
           color={"#504E50"}
+          fontFamily={"Merriweather"}
         >
           Partner benefits
         </Typography>

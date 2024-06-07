@@ -137,6 +137,7 @@ const AboutUs: React.FC = () => {
           }}
           textTransform={"uppercase"}
           letterSpacing={"0.625rem"}
+          fontFamily={"Merriweather"}
         >
           Boosting Caregivers. <br /> Bridging Gaps.
         </Typography>
@@ -215,6 +216,7 @@ const AboutUs: React.FC = () => {
                 xl: "2rem",
               },
             }}
+            fontFamily={"Merriweather"}
           >
             Our Mission
           </Typography>
@@ -269,6 +271,7 @@ const AboutUs: React.FC = () => {
               xl: "1.875rem",
             },
           }}
+          fontFamily={"Merriweather"}
         >
           Our Values
         </Typography>
@@ -334,8 +337,8 @@ const AboutUs: React.FC = () => {
       </Box>
 
       <Box display={"flex"} flexDirection={"column"} alignItems={"center"} gap={8} marginTop={"4rem"}>
-        <Typography fontSize={"1.5rem"} fontWeight={700} color={"#232325"}>
-          Our team
+        <Typography fontSize={"1.5rem"} fontWeight={700} color={"#232325"} fontFamily={"Merriweather"}>
+          Our Team
         </Typography>
         <Box display={"flex"} justifyContent={"space-around"} gap={4} flexWrap={"wrap"} width={"100%"}>
           {OUR_TEAM?.map(({ image, name, role }) => {
@@ -432,6 +435,7 @@ const AboutUs: React.FC = () => {
             fontWeight={700}
             marginBottom={"1rem"}
             color={"#232325"}
+            fontFamily={"Merriweather"}
           >
             Join our community today
           </Typography>

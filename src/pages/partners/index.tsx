@@ -75,6 +75,7 @@ const Partners: React.FC = () => {
           }}
           textTransform={"uppercase"}
           letterSpacing={"0.625rem"}
+          fontFamily={"Merriweather"}
         >
           Grow with Carecove.
         </Typography>
@@ -169,6 +170,7 @@ const Partners: React.FC = () => {
                 xl: "2rem",
               },
             }}
+            fontFamily={"Merriweather"}
           >
             Elevate Your Impact
           </Typography>
@@ -261,6 +263,7 @@ const Partners: React.FC = () => {
           color={"#504E50"}
           letterSpacing="3px"
           fontWeight={"700"}
+          fontFamily={"Merriweather"}
         >
           Explore our Partnership Opportunities
         </Typography>
