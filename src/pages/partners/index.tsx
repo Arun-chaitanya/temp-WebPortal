@@ -1,4 +1,3 @@
-import Navbar from "@components/NavBar";
 import { Avatar, Box, Button, Divider, Typography } from "@mui/material";
 import React from "react";
 import BannerImage from "../../../public/banner2.jpeg";
@@ -9,6 +8,8 @@ import { CONTACT_US_EMAIL } from "@config/constants";
 import { mailToCarecove } from "@utils/index";
 import CommunityIcon from "@icons/CommunityIcon";
 import PartnersIcon from "@icons/PartnersIcon";
+import Layout from "@components/Layout";
+import styles from "./partners.module.scss";
 
 const PARTNER_OPPURTUNITIES = [
   {
@@ -54,8 +55,7 @@ const PARTNER_OPPURTUNITIES = [
 
 const Partners: React.FC = () => {
   return (
-    <div>
-      <Navbar />
+    <Layout>
       <Box width={"95%"} margin={"2rem auto"}>
         <Typography color={"#232325"} fontSize={"1.5rem"} lineHeight={"1rem"} marginBottom={"0.25rem"}>
           Partner With Us
@@ -115,8 +115,8 @@ const Partners: React.FC = () => {
         sx={{
           height: {
             xs: "300px",
-            sm: "600px",
-            md: "700px",
+            sm: "500px",
+            md: "600px",
           },
         }}
       >
@@ -125,6 +125,7 @@ const Partners: React.FC = () => {
           alt={"caregiver"}
           width={"100%"}
           height={"100%"}
+          className={styles.imageContainer}
           style={{ objectFit: "cover", height: "100% !important" }}
         ></img>
       </Box>
@@ -311,7 +312,7 @@ const Partners: React.FC = () => {
           Connect with us
         </Button>
       </Box>
-    </div>
+    </Layout>
   );
 };
 

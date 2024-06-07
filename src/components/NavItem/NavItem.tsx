@@ -42,16 +42,7 @@ const NavItem: React.FC<NavItemProps> = (props) => {
   };
 
   return (
-    <li
-      className={clsx(
-        styles.root,
-        position && styles[position],
-        variant && styles[variant],
-        isActive && styles.active,
-        className
-      )}
-      id={id}
-    >
+    <li className={clsx(styles.root, position && styles[position], variant && styles[variant], className)} id={id}>
       {renderLink()}
     </li>
   );
