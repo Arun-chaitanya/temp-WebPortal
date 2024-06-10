@@ -11,6 +11,7 @@ import Button from "@components/Button";
 import { useCallback, useState } from "react";
 import { useJoinWaitList } from "@api/home";
 import { toast } from "react-toastify";
+import useBreakpoint from "@hooks/useBreakpoint";
 
 const Hero: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -143,11 +144,12 @@ const HowItWorks: React.FC = () => {
 };
 
 const OurWhy: React.FC = () => {
+  const isMobile = useBreakpoint({ max: "sm" });
   return (
     <section className={styles.ourWhy}>
       <Title className={styles.sectionTitle}>Our Why</Title>
       <div className={styles.timelineContainer}>
-        <Image src={"/assets/home/curve.svg"} alt="Curve" className={styles.curveVector} />
+        {!isMobile ? <Image src={"/assets/home/curve.svg"} alt="Curve" className={styles.curveVector} /> : null}
         <Container fluid className={styles.container}>
           <Row nogutter className={styles.row}>
             <Col xs={12} className={styles.timelineEvent}>
