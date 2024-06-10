@@ -12,7 +12,6 @@ const Header: React.FC = () => {
   const { t } = useTranslation("header");
   const isTab = useBreakpoint({ max: "md" });
 
-  // Updated links based on provided design
   const tabs = [
     { href: "/aboutus", text: t("About Us") },
     { href: "/partners", text: t("Partner With Us") },

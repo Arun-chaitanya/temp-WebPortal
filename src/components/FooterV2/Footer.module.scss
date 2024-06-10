@@ -11,48 +11,48 @@
     justify-content: space-between;
     align-items: center;
     padding: 0 10%;
-  }
+    @media (max-width: $screen_sm) {
+      display: block;
+      padding: 0 5%;
+    }
 
-  .logo {
-    height: 58.9px;
-    width: 229px;
-  }
-  .middle {
-    margin-bottom: 0.5rem;
-  }
+    .links {
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: -0.22px;
+      line-height: 150%;
+      margin-top: 33px;
+      text-align: right;
+      @media (max-width: $screen_sm) {
+        text-align: left;
+        font-size: 16px;
+        margin: 16px 0 8px;
+      }
 
-  .links {
-    font-size: 20px;
-    font-weight: 400;
-    letter-spacing: -0.22px;
-    line-height: 150%;
-    margin-top: 33px;
-    text-align: right;
+      a {
+        color: #ffffff;
+        text-decoration: none;
 
-    a {
-      color: #ffffff;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
+        &:hover {
+          text-decoration: underline;
+        }
       }
     }
-  }
 
-  .linkedInBox {
-    height: 2rem;
-    width: 2rem;
-    background-color: black;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    .linkedInBox {
+      height: 41px;
+      width: 41px;
+      background-color: black;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .socialIcons {
+      height: 41px;
+      width: 229.6px;
+    }
   }
-  .socialIcons {
-    height: 2rem;
-    width: 229.6px;
-  }
-
   .copyright {
     font-size: 15px;
     font-weight: 400;
@@ -60,5 +60,9 @@
     line-height: 150%;
     margin-top: 40px;
     text-align: center;
+    @media (max-height: $screen_sm) {
+      margin-top: 20px;
+      font-size: 12px;
+    }
   }
 }

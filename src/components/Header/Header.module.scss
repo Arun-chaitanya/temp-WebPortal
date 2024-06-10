@@ -1,7 +1,11 @@
-/* src/components/Header/Header.module.scss */
+@import "src/styles/variables";
+@import "src/styles/mixins";
 .root {
   background-color: #679749; // Green background color
   padding: 16px 32px;
+  @media (max-width: $screen_sm) {
+    padding: 12px 16px;
+  }
 }
 
 .header {
@@ -11,7 +15,7 @@
 }
 
 .container {
-  padding: 0;
+  padding: 0 !important;
 }
 
 .logo {

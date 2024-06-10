@@ -11,6 +11,7 @@ import Button from "@components/Button";
 import { useCallback, useState } from "react";
 import { useJoinWaitList } from "@api/home";
 import { toast } from "react-toastify";
+import useBreakpoint from "@hooks/useBreakpoint";
 
 const Hero: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -143,16 +144,17 @@ const HowItWorks: React.FC = () => {
 };
 
 const OurWhy: React.FC = () => {
+  const isMobile = useBreakpoint({ max: "sm" });
   return (
     <section className={styles.ourWhy}>
       <Title className={styles.sectionTitle}>Our Why</Title>
       <div className={styles.timelineContainer}>
-        <Image src={"/assets/home/curve.svg"} alt="Curve" className={styles.curveVector} />
+        {!isMobile ? <Image src={"/assets/home/curve.svg"} alt="Curve" className={styles.curveVector} /> : null}
         <Container fluid className={styles.container}>
           <Row nogutter className={styles.row}>
             <Col xs={12} className={styles.timelineEvent}>
               <div className={styles.timelineCircle}>
-                <Image src={"/assets/coreteam/steve.webp"} alt="Steve" className={styles.timelineImage} />
+                <Image src={"/assets/coreteam/steve.png"} alt="Steve" className={styles.timelineImage} />
               </div>
               <Text variant="h3" size="md" weight="bold" className={styles.timelineYear}>
                 2019
@@ -167,7 +169,7 @@ const OurWhy: React.FC = () => {
             <Col xs={12} className={styles.timelineEvent}>
               <div className={styles.timelineCircle}>
                 <Image
-                  src={"/assets/coreteam/george.webp"}
+                  src={"/assets/coreteam/george.png"}
                   alt="Bruno"
                   className={styles.timelineImage}
                   objectFit="cover"
@@ -185,7 +187,7 @@ const OurWhy: React.FC = () => {
           <Row nogutter className={styles.row}>
             <Col xs={12} className={styles.timelineEvent}>
               <div className={styles.timelineCircle}>
-                <Image src={"/assets/coreteam/steve_and_alice.webp"} alt="Alice" className={styles.timelineImage} />
+                <Image src={"/assets/coreteam/steve_and_alice.png"} alt="Alice" className={styles.timelineImage} />
               </div>
               <Text variant="h3" size="md" weight="bold" className={styles.timelineYear}>
                 2024
