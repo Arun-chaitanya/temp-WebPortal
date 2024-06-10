@@ -9,6 +9,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import "@styles/classes.scss";
 import "@styles/fonts.scss";
 import "@styles/globals.scss";
+import Head from "next/head";
 
 const theme = createTheme({
   typography: {
@@ -21,6 +22,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <QueryProvider>
       <AuthProvider>
         <ThemeProvider theme={theme}>
+          <Head>
+            <link rel="icon" href="/logo.png" />
+          </Head>
           <Component {...pageProps} />
         </ThemeProvider>
         <ToastContainer />

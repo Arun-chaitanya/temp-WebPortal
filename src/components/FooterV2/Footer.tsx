@@ -24,7 +24,11 @@ const Footer: React.FC<React.HTMLProps<HTMLDivElement>> = (className, disabled, 
             </p>
           </div>
           <div className="flex justify-end">
-            <IconButton className={styles.linkedInBox} isExternal href={"https://www.linkedin.com/company/getcarecove/"}>
+            <IconButton
+              className={styles.linkedInBox}
+              isExternal
+              href={"https://www.linkedin.com/company/getcarecove/"}
+            >
               <LinkedIn />
             </IconButton>
           </div>

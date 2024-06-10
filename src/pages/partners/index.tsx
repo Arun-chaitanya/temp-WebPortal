@@ -203,8 +203,7 @@ const Partners: React.FC = () => {
               },
             }}
           >
-            <FiberManualRecordIcon sx={{ color: "#ffffff", fontSize: "0.75rem" }} />
-            Unlock new revenue opportunities by supporting a vital cause.
+            • Unlock new revenue opportunities by supporting a vital cause.
           </Typography>
           <Typography
             fontSize={"1.5rem"}
@@ -223,8 +222,7 @@ const Partners: React.FC = () => {
               },
             }}
           >
-            <FiberManualRecordIcon sx={{ color: "#ffffff", fontSize: "0.75rem" }} />
-            Extend your market reach by connecting with our caregiver community.
+            • Extend your market reach by connecting with our caregiver community.
           </Typography>
           <Typography
             fontSize={"1.5rem"}
@@ -243,8 +241,7 @@ const Partners: React.FC = () => {
               },
             }}
           >
-            <FiberManualRecordIcon sx={{ color: "#ffffff", fontSize: "0.75rem" }} />
-            Gain recognition as a valued partner in Carecoves directory of trusted allies.
+            • Gain recognition as a valued partner in Carecoves directory of trusted allies.
           </Typography>
         </Box>
       </Box>

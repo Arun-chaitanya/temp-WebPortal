@@ -1,5 +1,5 @@
 const LinkedIn: React.FC<React.SVGProps<SVGSVGElement>> = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none" {...props}>
+  <svg xmlns="http://www.w3.org/2000/svg" width="1rem" height="1rem" viewBox="0 0 20 20" fill="none" {...props}>
     <path
       d="M2.96598 5.50226C4.36535 5.50226 5.49976 4.3606 5.49976 2.9523C5.49976 1.544 4.36535 0.402344 2.96598 0.402344C1.5666 0.402344 0.43219 1.544 0.43219 2.9523C0.43219 4.3606 1.5666 5.50226 2.96598 5.50226Z"
       fill="white"
