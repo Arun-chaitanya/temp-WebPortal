@@ -23,7 +23,7 @@ const Footer: React.FC<React.HTMLProps<HTMLDivElement>> = (className, disabled, 
               <Link href="/contact">Contact us</Link>
             </p>
           </div>
-          <div className={isMobile ? "" : "flex justify-end"}>
+          <div className={isMobile ? "" : "flex justify-end mt10"}>
             <IconButton
               className={styles.linkedInBox}
               isExternal
