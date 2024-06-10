@@ -152,7 +152,7 @@ const OurWhy: React.FC = () => {
           <Row nogutter className={styles.row}>
             <Col xs={12} className={styles.timelineEvent}>
               <div className={styles.timelineCircle}>
-                <Image src={"/assets/coreteam/steve.webp"} alt="Steve" className={styles.timelineImage} />
+                <Image src={"/assets/coreteam/steve.png"} alt="Steve" className={styles.timelineImage} />
               </div>
               <Text variant="h3" size="md" weight="bold" className={styles.timelineYear}>
                 2019
@@ -167,7 +167,7 @@ const OurWhy: React.FC = () => {
             <Col xs={12} className={styles.timelineEvent}>
               <div className={styles.timelineCircle}>
                 <Image
-                  src={"/assets/coreteam/george.webp"}
+                  src={"/assets/coreteam/george.png"}
                   alt="Bruno"
                   className={styles.timelineImage}
                   objectFit="cover"
@@ -185,7 +185,7 @@ const OurWhy: React.FC = () => {
           <Row nogutter className={styles.row}>
             <Col xs={12} className={styles.timelineEvent}>
               <div className={styles.timelineCircle}>
-                <Image src={"/assets/coreteam/steve_and_alice.webp"} alt="Alice" className={styles.timelineImage} />
+                <Image src={"/assets/coreteam/steve_and_alice.png"} alt="Alice" className={styles.timelineImage} />
               </div>
               <Text variant="h3" size="md" weight="bold" className={styles.timelineYear}>
                 2024

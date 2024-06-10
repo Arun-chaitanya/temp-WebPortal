@@ -1,11 +1,20 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
 .hero {
   background-color: #f5f5f5;
   height: 80vh;
+  @media (max-width: $screen_sm) {
+    height: unset;
+  }
 
   .row {
     height: 100%;
     width: 100%;
     margin: 0 !important;
+    @media (max-width: $screen_sm) {
+      height: unset;
+    }
   }
 
   .colLeft {
@@ -14,6 +23,7 @@
     justify-content: center;
     background-color: #a62152;
     padding: 20px !important;
+    height: 100%;
   }
 
   .colRight {
@@ -23,7 +33,9 @@
     align-items: center;
     background-image: url("/assets/home/hero-background.webp");
     background-size: cover;
-    height: 100%;
+    @media (max-width: $screen_sm) {
+      height: 200px;
+    }
     padding: 0 !important;
   }
 
@@ -171,115 +183,13 @@
   }
 }
 
-.joinAndDonate {
-  padding: 40px 20px;
-  text-align: center;
-
-  .container {
-    padding: 0;
-  }
-
-  .row {
-    height: 100%;
-  }
-
-  .colLeft,
-  .colRight {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .invite {
-    text-align: left;
-    padding: 20px;
-
-    .inviteTitle {
-      font-size: 1.25rem;
-      margin-bottom: 15px;
-    }
-
-    .inviteLine {
-      width: 90px;
-      height: 1px;
-      background-color: #000;
-      margin: 10px 0;
-    }
-
-    .inviteDescription {
-      font-size: 1.2rem;
-    }
-  }
-
-  .donate {
-    display: flex;
-    flex-direction: row;
-    background: #fafafa;
-    padding: 20px;
-    border-radius: 8px;
-    border: 1px solid #eaeaea;
-
-    .donateImage {
-      width: 100%;
-      height: auto;
-      margin-bottom: 20px;
-    }
-
-    .donateContent {
-      margin-left: 20px;
-      text-align: left;
-
-      .donateTitle {
-        font-size: 1.5rem;
-        margin-bottom: 15px;
-      }
-
-      .donateAmount {
-        margin-bottom: 10px;
-      }
-
-      .donateList {
-        margin-bottom: 20px;
-        p {
-          margin: 5px 0;
-        }
-      }
-
-      .shareButton,
-      .donateButton {
-        padding: 10px 20px;
-        border-radius: 5px;
-        background-color: #2b3f50;
-        color: #fff;
-        border: none;
-        cursor: pointer;
-        margin-right: 10px;
-      }
-    }
-  }
-
-  .bottomSection {
-    margin-top: 50px;
-  }
-
-  .joinToday {
-    margin-bottom: 20px;
-  }
-
-  .startEarning {
-    padding: 10px 20px;
-    border-radius: 5px;
-    background-color: #2b3f50;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-  }
-}
-
 .howItWorks {
   background-color: #f5f5f5;
   padding: 40px;
   text-align: center;
+  @media (max-width: $screen_sm) {
+    padding: 20px;
+  }
 
   .sectionTitle {
     font-size: 25px;
@@ -296,6 +206,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      flex: 1;
 
       .icon {
         width: 100px;
@@ -307,6 +218,9 @@
         font-weight: bold;
         margin-top: 20px;
         position: relative;
+        @media (max-width: $screen_sm) {
+          font-size: 1rem;
+        }
       }
 
       .line {
@@ -318,6 +232,9 @@
 
       .description {
         font-size: 16px;
+        @media (max-width: $screen_sm) {
+          font-size: 14px;
+        }
       }
     }
   }

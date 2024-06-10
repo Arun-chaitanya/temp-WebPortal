@@ -5,14 +5,14 @@ import clsx from "clsx";
 import Logo from "@components/Logo";
 import LinkedIn from "@icons/LinkedIn";
 import IconButton from "@components/IconButton";
+import useBreakpoint from "@hooks/useBreakpoint";
 
 const Footer: React.FC<React.HTMLProps<HTMLDivElement>> = (className, disabled, ...props) => {
+  const isMobile = useBreakpoint({ max: "sm" });
   return (
     <footer className={clsx(styles.footer)}>
       <div className={styles.container}>
-        <div className={styles.left}>
-          <Logo className={styles.logo} />
-        </div>
+        <Logo className={styles.logo} variant="footer" />
         <div className={styles.right}>
           <div className={styles.middle}>
             <p className={styles.links}>
@@ -23,7 +23,7 @@ const Footer: React.FC<React.HTMLProps<HTMLDivElement>> = (className, disabled, 
               <Link href="/contact">Contact us</Link>
             </p>
           </div>
-          <div className="flex justify-end">
+          <div className={isMobile ? "" : "flex justify-end"}>
             <IconButton
               className={styles.linkedInBox}
               isExternal
