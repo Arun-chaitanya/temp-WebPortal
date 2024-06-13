@@ -1,26 +1,3 @@
-# # Use a base image
-# FROM node:18-alpine
-
-# # Set the working directory
-# WORKDIR /app
-
-# # Copy package.json and package-lock.json
-# COPY package*.json ./
-
-# COPY . .
-
-# # Install dependencies
-# RUN npm install
-
-# RUN npm run build
-
-# ENV PORT=4000
-
-# # Expose a port (if needed)
-# EXPOSE 4000
-
-# CMD ["npm", "run", "start"]
-
 FROM node:18-alpine AS base
 
 # Install dependencies only when needed
