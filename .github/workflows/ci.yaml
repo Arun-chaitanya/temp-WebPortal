@@ -22,6 +22,7 @@ jobs:
 
   push-to-ecr-dev:
     needs: docker-in-linux-tests
+    if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
     environment: dev
     steps:
