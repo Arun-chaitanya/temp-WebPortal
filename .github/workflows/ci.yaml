@@ -40,5 +40,5 @@ jobs:
         region: us-east-2
     - name: Push to ECR
       run: |
-        docker tag prod-image ${{ steps.ecr.outputs.account }}.dkr.ecr.us-east-2.amazonaws.com/test-repo:v1
-        docker push ${{ steps.ecr.outputs.account }}.dkr.ecr.us-east-2.amazonaws.com/test-repo:v1
+        docker tag prod-image ${{ steps.ecr.outputs.account }}.dkr.ecr.us-east-2.amazonaws.com/web-portal:v1
+        docker push ${{ steps.ecr.outputs.account }}.dkr.ecr.us-east-2.amazonaws.com/web-portal:v1
