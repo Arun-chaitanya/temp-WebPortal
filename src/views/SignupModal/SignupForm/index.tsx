@@ -1,24 +1,37 @@
 import ImageNew from "@components/ImageNew";
 import Google from "@icons/boilerplate-icons/Google";
 import { Box, Button, CircularProgress, Divider, TextField, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, ChangeEvent, FormEvent } from "react";
 import { isEmail } from "validator";
 import { STEPS_ENUM } from "..";
 import styles from "../signupmodal.module.scss";
 import signupbanner from "/public/signupbanner.png";
 
-const SignupForm = ({ setStepNumber, formData, setFormData }) => {
+interface FormData {
+  name: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
+interface SignupFormProps {
+  setStepNumber: (step: number) => void;
+  formData: FormData;
+  setFormData: (data: FormData) => void;
+}
+
+const SignupForm: React.FC<SignupFormProps> = ({ setStepNumber, formData, setFormData }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [emailError, setEmailError] = useState("");
   const [passwordError, setPasswordError] = useState("");
 
-  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, name: event.target.value });
   };
 
-  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
     const emailValue = event.target.value;
-    setFormData({ ...formData, email: event.target.value });
+    setFormData({ ...formData, email: emailValue });
     if (emailValue && !isEmail(emailValue)) {
       setEmailError("Please enter a valid email address");
     } else {
@@ -26,29 +39,31 @@ const SignupForm = ({ setStepNumber, formData, setFormData }) => {
     }
   };
 
-  const handlePasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, password: event.target.value });
+  const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const passwordValue = event.target.value;
+    setFormData({ ...formData, password: passwordValue });
 
-    if (formData.confirmPassword && event.target.value !== formData.confirmPassword) {
+    if (formData.confirmPassword && passwordValue !== formData.confirmPassword) {
       setPasswordError("Passwords do not match");
     } else {
       setPasswordError("");
     }
   };
 
-  const handleConfirmPasswordChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, confirmPassword: event.target.value });
-    if (formData.password && event.target.value !== formData.password) {
+  const handleConfirmPasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const confirmPasswordValue = event.target.value;
+    setFormData({ ...formData, confirmPassword: confirmPasswordValue });
+    if (formData.password && confirmPasswordValue !== formData.password) {
       setPasswordError("Passwords do not match");
     } else {
       setPasswordError("");
     }
   };
 
-  const handleSignup = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSignup = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault(); // Prevent default form submission
 
-    const { name, email, password, confirmPassword } = formData;
+    const { name, email, password } = formData;
     if (name && email && isEmail(email) && password) {
       setIsLoading(true);
 
@@ -61,7 +76,7 @@ const SignupForm = ({ setStepNumber, formData, setFormData }) => {
   };
 
   const isFormValid = () => {
-    const { name, email, password, confirmPassword } = formData;
+    const { name, email, password } = formData;
 
     return name && email && isEmail(email) && password && !emailError && !passwordError;
   };
@@ -69,7 +84,15 @@ const SignupForm = ({ setStepNumber, formData, setFormData }) => {
   return (
     <Box display={"flex"} flexDirection={"column"} gap={1} component="form" onSubmit={handleSignup} noValidate>
       <Box display={"flex"} borderBottom={"1px solid #e4e7ec"}>
-        <Box width={"40%"} sx={{ background: "#A62152" }}>
+        <Box
+          sx={{
+            background: "#A62152",
+            width: {
+              xs: "0%",
+              sm: "40%",
+            },
+          }}
+        >
           <img src={signupbanner.src} alt="caregiver helping client" width={"100%"} height={"100%"} />
         </Box>
         <Box flexGrow={1} padding={"1rem"}>

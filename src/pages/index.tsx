@@ -214,12 +214,9 @@ const OurWhy: React.FC = () => {
 };
 
 const Home: NextPage = () => {
-  const signupModal = useAppstore((state: StoreState) => state.signupModal);
-
   return (
     <Layout>
       <main className={styles.main}>
-        {signupModal && <SignupModal />}
         <Hero />
         <HowItWorks />
         <OurWhy />

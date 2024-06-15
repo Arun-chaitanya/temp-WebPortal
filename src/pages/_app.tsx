@@ -10,6 +10,8 @@ import "@styles/classes.scss";
 import "@styles/fonts.scss";
 import "@styles/globals.scss";
 import Head from "next/head";
+import useAppstore, { StoreState } from "src/store/useAppstore";
+import SignupModal from "@views/SignupModal";
 
 const theme = createTheme({
   typography: {
@@ -23,6 +25,8 @@ const theme = createTheme({
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
+  const signupModal = useAppstore((state: StoreState) => state.signupModal);
+
   return (
     <QueryProvider>
       <AuthProvider>
@@ -30,6 +34,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Head>
             <link rel="icon" href="/logo.png" />
           </Head>
+          {signupModal && <SignupModal />}
           <Component {...pageProps} />
         </ThemeProvider>
         <ToastContainer />

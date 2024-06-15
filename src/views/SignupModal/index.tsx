@@ -30,7 +30,7 @@ export const STEPS = {
   },
 };
 
-const SignupModal = () => {
+const SignupModal: React.FC = () => {
   const [stepNumber, setStepNumber] = useState(STEPS_ENUM.SIGNUP);
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -50,7 +50,11 @@ const SignupModal = () => {
         <Box className={styles.modalContainer}>
           <Box className={styles.modalHeader}>
             <Box display={"flex"} alignItems={"center"} gap={"0.5rem"}>
-              <Typography fontSize={"1.5rem"} fontFamily={"Merriweather"} position={"relative"}>
+              <Typography
+                sx={{ fontSize: { xs: "1.25rem", sm: "1.5rem" } }}
+                fontFamily={"Merriweather"}
+                position={"relative"}
+              >
                 <Box position={"absolute"} top={"-1.25rem"} left={"-0.25rem"} display={"flex"}>
                   <CarecoveIcon width="1.25rem" height="1.25rem" />
                   <Typography fontSize={"0.875rem"} fontWeight={700}>
@@ -60,7 +64,7 @@ const SignupModal = () => {
                 {STEPS[stepNumber]?.heading}
               </Typography>
               <Box sx={{ borderRight: "2px solid #ffffff", height: "2rem" }}></Box>
-              <Typography>Step {STEPS[stepNumber]?.step} of 2</Typography>
+              <Typography minWidth={"5rem"}>Step {STEPS[stepNumber]?.step} of 2</Typography>
             </Box>
             <IconButton onClick={handleClose}>
               <Cross stroke="#ffffff" />

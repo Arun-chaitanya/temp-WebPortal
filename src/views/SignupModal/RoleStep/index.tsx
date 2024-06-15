@@ -7,10 +7,17 @@ import { STEPS_ENUM } from "..";
 import styles from "../signupmodal.module.scss";
 
 enum ROLES_ENUM {
-  CAREGIVER,
-  ADVOCATE,
+  CAREGIVER = "CAREGIVER",
+  ADVOCATE = "ADVOCATE",
 }
-const ROLES = {
+
+interface Role {
+  icon: React.ReactNode;
+  heading: string;
+  description: string;
+}
+
+const ROLES: { [key in ROLES_ENUM]: Role } = {
   [ROLES_ENUM.CAREGIVER]: {
     icon: <CareGiverIcon />,
     heading: "I am a caregiver",
@@ -23,11 +30,15 @@ const ROLES = {
   },
 };
 
-const RoleStep = ({ setStepNumber }) => {
-  const [selectedRole, setSelectedRole] = useState<string>();
+interface RoleStepProps {
+  setStepNumber: React.Dispatch<React.SetStateAction<STEPS_ENUM>>;
+}
 
-  const handleSelectRole = (role: string) => {
-    if (role === selectedRole) return setSelectedRole("");
+const RoleStep: React.FC<RoleStepProps> = ({ setStepNumber }) => {
+  const [selectedRole, setSelectedRole] = useState<ROLES_ENUM | undefined>(); // Use undefined for optional selection
+
+  const handleSelectRole = (role: ROLES_ENUM) => {
+    if (role === selectedRole) return setSelectedRole(undefined);
     setSelectedRole(role);
   };
 
@@ -42,7 +53,7 @@ const RoleStep = ({ setStepNumber }) => {
             <div
               key={key}
               className={`${styles.roleCard} ${selectedRole === key ? styles.selectedRoleCard : ""}`}
-              onClick={() => handleSelectRole(key)}
+              onClick={() => handleSelectRole(key as ROLES_ENUM)} // Cast key to the enum type
             >
               {value.icon}
               <Box>
@@ -57,8 +68,12 @@ const RoleStep = ({ setStepNumber }) => {
           ))}
         </Box>
       </Box>{" "}
-      <Box display={"flex"} gap={"1rem"} marginTop={"1rem"} padding={"0 1.5rem"}>
-        <Button variant="outlined" sx={{ width: "209px" }} onClick={() => setStepNumber(STEPS_ENUM.SIGNUP)}>
+      <Box display={"flex"} gap={"1rem"} marginTop={"1rem"} padding={"0 1.5rem"} flexWrap={"wrap"}>
+        <Button
+          variant="outlined"
+          sx={{ width: { xs: "100%", sm: "13rem" } }}
+          onClick={() => setStepNumber(STEPS_ENUM.SIGNUP)}
+        >
           Back
         </Button>
         <Button variant="contained" sx={{ flexGrow: 1 }} disabled={!selectedRole}>
