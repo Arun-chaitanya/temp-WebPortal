@@ -66,7 +66,7 @@ const Hero: React.FC = () => {
         <Col xs={12} md={5} className={styles.colLeft}>
           <div className={styles.heroContent}>
             <PageTitle className={styles.heroTitle} color="light">
-              Every Purchase Counts
+              Every Purchase Counts!
             </PageTitle>
             <div className="flex justify-center">
               <div className={styles.line} />
