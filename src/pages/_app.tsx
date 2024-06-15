@@ -15,6 +15,11 @@ const theme = createTheme({
   typography: {
     fontFamily: "Poppins, sans-serif",
   },
+  palette: {
+    primary: {
+      main: "#2B3F50", // Replace with your desired primary color (e.g., '#007bff')
+    },
+  },
 });
 
 function MyApp({ Component, pageProps }: AppProps) {

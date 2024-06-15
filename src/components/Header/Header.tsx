@@ -7,6 +7,7 @@ import NavItem from "@components/NavItem";
 import NavList from "@components/NavList";
 import Text from "@components/Text"; // Assuming you have a Text component
 import styles from "./Header.module.scss";
+import useAppstore from "src/store/useAppstore";
 
 const Header: React.FC = () => {
   const { t } = useTranslation("header");
@@ -15,12 +16,25 @@ const Header: React.FC = () => {
   const tabs = [
     { href: "/aboutus", text: t("About Us") },
     { href: "/partners", text: t("Partner With Us") },
+    { href: "", text: t("Signup") },
   ];
+
+  const setSignupModal = useAppstore((state: any) => state.setSignupModal);
+
+  const handleSignupModal = () => {
+    setSignupModal(true);
+  };
 
   const renderLinks = () => (
     <>
       {tabs.map((item, index) => (
-        <NavItem key={item.href} className={isTab ? "" : "pl10 pr10"} href={item.href} exact>
+        <NavItem
+          onClick={!item.href ? handleSignupModal : () => {}}
+          key={item.href}
+          className={isTab ? "" : "pl10 pr10"}
+          href={item.href}
+          exact
+        >
           {item.text}
         </NavItem>
       ))}

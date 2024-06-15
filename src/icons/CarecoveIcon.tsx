@@ -1,8 +1,8 @@
 import React from "react";
 
-const CarecoveIcon = () => {
+const CarecoveIcon = ({ width = "1rem", height = "1rem" }) => {
   return (
-    <svg width="59" height="59" viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <svg width={width} height={height} viewBox="0 0 59 59" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path
         fill-rule="evenodd"
         clip-rule="evenodd"

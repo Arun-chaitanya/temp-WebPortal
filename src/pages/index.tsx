@@ -12,6 +12,8 @@ import { useCallback, useState } from "react";
 import { useJoinWaitList } from "@api/home";
 import { toast } from "react-toastify";
 import useBreakpoint from "@hooks/useBreakpoint";
+import SignupModal from "@views/SignupModal";
+import useAppstore, { StoreState } from "src/store/useAppstore";
 
 const Hero: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -212,9 +214,12 @@ const OurWhy: React.FC = () => {
 };
 
 const Home: NextPage = () => {
+  const signupModal = useAppstore((state: StoreState) => state.signupModal);
+
   return (
     <Layout>
       <main className={styles.main}>
+        {signupModal && <SignupModal />}
         <Hero />
         <HowItWorks />
         <OurWhy />
