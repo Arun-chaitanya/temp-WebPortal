@@ -1,11 +1,9 @@
-// src/components/Header/Header.tsx
 import useTranslation from "next-translate/useTranslation";
 import { Container, Row, Col } from "react-grid-system";
 import useBreakpoint from "@hooks/useBreakpoint";
 import Logo from "@components/Logo";
 import NavItem from "@components/NavItem";
 import NavList from "@components/NavList";
-import Text from "@components/Text"; // Assuming you have a Text component
 import styles from "./Header.module.scss";
 
 const Header: React.FC = () => {

@@ -96,6 +96,84 @@
   }
 }
 
+.storeSection {
+  text-align: center;
+  margin: 2rem 0;
+
+  .title {
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    font-size: 25px;
+    margin-bottom: 1rem;
+  }
+
+  .storeLogos {
+    display: flex;
+    justify-content: space-evenly;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e0e0e0;
+    .storeLogo {
+      width: 70px;
+      aspect-ratio: 1;
+    }
+  }
+
+  .savingsSection {
+    margin: 1rem 0;
+
+    .savingsTitle {
+      font-family: "Merriweather", serif;
+      font-weight: 700;
+      font-size: 25px;
+      margin-bottom: 0.5rem;
+    }
+  }
+
+  .products {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-top: 1rem;
+
+    .product {
+      background: #fff;
+      padding: 1rem;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      width: 180px;
+      text-align: left;
+
+      .productImage {
+        width: 100%;
+        aspect-ratio: 1;
+        border-bottom: 1px solid #e0e0e0;
+        margin-bottom: 0.5rem;
+      }
+
+      .discount,
+      .productDescription {
+        font-weight: 700;
+        color: #e53935;
+        font-size: 14px;
+      }
+
+      .productName,
+      .productPrice {
+        font-weight: 500;
+        color: #333;
+      }
+    }
+  }
+
+  .moreSavings {
+    margin-top: 1rem;
+    font-size: 10px;
+    color: #000;
+  }
+}
+
 .ourWhy {
   padding: 40px 20px;
   text-align: center;
@@ -237,5 +315,113 @@
         }
       }
     }
+  }
+}
+
+.joinDonateSection {
+  text-align: center;
+  margin: 3rem 0;
+
+  .content {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    padding: 1.5rem !important;
+    .imageContainer {
+      flex: 1;
+      .mainImage {
+        width: 100%;
+        height: auto;
+        border-radius: 10px;
+        aspect-ratio: 1.54;
+      }
+    }
+    .details {
+      flex: 0.6;
+      margin-top: 3.4rem;
+      margin-left: 2rem;
+      text-align: left;
+
+      .cashBack {
+        font-weight: 700;
+        font-size: 14px;
+        color: #232325;
+      }
+
+      .shareButton,
+      .donateButton {
+        margin: 0.5rem 0;
+        width: 170px;
+        font-size: 16px;
+      }
+
+      .donors {
+        margin: 1rem 0;
+        text-align: left;
+        font-weight: 700;
+        font-size: 20px;
+        color: #232325;
+        .donorBox {
+          display: flex;
+          align-items: center;
+          padding: 0.5rem;
+          &:not(:last-child) {
+            border-bottom: 1px solid #ccc;
+          }
+        }
+        .donorImage {
+          height: 48px;
+          width: 48px;
+          border-radius: 50%;
+          margin-right: 0.25rem;
+        }
+      }
+    }
+
+    .seeAllButton {
+      margin-top: 1rem;
+      min-height: 21px;
+      height: 21px;
+      font-size: 12px;
+    }
+  }
+
+  .inviteSection {
+    margin: 2rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .inviteTitle {
+      font-weight: 700;
+      font-size: 25px;
+      padding: 1rem;
+    }
+
+    .inviteLine {
+      margin: 1rem 0;
+      background-color: #000;
+      width: 150px;
+      height: 1px;
+    }
+
+    .inviteDescription {
+      font-weight: 400;
+      font-size: 20px;
+      margin-top: 0.5rem;
+    }
+  }
+
+  .joinTitle {
+    font-size: 25px;
+    margin-top: 2rem;
+  }
+
+  .startEarningButton {
+    background-color: #2b3f50;
+    color: #fff;
+    margin-top: 1rem;
   }
 }
