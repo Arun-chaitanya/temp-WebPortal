@@ -6,5 +6,6 @@ export const APP_ORIGIN = process.env.NEXT_PUBLIC_APP_ORIGIN || "";
 export const TWITTER_WIDGET_SDK = "https://platform.twitter.com/widgets.js";
 export const APP_NAME = "CareCove";
 export const APP_DESCRIPTION = "Company Description";
+export const SEGMENT_KEY = process.env.NEXT_PUBLIC_SEGMENT_KEY || "";
 export const BREAKPOINTS = { xs: 550, sm: 760, md: 1020, lg: 1270, xl: 1420, xxl: 1600 };
 export const IS_PROD = APP_ENVIRONMENT === "PRODUCTION";
