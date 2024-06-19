@@ -8,11 +8,12 @@ import Title from "@components/Title";
 import PageTitle from "@components/PageTitle";
 import InputText from "@components/InputText";
 import Button from "@components/Button";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useJoinWaitList } from "@api/home";
 import { toast } from "react-toastify";
 import useBreakpoint from "@hooks/useBreakpoint";
 import TextButton from "@components/TextButton";
+import { analytics } from "@utils/analytics";
 
 const Hero: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -345,6 +346,11 @@ const JoinDonateSection: React.FC = () => {
 };
 
 const Home: NextPage = () => {
+  useEffect(() => {
+    if (!analytics) return;
+    analytics.track("Home Page Viewed", { page: "Home" });
+  }, []);
+
   return (
     <Layout>
       <Hero />

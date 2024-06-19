@@ -10,6 +10,7 @@ import "@styles/classes.scss";
 import "@styles/fonts.scss";
 import "@styles/globals.scss";
 import Head from "next/head";
+import Analytics from "@components/Analytics/analytics";
 
 const theme = createTheme({
   typography: {
@@ -25,6 +26,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Head>
             <link rel="icon" href="/logo.png" />
           </Head>
+          <Analytics />
           <Component {...pageProps} />
         </ThemeProvider>
         <ToastContainer />
