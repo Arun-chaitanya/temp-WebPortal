@@ -127,7 +127,7 @@ const StoreSection: React.FC = () => {
               essentials.
             </Text>
             <Text size="sm">
-              Carecove is dedicated to easing the financial load, enriching caregivers' lives with savings that matter.
+              Carecove is dedicated to easing the financial load, enriching caregivers lives with savings that matter.
             </Text>
           </Col>
           <Col className={styles.products} xs={12} md={6} lg={7}>
