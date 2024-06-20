@@ -10,8 +10,8 @@ import "@styles/classes.scss";
 import "@styles/fonts.scss";
 import "@styles/globals.scss";
 import Head from "next/head";
-import useAppstore, { StoreState } from "src/store/useAppstore";
-import SignupModal from "@views/SignupModal";
+
+import Analytics from "@components/Analytics/analytics";
 
 const theme = createTheme({
   typography: {
@@ -33,6 +33,7 @@ function MyApp({ Component, pageProps }: AppProps) {
             <link rel="icon" href="/logo.png" />
           </Head>
 
+          <Analytics />
           <Component {...pageProps} />
         </ThemeProvider>
         <ToastContainer />

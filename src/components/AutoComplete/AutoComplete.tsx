@@ -8,7 +8,6 @@ import KeyboardArrowDown from "@mui/icons-material/KeyboardArrowDown";
 import { FiltersType } from "@types";
 
 import useClickOutside from "@hooks/useClickOutside";
-import { handleTrackEvent, trackEvent } from "@utils/analytics";
 
 import DropDown from "@components/DropDown";
 import IconButton from "@components/IconButton";
@@ -60,13 +59,6 @@ const AutoComplete: React.FC<AutoCompleteProps> = (props) => {
     [onChange, values]
   );
 
-  const debouncedTrackEvent = useCallback(
-    debounce((value, options) => {
-      trackEvent("marketplace_searched", { searchText: value, noOfOptions: options.length, optionsShown: options });
-    }, 1000),
-    []
-  );
-
   const onInputChange = (e) => {
     const {
       currentTarget: { value },
@@ -76,8 +68,6 @@ const AutoComplete: React.FC<AutoCompleteProps> = (props) => {
     const options = Object.keys(filteredOptions)
       .map((key) => filteredOptions[key])
       .flat();
-
-    if (value.length >= 5) debouncedTrackEvent(value, options);
   };
 
   return (
@@ -90,7 +80,6 @@ const AutoComplete: React.FC<AutoCompleteProps> = (props) => {
             value={search}
             onChange={onInputChange}
             onFocus={() => setShowOptions(true)}
-            onFocusCapture={handleTrackEvent("click_search_marketplace", { availableFilters: options })}
             placeholder={placeholder}
           />
           {rightIcon || (

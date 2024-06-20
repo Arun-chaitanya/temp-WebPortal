@@ -1,4 +1,3 @@
-// src/components/Header/Header.tsx
 import useTranslation from "next-translate/useTranslation";
 import { Container, Row, Col } from "react-grid-system";
 import useBreakpoint from "@hooks/useBreakpoint";
