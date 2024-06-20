@@ -8,10 +8,12 @@ import Title from "@components/Title";
 import PageTitle from "@components/PageTitle";
 import InputText from "@components/InputText";
 import Button from "@components/Button";
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useJoinWaitList } from "@api/home";
 import { toast } from "react-toastify";
 import useBreakpoint from "@hooks/useBreakpoint";
+import TextButton from "@components/TextButton";
+import { analytics } from "@utils/analytics";
 
 const Hero: React.FC = () => {
   const [email, setEmail] = useState("");
@@ -95,6 +97,67 @@ const Hero: React.FC = () => {
         </Col>
         <Col xs={12} md={7} className={styles.colRight}></Col>
       </Row>
+    </section>
+  );
+};
+
+const StoreSection: React.FC = () => {
+  return (
+    <section className={styles.storeSection}>
+      <Container>
+        <Text className={styles.title} variant="h1">
+          Get paid by stores that want to support caregivers.
+        </Text>
+        <div className={styles.storeLogos}>
+          <Image src="/assets/home/caregiver.svg" alt="Target" className={styles.storeLogo} />
+          <Image src="/assets/home/caregiver.svg" alt="Walmart" className={styles.storeLogo} />
+          <Image src="/assets/home/caregiver.svg" alt="Amazon" className={styles.storeLogo} />
+          <Image src="/assets/home/caregiver.svg" alt="Carewell" className={styles.storeLogo} />
+          <Image src="/assets/home/caregiver.svg" alt="Walgreens" className={styles.storeLogo} />
+          <Image src="/assets/home/caregiver.svg" alt="CostPlus" className={styles.storeLogo} />
+          <Image src="/assets/home/caregiver.svg" alt="CVS" className={styles.storeLogo} />
+        </div>
+        <Row align="center">
+          <Col className={styles.savingsSection} xs={12} md={6} lg={5}>
+            <Text className={styles.savingsTitle} variant="h2">
+              Savings on essential needs
+            </Text>
+            <Text size="sm">
+              Unlock exclusive cashback on a diverse range of products, from vital caregiving equipment to daily
+              essentials.
+            </Text>
+            <Text size="sm">
+              Carecove is dedicated to easing the financial load, enriching caregivers lives with savings that matter.
+            </Text>
+          </Col>
+          <Col className={styles.products} xs={12} md={6} lg={7}>
+            <div>
+              <div className={styles.product}>
+                <Image src="/assets/home/caregiver.svg" alt="Product 1" className={styles.productImage} />
+                <Text className={styles.discount}>40% off</Text>
+                <Text className={styles.productDescription}>Limited time deal</Text>
+              </div>
+              <TextButton className={styles.moreSavings}>See more savings at Amazon.com</TextButton>
+            </div>
+            <div>
+              <div className={styles.product}>
+                <Image src="/assets/home/caregiver.svg" alt="Product 1" className={styles.productImage} />
+                <Text className={styles.discount}>40% off</Text>
+                <Text className={styles.productDescription}>Limited time deal</Text>
+              </div>
+              <TextButton className={styles.moreSavings}>See more savings at Amazon.com</TextButton>
+            </div>
+            <div>
+              <div className={styles.product}>
+                <Image src="/assets/home/caregiver.svg" alt="Product 1" className={styles.productImage} />
+                <Text className={styles.discount}>40% off</Text>
+                <Text className={styles.productDescription}>Limited time deal</Text>
+              </div>
+              <TextButton className={styles.moreSavings}>See more savings at Amazon.com</TextButton>
+            </div>
+          </Col>
+        </Row>
+      </Container>
     </section>
   );
 };
@@ -211,14 +274,90 @@ const OurWhy: React.FC = () => {
   );
 };
 
+const JoinDonateSection: React.FC = () => {
+  return (
+    <section className={styles.joinDonateSection}>
+      <Container>
+        <Row align="center">
+          <Col className={styles.content} xs={12} lg={7}>
+            <div className={styles.imageContainer}>
+              <Title className="mb15" variant="h5">
+                Help support my mom, Margaret who’s battling Stage 3 kidney failure
+              </Title>
+              <Image
+                src="/assets/coreteam/steve_and_alice.png"
+                alt="Support Mom Margaret"
+                className={styles.mainImage}
+              />
+            </div>
+            <div className={styles.details}>
+              <Text className={styles.cashBack}>$732.48 cash back savings</Text>
+              <Button className={styles.shareButton}>Share</Button>
+              <Button className={styles.donateButton}>Donate Now</Button>
+              <div className={styles.donors}>
+                <div className={styles.donorBox}>
+                  <Image
+                    src="/assets/coreteam/steve_and_alice.png"
+                    alt="Support Mom Margaret"
+                    className={styles.donorImage}
+                  />
+                  <Text size="xxs">Fredrik P | $45 | 2 d</Text>
+                </div>
+                <div className={styles.donorBox}>
+                  <Image
+                    src="/assets/coreteam/steve_and_alice.png"
+                    alt="Support Mom Margaret"
+                    className={styles.donorImage}
+                  />
+                  <Text size="xxs">Fredrik P | $45 | 2 d</Text>
+                </div>
+                <div className={styles.donorBox}>
+                  <Image
+                    src="/assets/coreteam/steve_and_alice.png"
+                    alt="Support Mom Margaret"
+                    className={styles.donorImage}
+                  />
+                  <Text size="xxs">Fredrik P | $45 | 2 d</Text>
+                </div>
+              </div>
+              <Button className={styles.seeAllButton}>See all</Button>
+            </div>
+          </Col>
+          <Col className={styles.inviteSection} xs={12} lg={5}>
+            <Title className={styles.inviteTitle} variant="h1">
+              Invite a friend. Earn together.
+            </Title>
+            <Image src="/path/to/invite-line.svg" alt="Line" className={styles.inviteLine} />
+            <Text className={styles.inviteDescription}>
+              When someone joins the community with a referral code, you both snag cash back.
+            </Text>
+          </Col>
+        </Row>
+
+        <div className="flex column align-center">
+          <Title className={styles.joinTitle} variant="h1">
+            Join our community today
+          </Title>
+          <Button className={styles.startEarningButton}>Start Earning</Button>
+        </div>
+      </Container>
+    </section>
+  );
+};
+
 const Home: NextPage = () => {
+  useEffect(() => {
+    if (!analytics) return;
+    analytics.track("Home Page Viewed", { page: "Home" });
+  }, []);
+
   return (
     <Layout>
-      <main className={styles.main}>
-        <Hero />
-        <HowItWorks />
-        <OurWhy />
-      </main>
+      <Hero />
+      {/* <StoreSection /> */}
+      <HowItWorks />
+      <OurWhy />
+      {/* <JoinDonateSection /> */}
     </Layout>
   );
 };
