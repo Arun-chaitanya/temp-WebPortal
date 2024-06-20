@@ -2,33 +2,17 @@ import Cross from "@icons/boilerplate-icons/Cross";
 import CarecoveIcon from "@icons/CarecoveIcon";
 import { Box, Button, Divider, IconButton, Modal, Typography } from "@mui/material";
 import React, { useState } from "react";
-import useAppstore, { StoreState } from "src/store/useAppstore";
+import useAppstore, { StoreState } from "@store/useAppstore";
 import RoleStep from "./RoleStep";
 import SignupForm from "./SignupForm";
 import styles from "./signupmodal.module.scss";
+import { STEPS, STEPS_ENUM } from "@config/constants";
 
 interface FormData {
   name: string;
   email: string;
   password: string;
-  confirmPassword: string;
 }
-
-export enum STEPS_ENUM {
-  SIGNUP = 1,
-  ROLE,
-}
-
-export const STEPS = {
-  [STEPS_ENUM.SIGNUP]: {
-    heading: "CREATE YOUR ACCOUNT",
-    step: 1,
-  },
-  [STEPS_ENUM.ROLE]: {
-    heading: "SELECT YOUR ROLE",
-    step: 2,
-  },
-};
 
 const SignupModal: React.FC = () => {
   const [stepNumber, setStepNumber] = useState(STEPS_ENUM.SIGNUP);
@@ -36,7 +20,6 @@ const SignupModal: React.FC = () => {
     name: "",
     email: "",
     password: "",
-    confirmPassword: "",
   });
   const setSignupModal = useAppstore((state: StoreState) => state.setSignupModal);
 
@@ -45,7 +28,7 @@ const SignupModal: React.FC = () => {
   };
 
   return (
-    <div>
+    <div data-testid="signup-modal">
       <Modal open={true} className={styles.modal}>
         <Box className={styles.modalContainer}>
           <Box className={styles.modalHeader}>
@@ -66,7 +49,7 @@ const SignupModal: React.FC = () => {
               <Box sx={{ borderRight: "2px solid #ffffff", height: "2rem" }}></Box>
               <Typography minWidth={"5rem"}>Step {STEPS[stepNumber]?.step} of 2</Typography>
             </Box>
-            <IconButton onClick={handleClose}>
+            <IconButton onClick={handleClose} data-testid="close-modal-button">
               <Cross stroke="#ffffff" />
             </IconButton>
           </Box>

@@ -1,17 +1,16 @@
-import ImageNew from "@components/ImageNew";
+import { STEPS_ENUM } from "@config/constants";
 import Google from "@icons/boilerplate-icons/Google";
 import { Box, Button, CircularProgress, Divider, TextField, Typography } from "@mui/material";
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { isEmail } from "validator";
-import { STEPS_ENUM } from "..";
+
 import styles from "../signupmodal.module.scss";
-import signupbanner from "/public/signupbanner.png";
+import signupbanner from "../../../../public/signupbanner.png";
 
 interface FormData {
   name: string;
   email: string;
   password: string;
-  confirmPassword: string;
 }
 
 interface SignupFormProps {
@@ -42,22 +41,6 @@ const SignupForm: React.FC<SignupFormProps> = ({ setStepNumber, formData, setFor
   const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
     const passwordValue = event.target.value;
     setFormData({ ...formData, password: passwordValue });
-
-    if (formData.confirmPassword && passwordValue !== formData.confirmPassword) {
-      setPasswordError("Passwords do not match");
-    } else {
-      setPasswordError("");
-    }
-  };
-
-  const handleConfirmPasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
-    const confirmPasswordValue = event.target.value;
-    setFormData({ ...formData, confirmPassword: confirmPasswordValue });
-    if (formData.password && confirmPasswordValue !== formData.password) {
-      setPasswordError("Passwords do not match");
-    } else {
-      setPasswordError("");
-    }
   };
 
   const handleSignup = (event: FormEvent<HTMLFormElement>) => {
@@ -168,25 +151,6 @@ const SignupForm: React.FC<SignupFormProps> = ({ setStepNumber, formData, setFor
                 fullWidth
               />
             </Box>
-            {/* <Box sx={{ mb: 2 }}>
-              <Typography gutterBottom fontSize={"0.875rem"} fontWeight={500} color={"#344054"}>
-                Confirm Password*
-              </Typography>
-              <TextField
-                InputProps={{
-                  className: styles.inputField,
-                }}
-                variant="outlined"
-                fullWidth
-                placeholder="Confirm password"
-                type="password"
-                value={formData.confirmPassword}
-                onChange={handleConfirmPasswordChange}
-                error={!!passwordError}
-                helperText={passwordError}
-                required
-              />
-            </Box> */}
           </Box>
         </Box>
       </Box>

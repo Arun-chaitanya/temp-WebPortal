@@ -5,9 +5,9 @@ import useBreakpoint from "@hooks/useBreakpoint";
 import Logo from "@components/Logo";
 import NavItem from "@components/NavItem";
 import NavList from "@components/NavList";
-import Text from "@components/Text"; // Assuming you have a Text component
 import styles from "./Header.module.scss";
-import useAppstore from "src/store/useAppstore";
+import useAppstore from "@store/useAppstore";
+import SignupModal from "@views/SignupModal";
 
 const Header: React.FC = () => {
   const { t } = useTranslation("header");
@@ -20,6 +20,7 @@ const Header: React.FC = () => {
   ];
 
   const setSignupModal = useAppstore((state: any) => state.setSignupModal);
+  const signupModal = useAppstore((state: any) => state.signupModal);
 
   const handleSignupModal = () => {
     setSignupModal(true);
@@ -43,6 +44,7 @@ const Header: React.FC = () => {
 
   return (
     <header className={styles.root} data-testid="header">
+      {signupModal && <SignupModal />}
       <Container fluid className={styles.container}>
         <Row align="center" nogutter justify="between">
           <Col xs={4} sm={4} md={4.5} lg={4}>

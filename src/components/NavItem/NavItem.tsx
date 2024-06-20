@@ -21,10 +21,10 @@ const NavItem: React.FC<NavItemProps> = (props) => {
     ...rest
   } = props;
 
-  const router = useRouter();
+  // const router = useRouter();
 
-  const isActive =
-    showActive && (active || (href && (exact ? router.asPath === href : router.asPath.startsWith(href))));
+  // const isActive =
+  //   showActive && (active || (href && (exact ? router.asPath === href : router.asPath.startsWith(href))));
 
   const renderLink = () => {
     if (!href) return <a onClick={onClick}>{children}</a>;

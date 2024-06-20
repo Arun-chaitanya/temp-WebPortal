@@ -1,9 +1,9 @@
+import { STEPS_ENUM } from "@config/constants";
 import AdvocateIcon from "@icons/AdvocateIcon";
 import CareGiverIcon from "@icons/CareGiverIcon";
 import { Button, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useState } from "react";
-import { STEPS_ENUM } from "..";
 import styles from "../signupmodal.module.scss";
 
 enum ROLES_ENUM {

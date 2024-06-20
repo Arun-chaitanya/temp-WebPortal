@@ -25,8 +25,6 @@ const theme = createTheme({
 });
 
 function MyApp({ Component, pageProps }: AppProps) {
-  const signupModal = useAppstore((state: StoreState) => state.signupModal);
-
   return (
     <QueryProvider>
       <AuthProvider>
@@ -34,7 +32,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Head>
             <link rel="icon" href="/logo.png" />
           </Head>
-          {signupModal && <SignupModal />}
+
           <Component {...pageProps} />
         </ThemeProvider>
         <ToastContainer />
