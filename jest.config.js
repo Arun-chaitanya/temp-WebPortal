@@ -6,6 +6,11 @@ const config = {
   transform: {
     "^.+\\.(ts|tsx)$": "ts-jest",
   },
+  globals: {
+    "ts-jest": {
+      tsconfig: "./tsconfig.test.json",
+    },
+  },
   setupFilesAfterEnv: ["<rootDir>/setupTests.ts"],
   moduleFileExtensions: ["ts", "tsx", "js", "jsx", "json", "node"],
   testPathIgnorePatterns: ["<rootDir>/.next/", "<rootDir>/node_modules/"],
