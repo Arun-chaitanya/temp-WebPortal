@@ -111,6 +111,6 @@ jobs:
       uses: aws-actions/amazon-ecs-deploy-task-definition@v1
       with:
         task-definition: ${{ steps.task-def.outputs.task-definition }}
-        service: web-portal
+        service: web
         cluster: carecove-prod
         wait-for-service-stability: true
