@@ -70,6 +70,7 @@ jobs:
 
   push-and-deploy-prod:
     needs: docker-in-linux-tests
+    if: github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     environment: prod
     steps:
