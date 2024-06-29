@@ -22,14 +22,14 @@ jobs:
 
   push-and-deploy:
     needs: docker-in-linux-tests
-    if: github.event.pull_request.base.ref == 'main' || github.event.pull_request.base.ref == 'master'
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
-    environment: ${{ (github.event.pull_request.base.ref == 'main' && 'dev') || (github.event.pull_request.base.ref == 'master' && 'prod') }}
+    environment: ${{ (github.ref == 'refs/heads/main' && 'dev') || (github.ref == 'refs/heads/master' && 'prod') }}
     steps:
       - name: Set environment variables
         id: set-vars
         run: |
-          if [ "${{ github.event.pull_request.base.ref }}" == "main" ]; then
+          if [ "${{ github.ref }}" == "refs/heads/main" ]; then
             echo "ECR_REPOSITORY=web-portal" >> $GITHUB_ENV
             echo "TASK_DEF_NAME=web-portal-td" >> $GITHUB_ENV
             echo "SERVICE_NAME=web-portal-dev" >> $GITHUB_ENV
