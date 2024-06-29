@@ -19,19 +19,17 @@ jobs:
       run: docker build -f Dockerfile.dev -t test-image .
     - name: Run the tests
       run: docker run test-image npm run test
-    - name: Echo the various github context variables
-      run: echo ${{ github.ref }} ${{ github.head_ref }} ${{ github.event_name }} ${{ github.event.pull_request.head.ref }} ${{ github.event.pull_request.base.ref }}
 
   push-and-deploy:
     needs: docker-in-linux-tests
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    if: github.event.pull_request.base.ref == 'main' || github.event.pull_request.base.ref == 'master'
     runs-on: ubuntu-latest
-    environment: ${{ (github.ref == 'refs/heads/main' && 'dev') || (github.ref == 'refs/heads/master' && 'prod') }}
+    environment: ${{ (github.event.pull_request.base.ref == 'main' && 'dev') || (github.event.pull_request.base.ref == 'master' && 'prod') }}
     steps:
       - name: Set environment variables
         id: set-vars
         run: |
-          if [ "${{ github.ref }}" == "refs/heads/main" ]; then
+          if [ "${{ github.event.pull_request.base.ref }}" == "main" ]; then
             echo "ECR_REPOSITORY=web-portal" >> $GITHUB_ENV
             echo "TASK_DEF_NAME=web-portal-td" >> $GITHUB_ENV
             echo "SERVICE_NAME=web-portal-dev" >> $GITHUB_ENV
