@@ -15,6 +15,7 @@ import BrunoProfile from "../../../public/team/bruno.jpg";
 import HarshProfile from "../../../public/team/harsh.jpeg";
 import StephProfile from "../../../public/team/steph.jpg";
 import SteveProfile from "../../../public/team/steve.webp";
+import PreetProfile from "../../../public/team/preet.jpg";
 
 interface Value {
   icon: JSX.Element;
@@ -100,7 +101,11 @@ export const OUR_TEAM: TeamMember[] = [
   },
 
   {
-    image: <Avatar sx={{ width: "6rem", height: "6rem" }}>A</Avatar>,
+    image: (
+      <Avatar sx={{ width: "6rem", height: "6rem" }} src={PreetProfile.src}>
+        A
+      </Avatar>
+    ),
     name: "Amanpreet singh",
     role: "Product Designer",
   },
@@ -130,11 +135,6 @@ export const OUR_TEAM: TeamMember[] = [
       </Avatar>
     ),
     name: "Arun Chaitanya",
-    role: "Engineer",
-  },
-  {
-    image: <Avatar sx={{ width: "6rem", height: "6rem" }}>S</Avatar>,
-    name: "Sai Krishna",
     role: "Engineer",
   },
 ];

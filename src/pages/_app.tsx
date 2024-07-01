@@ -10,11 +10,27 @@ import "@styles/classes.scss";
 import "@styles/fonts.scss";
 import "@styles/globals.scss";
 import Head from "next/head";
+
 import Analytics from "@components/Analytics/analytics";
 
 const theme = createTheme({
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          // Apply your CSS properties here
+          textTransform: "capitalize",
+        },
+      },
+    },
+  },
   typography: {
     fontFamily: "Poppins, sans-serif",
+  },
+  palette: {
+    primary: {
+      main: "#2B3F50", // Replace with your desired primary color (e.g., '#007bff')
+    },
   },
 });
 
@@ -26,6 +42,7 @@ function MyApp({ Component, pageProps }: AppProps) {
           <Head>
             <link rel="icon" href="/logo.png" />
           </Head>
+
           <Analytics />
           <Component {...pageProps} />
         </ThemeProvider>
