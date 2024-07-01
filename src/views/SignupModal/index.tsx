@@ -44,7 +44,7 @@ const SignupModal: React.FC = () => {
     story: "",
   });
 
-  const { mutate: userSignup } = useUserSignup();
+  // const { mutate: userSignup } = useUserSignup();
 
   /*Handle signup submit */
   // const handleSignup = () => {
