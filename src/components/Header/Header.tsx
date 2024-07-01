@@ -8,14 +8,16 @@ import styles from "./Header.module.scss";
 import useAppstore from "@store/useAppstore";
 import SignupModal from "@views/SignupModal";
 import LoginModal from "@views/LoginModal";
+import { handleTrackEvent } from "@utils/analytics";
+import { HEADER_EVENTS } from "@config/events";
 
 const Header: React.FC = () => {
   const { t } = useTranslation("header");
   const isTab = useBreakpoint({ max: "md" });
 
   const tabs = [
-    { href: "/aboutus", text: t("About Us") },
-    { href: "/partners", text: t("Partner With Us") },
+    { href: "/aboutus", text: t("About Us"), event: HEADER_EVENTS.HEADER_ABOUT_US_NAVIGATION_CLICKED },
+    { href: "/partners", text: t("Partner With Us"), event: HEADER_EVENTS.HEADER_PARTNER_NAVIGATION_CLICKED },
     { href: "", text: t("Login") },
   ];
 
@@ -32,7 +34,7 @@ const Header: React.FC = () => {
     <>
       {tabs.map((item, index) => (
         <NavItem
-          onClick={!item.href ? handleSignupModal : () => {}}
+          onClick={!item.href ? handleSignupModal : handleTrackEvent(item.event)}
           key={item.href}
           className={isTab ? "" : "pl10 pr10"}
           href={item.href}

@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "@components/ImageNew";
 
 import styles from "./Logo.module.scss";
+import { handleTrackEvent } from "@utils/analytics";
+import { FOOTER_EVENTS, HEADER_EVENTS } from "@config/events";
 
 const LOGO_SRC = {
   header: "/assets/carecove_logo_reversed.png",
@@ -20,7 +22,14 @@ const Logo: React.FC<LogoProps> = ({ variant = "header", disabled, ...props }) =
   if (disabled)
     return <Image alt={LOGO_ALT[variant]} src={LOGO_SRC[variant]} className={clsx(styles.logo, styles[variant])} />;
   return (
-    <Link href="/" data-testid="logo" {...props}>
+    <Link
+      href="/"
+      data-testid="logo"
+      {...props}
+      onClick={handleTrackEvent(
+        variant === "header" ? HEADER_EVENTS.HEADER_LOGO_CLICKED : FOOTER_EVENTS.FOOTER_LOGO_CLICKED
+      )}
+    >
       <Image alt={LOGO_ALT[variant]} src={LOGO_SRC[variant]} className={clsx(styles.logo, styles[variant])} />
     </Link>
   );
