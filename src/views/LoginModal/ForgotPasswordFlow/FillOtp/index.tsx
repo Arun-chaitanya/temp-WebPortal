@@ -16,7 +16,7 @@ const FillOtp = ({ setFormState }) => {
     return () => {
       ref.current = [];
     };
-  }, []);
+  }, [inputValues.length]);
 
   const handleInputChange = (e: React.ChangeEvent<any>, index: number) => {
     const value = e.target.value;
@@ -72,7 +72,7 @@ const FillOtp = ({ setFormState }) => {
         </Box>
         <Box>
           <Typography fontSize={"0.875rem"} textAlign={"center"}>
-            Didn't receive an email? <Link color={"#367AFF"}>Resend email?</Link>
+            {"Didn't"} receive an email? <Link color={"#367AFF"}>Resend email?</Link>
           </Typography>
         </Box>
       </Box>

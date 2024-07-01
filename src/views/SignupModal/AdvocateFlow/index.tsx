@@ -163,7 +163,11 @@ const AdvocateFlow = ({ setStepNumber }) => {
                   setAdvocateFormData({ ...advocateFormData, caregiverRelation: e.target.value });
                 }}
               >
-                {RELATIONSHIP_SELECT_OPTIONS?.map((item) => <MenuItem value={item.value}>{item.label}</MenuItem>)}
+                {RELATIONSHIP_SELECT_OPTIONS?.map((item) => (
+                  <MenuItem key={item.label} value={item.value}>
+                    {item.label}
+                  </MenuItem>
+                ))}
               </Select>
             </Box>
             <Box sx={{ mb: 2 }}>
