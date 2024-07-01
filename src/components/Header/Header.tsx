@@ -5,20 +5,28 @@ import Logo from "@components/Logo";
 import NavItem from "@components/NavItem";
 import NavList from "@components/NavList";
 import styles from "./Header.module.scss";
+import { handleTrackEvent } from "@utils/analytics";
+import { HEADER_EVENTS } from "@config/events";
 
 const Header: React.FC = () => {
   const { t } = useTranslation("header");
   const isTab = useBreakpoint({ max: "md" });
 
   const tabs = [
-    { href: "/aboutus", text: t("About Us") },
-    { href: "/partners", text: t("Partner With Us") },
+    { href: "/aboutus", text: t("About Us"), event: HEADER_EVENTS.HEADER_ABOUT_US_NAVIGATION_CLICKED },
+    { href: "/partners", text: t("Partner With Us"), event: HEADER_EVENTS.HEADER_PARTNER_NAVIGATION_CLICKED },
   ];
 
   const renderLinks = () => (
     <>
       {tabs.map((item, index) => (
-        <NavItem key={item.href} className={isTab ? "" : "pl10 pr10"} href={item.href} exact>
+        <NavItem
+          key={item.href}
+          className={isTab ? "" : "pl10 pr10"}
+          href={item.href}
+          exact
+          onClick={handleTrackEvent(item.event)}
+        >
           {item.text}
         </NavItem>
       ))}
