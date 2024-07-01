@@ -1,44 +1,18 @@
-import { STEPS_ENUM } from "@config/constants";
-import AdvocateIcon from "@icons/AdvocateIcon";
-import CareGiverIcon from "@icons/CareGiverIcon";
+import { ROLES, ROLES_ENUM, STEPS_ENUM } from "@config/constants";
 import { Button, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useState } from "react";
 import styles from "../signupmodal.module.scss";
 
-enum ROLES_ENUM {
-  CAREGIVER = "CAREGIVER",
-  ADVOCATE = "ADVOCATE",
-}
-
-interface Role {
-  icon: React.ReactNode;
-  heading: string;
-  description: string;
-}
-
-const ROLES: { [key in ROLES_ENUM]: Role } = {
-  [ROLES_ENUM.CAREGIVER]: {
-    icon: <CareGiverIcon />,
-    heading: "I am a caregiver",
-    description: "and am looking for support.",
-  },
-  [ROLES_ENUM.ADVOCATE]: {
-    icon: <AdvocateIcon />,
-    heading: "I am an advocate",
-    description: "and want to support a caregiver.",
-  },
-};
-
 interface RoleStepProps {
   setStepNumber: React.Dispatch<React.SetStateAction<STEPS_ENUM>>;
+  setSelectedRole: React.Dispatch<React.SetStateAction<string>>;
+  selectedRole: string;
 }
 
-const RoleStep: React.FC<RoleStepProps> = ({ setStepNumber }) => {
-  const [selectedRole, setSelectedRole] = useState<ROLES_ENUM | undefined>(); // Use undefined for optional selection
-
-  const handleSelectRole = (role: ROLES_ENUM) => {
-    if (role === selectedRole) return setSelectedRole(undefined);
+const RoleStep: React.FC<RoleStepProps> = ({ setStepNumber, setSelectedRole, selectedRole }) => {
+  const handleSelectRole = (role: string) => {
+    if (role === selectedRole) return setSelectedRole("");
     setSelectedRole(role);
   };
 
@@ -53,14 +27,19 @@ const RoleStep: React.FC<RoleStepProps> = ({ setStepNumber }) => {
             <div
               key={key}
               className={`${styles.roleCard} ${selectedRole === key ? styles.selectedRoleCard : ""}`}
-              onClick={() => handleSelectRole(key as ROLES_ENUM)} // Cast key to the enum type
+              onClick={() => handleSelectRole(key)} // Cast key to the enum type
             >
               {value.icon}
               <Box>
                 <Typography fontSize={"1.5rem"} fontWeight={600}>
                   {value.heading}
                 </Typography>
-                <Typography fontSize={"0.75rem"} color={selectedRole === key ? "ffffff" : "#727272"} fontWeight={600}>
+                <Typography
+                  fontSize={"0.75rem"}
+                  color={selectedRole === key ? "ffffff" : "#727272"}
+                  fontWeight={600}
+                  lineHeight={"150%"}
+                >
                   {value.description}
                 </Typography>
               </Box>
@@ -68,7 +47,7 @@ const RoleStep: React.FC<RoleStepProps> = ({ setStepNumber }) => {
           ))}
         </Box>
       </Box>{" "}
-      <Box display={"flex"} gap={"1rem"} marginTop={"1rem"} padding={"0 1.5rem"} flexWrap={"wrap"}>
+      <Box display={"flex"} gap={"1rem"} marginTop={"1.5rem"} padding={"0 1.5rem"} flexWrap={"wrap"}>
         <Button
           variant="outlined"
           sx={{ width: { xs: "100%", sm: "13rem" } }}
@@ -76,8 +55,13 @@ const RoleStep: React.FC<RoleStepProps> = ({ setStepNumber }) => {
         >
           Back
         </Button>
-        <Button variant="contained" sx={{ flexGrow: 1 }} disabled={!selectedRole}>
-          Confirm
+        <Button
+          variant="contained"
+          sx={{ flexGrow: 1 }}
+          disabled={!selectedRole}
+          onClick={() => setStepNumber(STEPS_ENUM.INFO)}
+        >
+          Continue
         </Button>
       </Box>
     </>

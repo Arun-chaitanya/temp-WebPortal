@@ -7,6 +7,7 @@ import NavList from "@components/NavList";
 import styles from "./Header.module.scss";
 import useAppstore from "@store/useAppstore";
 import SignupModal from "@views/SignupModal";
+import LoginModal from "@views/LoginModal";
 
 const Header: React.FC = () => {
   const { t } = useTranslation("header");
@@ -15,14 +16,16 @@ const Header: React.FC = () => {
   const tabs = [
     { href: "/aboutus", text: t("About Us") },
     { href: "/partners", text: t("Partner With Us") },
-    { href: "", text: t("Signup") },
+    { href: "", text: t("Login") },
   ];
 
-  const setSignupModal = useAppstore((state: any) => state.setSignupModal);
+  const setLoginModal = useAppstore((state: any) => state.setLoginModal);
+
   const signupModal = useAppstore((state: any) => state.signupModal);
+  const loginModal = useAppstore((state: any) => state.loginModal);
 
   const handleSignupModal = () => {
-    setSignupModal(true);
+    setLoginModal(true);
   };
 
   const renderLinks = () => (
@@ -44,6 +47,7 @@ const Header: React.FC = () => {
   return (
     <header className={styles.root} data-testid="header">
       {signupModal && <SignupModal />}
+      {loginModal && <LoginModal />}
       <Container fluid className={styles.container}>
         <Row align="center" nogutter justify="between">
           <Col xs={4} sm={4} md={4.5} lg={4}>

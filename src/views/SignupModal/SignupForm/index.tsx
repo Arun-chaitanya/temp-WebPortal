@@ -1,6 +1,6 @@
 import { STEPS_ENUM } from "@config/constants";
 import Google from "@icons/boilerplate-icons/Google";
-import { Box, Button, CircularProgress, Divider, TextField, Typography } from "@mui/material";
+import { Box, Button, CircularProgress, Divider, Link, TextField, Typography } from "@mui/material";
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { isEmail } from "validator";
 
@@ -8,7 +8,8 @@ import styles from "../signupmodal.module.scss";
 import signupbanner from "../../../../public/signupbanner.png";
 
 interface FormData {
-  name: string;
+  firstName: string;
+  lastName: string;
   email: string;
   password: string;
 }
@@ -22,10 +23,10 @@ interface SignupFormProps {
 const SignupForm: React.FC<SignupFormProps> = ({ setStepNumber, formData, setFormData }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [emailError, setEmailError] = useState("");
-  const [passwordError, setPasswordError] = useState("");
+  const [passwordError, setpasswordError] = useState("");
 
-  const handleNameChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, name: event.target.value });
+  const handleNameChange = (event: ChangeEvent<HTMLInputElement>, key: string) => {
+    setFormData({ ...formData, [key]: event.target.value });
   };
 
   const handleEmailChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -41,13 +42,18 @@ const SignupForm: React.FC<SignupFormProps> = ({ setStepNumber, formData, setFor
   const handlePasswordChange = (event: ChangeEvent<HTMLInputElement>) => {
     const passwordValue = event.target.value;
     setFormData({ ...formData, password: passwordValue });
+    if (passwordValue?.length < 6) {
+      setpasswordError("Please enter atleast 6 characters");
+    } else {
+      setpasswordError("");
+    }
   };
 
   const handleSignup = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault(); // Prevent default form submission
 
-    const { name, email, password } = formData;
-    if (name && email && isEmail(email) && password) {
+    const { firstName, lastName, email, password } = formData;
+    if (firstName && lastName && email && isEmail(email) && password) {
       setIsLoading(true);
 
       // Simulate an asynchronous operation
@@ -59,9 +65,8 @@ const SignupForm: React.FC<SignupFormProps> = ({ setStepNumber, formData, setFor
   };
 
   const isFormValid = () => {
-    const { name, email, password } = formData;
-
-    return name && email && isEmail(email) && password && !emailError && !passwordError;
+    const { firstName, lastName, email, password } = formData;
+    return firstName && lastName && email && isEmail(email) && password && !emailError && !passwordError;
   };
 
   return (
@@ -93,23 +98,43 @@ const SignupForm: React.FC<SignupFormProps> = ({ setStepNumber, formData, setFor
             OR
           </Divider>
           <Box>
-            <Box sx={{ mb: 2 }}>
-              <Typography gutterBottom fontSize={"0.875rem"} fontWeight={500} color={"#344054"}>
-                Name*
-              </Typography>
-              <TextField
-                className={styles.inputField}
-                InputProps={{
-                  sx: { height: "44px" },
-                }}
-                variant="outlined"
-                placeholder="Enter your name"
-                value={formData.name}
-                onChange={handleNameChange}
-                required
-                fullWidth
-              />
+            <Box sx={{ mb: 2 }} display={"flex"} justifyContent={"space-between"}>
+              <Box width={"48%"}>
+                <Typography gutterBottom fontSize={"0.875rem"} fontWeight={500} color={"#344054"}>
+                  First Name*
+                </Typography>
+                <TextField
+                  className={styles.inputField}
+                  InputProps={{
+                    sx: { height: "44px" },
+                  }}
+                  variant="outlined"
+                  placeholder="Enter your first name"
+                  value={formData.firstName}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => handleNameChange(e, "firstName")}
+                  required
+                  fullWidth
+                />
+              </Box>
+              <Box width={"48%"}>
+                <Typography gutterBottom fontSize={"0.875rem"} fontWeight={500} color={"#344054"}>
+                  Last Name*
+                </Typography>
+                <TextField
+                  className={styles.inputField}
+                  InputProps={{
+                    sx: { height: "44px" },
+                  }}
+                  variant="outlined"
+                  placeholder="Enter your last name"
+                  value={formData.lastName}
+                  onChange={(e: ChangeEvent<HTMLInputElement>) => handleNameChange(e, "lastName")}
+                  required
+                  fullWidth
+                />
+              </Box>
             </Box>
+
             <Box sx={{ mb: 2 }}>
               <Typography gutterBottom fontSize={"0.875rem"} fontWeight={500} color={"#344054"}>
                 Email*
@@ -147,14 +172,21 @@ const SignupForm: React.FC<SignupFormProps> = ({ setStepNumber, formData, setFor
                   autoComplete: "new-password",
                 }}
                 onChange={handlePasswordChange}
+                error={!!passwordError}
+                helperText={passwordError}
                 required
                 fullWidth
               />
             </Box>
+            <Box>
+              <Typography gutterBottom fontSize={"0.875rem"} fontWeight={500} color={"#232323"}>
+                By joining, you agree to the <Link>Terms of Use</Link> and <Link>Privacy Policy</Link>
+              </Typography>
+            </Box>
           </Box>
         </Box>
       </Box>
-      <Box padding={"0rem 2rem"} marginTop={"1rem"}>
+      <Box padding={"0rem 2rem"} marginTop={"1.5rem"}>
         <Button
           disabled={isLoading || !isFormValid()}
           endIcon={isLoading ? <CircularProgress size={24} /> : null}

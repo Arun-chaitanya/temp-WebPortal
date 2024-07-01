@@ -14,6 +14,16 @@ import Head from "next/head";
 import Analytics from "@components/Analytics/analytics";
 
 const theme = createTheme({
+  components: {
+    MuiButton: {
+      styleOverrides: {
+        root: {
+          // Apply your CSS properties here
+          textTransform: "capitalize",
+        },
+      },
+    },
+  },
   typography: {
     fontFamily: "Poppins, sans-serif",
   },
