@@ -13,7 +13,7 @@ const InputPhone: React.FC<InputPhoneProps> = ({ mobileNumber, setMobileNumber, 
         setIsGetOTPButtonDisabled(true);
       }
     }
-  }, [mobileNumber]);
+  }, [mobileNumber, setIsGetOTPButtonDisabled]);
 
   function toE164Number(phone: string): E164Number {
     // Add validation logic here to ensure the phone number is in E.164 format.
@@ -22,7 +22,7 @@ const InputPhone: React.FC<InputPhoneProps> = ({ mobileNumber, setMobileNumber, 
     }
     throw new Error("Invalid E.164 phone number format");
   }
-  
+
   function isValidE164(phone: string): boolean {
     const e164Regex = /^\+?[1-9]\d{1,14}$/;
     return e164Regex.test(phone);

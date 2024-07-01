@@ -22,11 +22,11 @@ const Extension = ({ setStepNumber }) => {
   return (
     <div>
       <Box>
-        <img src={Banner.src}></img>
+        <img src={Banner.src} alt={"carecove-extension"}></img>
       </Box>
       <Box padding={"1rem 1.5rem"} borderBottom={"1px solid #e4e7ec"} display={"flex"} justifyContent={"space-between"}>
         {TEXTS?.map((item: string) => (
-          <Typography color={"#475467"} textAlign={"center"} width={"32%"}>
+          <Typography color={"#475467"} textAlign={"center"} width={"32%"} key={item}>
             {item}
           </Typography>
         ))}

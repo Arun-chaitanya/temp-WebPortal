@@ -96,7 +96,7 @@ const InviteOthers = ({ setStepNumber }) => {
             </Typography>
             <Box display={"flex"} gap={"1.75rem"}>
               {SHARE_VIA?.map((item) => (
-                <div style={{ textAlign: "center" }} onClick={() => handleClick(item.label)}>
+                <div key={item.label} style={{ textAlign: "center" }} onClick={() => handleClick(item.label)}>
                   <div className={styles.shareButton}>{item.icon}</div>
                   <Typography fontSize={"0.75rem"} color={"#3D5A80"}>
                     {item.label}
