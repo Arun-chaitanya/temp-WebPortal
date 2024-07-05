@@ -14,8 +14,9 @@ import { toast } from "react-toastify";
 import useBreakpoint from "@hooks/useBreakpoint";
 import TextButton from "@components/TextButton";
 import { analytics } from "@utils/analytics";
+import Hero from "@views/Hero";
 
-const Hero: React.FC = () => {
+const HeroSection: React.FC = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -63,41 +64,36 @@ const Hero: React.FC = () => {
   );
 
   return (
-    <section className={styles.hero}>
-      <Row className={styles.row}>
-        <Col xs={12} md={5} className={styles.colLeft}>
-          <div className={styles.heroContent}>
-            <PageTitle className={styles.heroTitle} color="light">
-              Every Purchase Counts
-            </PageTitle>
-            <div className="flex justify-center">
-              <div className={styles.line} />
-            </div>
-            <Text color="light" className={styles.heroSubtitle}>
-              Cashback on everyday purchases can be a lifeline of support for caregivers.
-            </Text>
-            {!isSubmitted ? (
-              <form className={styles.heroForm} onSubmit={handleSubmit}>
-                <InputText
-                  type="email"
-                  placeholder="Email"
-                  value={email}
-                  onChange={handleChange}
-                  className={styles.heroInput}
-                  error={error}
-                />
-                <Button type="submit" className={styles.heroButton}>
-                  Reserve Your Spot Today
-                </Button>
-              </form>
-            ) : (
-              <Text color="light">Thank you for joining the waitlist!</Text>
-            )}
-          </div>
-        </Col>
-        <Col xs={12} md={7} className={styles.colRight}></Col>
-      </Row>
-    </section>
+    <Hero>
+      <div className={styles.heroContent}>
+        <PageTitle className={styles.heroTitle} color="light">
+          Every Purchase Counts
+        </PageTitle>
+        <div className="flex justify-center">
+          <div className={styles.line} />
+        </div>
+        <Text color="light" className={styles.heroSubtitle}>
+          Cashback on everyday purchases can be a lifeline of support for caregivers.
+        </Text>
+        {!isSubmitted ? (
+          <form className={styles.heroForm} onSubmit={handleSubmit}>
+            <InputText
+              type="email"
+              placeholder="Email"
+              value={email}
+              onChange={handleChange}
+              className={styles.heroInput}
+              error={error}
+            />
+            <Button type="submit" className={styles.heroButton}>
+              Reserve Your Spot Today
+            </Button>
+          </form>
+        ) : (
+          <Text color="light">Thank you for joining the waitlist!</Text>
+        )}
+      </div>
+    </Hero>
   );
 };
 
@@ -105,58 +101,14 @@ const StoreSection: React.FC = () => {
   return (
     <section className={styles.storeSection}>
       <Container>
-        <Text className={styles.title} variant="h1">
-          Get paid by stores that want to support caregivers.
-        </Text>
+        <PageTitle variant="x-large">Earn Cashback for a Friend on Your Everyday Shopping.</PageTitle>
         <div className={styles.storeLogos}>
           <Image src="/assets/home/caregiver.svg" alt="Target" className={styles.storeLogo} />
           <Image src="/assets/home/caregiver.svg" alt="Walmart" className={styles.storeLogo} />
           <Image src="/assets/home/caregiver.svg" alt="Amazon" className={styles.storeLogo} />
           <Image src="/assets/home/caregiver.svg" alt="Carewell" className={styles.storeLogo} />
           <Image src="/assets/home/caregiver.svg" alt="Walgreens" className={styles.storeLogo} />
-          <Image src="/assets/home/caregiver.svg" alt="CostPlus" className={styles.storeLogo} />
-          <Image src="/assets/home/caregiver.svg" alt="CVS" className={styles.storeLogo} />
         </div>
-        <Row align="center">
-          <Col className={styles.savingsSection} xs={12} md={6} lg={5}>
-            <Text className={styles.savingsTitle} variant="h2">
-              Savings on essential needs
-            </Text>
-            <Text size="sm">
-              Unlock exclusive cashback on a diverse range of products, from vital caregiving equipment to daily
-              essentials.
-            </Text>
-            <Text size="sm">
-              Carecove is dedicated to easing the financial load, enriching caregivers lives with savings that matter.
-            </Text>
-          </Col>
-          <Col className={styles.products} xs={12} md={6} lg={7}>
-            <div>
-              <div className={styles.product}>
-                <Image src="/assets/home/caregiver.svg" alt="Product 1" className={styles.productImage} />
-                <Text className={styles.discount}>40% off</Text>
-                <Text className={styles.productDescription}>Limited time deal</Text>
-              </div>
-              <TextButton className={styles.moreSavings}>See more savings at Amazon.com</TextButton>
-            </div>
-            <div>
-              <div className={styles.product}>
-                <Image src="/assets/home/caregiver.svg" alt="Product 1" className={styles.productImage} />
-                <Text className={styles.discount}>40% off</Text>
-                <Text className={styles.productDescription}>Limited time deal</Text>
-              </div>
-              <TextButton className={styles.moreSavings}>See more savings at Amazon.com</TextButton>
-            </div>
-            <div>
-              <div className={styles.product}>
-                <Image src="/assets/home/caregiver.svg" alt="Product 1" className={styles.productImage} />
-                <Text className={styles.discount}>40% off</Text>
-                <Text className={styles.productDescription}>Limited time deal</Text>
-              </div>
-              <TextButton className={styles.moreSavings}>See more savings at Amazon.com</TextButton>
-            </div>
-          </Col>
-        </Row>
       </Container>
     </section>
   );
@@ -353,8 +305,8 @@ const Home: NextPage = () => {
 
   return (
     <Layout>
-      <Hero />
-      {/* <StoreSection /> */}
+      <HeroSection />
+      <StoreSection />
       <HowItWorks />
       <OurWhy />
       {/* <JoinDonateSection /> */}

@@ -5,8 +5,10 @@ import useAppstore, { StoreState } from "@store/useAppstore";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 import isEmail from "validator/lib/isEmail";
 import styles from "../login.module.scss";
+import { useRouter } from "next/router";
 
 const LoginForm = ({ formData, setFormData, setFormState }) => {
+  const router = useRouter();
   const [isLoading, setIsLoading] = useState(false);
   const [emailError, setEmailError] = useState("");
   const [passwordError, setpasswordError] = useState("");
@@ -43,6 +45,13 @@ const LoginForm = ({ formData, setFormData, setFormState }) => {
       // Simulate an asynchronous operation
       setTimeout(() => {
         setIsLoading(false);
+        // Check if the user is redirected from the extension
+        const uri = decodeURIComponent(router?.query?.uri as string);
+        const token = "arun_chaitanya";
+        if (token && uri && uri !== "undefined") {
+          const extentionId = decodeURIComponent(router?.query?.extentionId as string);
+          chrome.runtime.sendMessage(extentionId, { action: "authSuccess", token });
+        }
       }, 2000);
     }
   };

@@ -5,7 +5,7 @@ import Logo from "@components/Logo";
 import NavItem from "@components/NavItem";
 import NavList from "@components/NavList";
 import styles from "./Header.module.scss";
-import useAppstore from "@store/useAppstore";
+import useAppstore, { StoreState } from "@store/useAppstore";
 import SignupModal from "@views/SignupModal";
 import LoginModal from "@views/LoginModal";
 import { handleTrackEvent } from "@utils/analytics";
@@ -21,10 +21,10 @@ const Header: React.FC = () => {
     { href: "", text: t("Login") },
   ];
 
-  const setLoginModal = useAppstore((state: any) => state.setLoginModal);
+  const setLoginModal = useAppstore((state: StoreState) => state.setLoginModal);
 
-  const signupModal = useAppstore((state: any) => state.signupModal);
-  const loginModal = useAppstore((state: any) => state.loginModal);
+  const signupModal = useAppstore((state: StoreState) => state.signupModal);
+  const loginModal = useAppstore((state: StoreState) => state.loginModal);
 
   const handleSignupModal = () => {
     setLoginModal(true);

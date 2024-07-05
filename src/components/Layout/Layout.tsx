@@ -10,8 +10,13 @@ import Text from "@components/Text";
 
 import styles from "./Layout.module.scss";
 import Footer from "@components/FooterV2";
+import { useCallback, useEffect } from "react";
+
+import { useRouter } from "next/router";
+import useAppstore, { StoreState } from "@store/useAppstore";
 
 const Layout: React.FC<LayoutProps> = (props) => {
+  const router = useRouter();
   const {
     children,
     classes,
@@ -27,6 +32,19 @@ const Layout: React.FC<LayoutProps> = (props) => {
     disableFooter,
     disabled,
   } = props;
+
+  const setLoginModal = useAppstore((state: StoreState) => state.setLoginModal);
+
+  const handleSignupModal = useCallback(() => {
+    setLoginModal(true);
+  }, [setLoginModal]);
+
+  useEffect(() => {
+    const uri = decodeURIComponent(router?.query?.uri as string);
+    if (uri && uri !== "undefined") {
+      handleSignupModal();
+    }
+  }, [router, handleSignupModal]);
 
   const isTab = useBreakpoint({ max: "md" });
 
