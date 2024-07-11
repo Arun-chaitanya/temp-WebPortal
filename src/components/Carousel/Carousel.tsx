@@ -7,12 +7,7 @@ import styles from "./Carousel.module.scss";
 const Carousel: React.FC<CarouselProps> = ({ components, className, ...props }) => {
   return (
     <div className={clsx(className, styles.root)}>
-      <Swiper
-        spaceBetween={40}
-        modules={[Pagination, Autoplay, Navigation]}
-        pagination={{ clickable: true }}
-        {...props}
-      >
+      <Swiper spaceBetween={40} modules={[Autoplay, Navigation]} navigation loop {...props}>
         {components.map((component, index) => (
           <SwiperSlide key={index}>{component}</SwiperSlide>
         ))}

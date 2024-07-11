@@ -1,0 +1,24 @@
+/* src/views/Home/CashbackStore/CashbackStore.module.scss */
+.cashbackStore {
+  padding: 60px 0;
+  text-align: center;
+  background-color: #fff;
+
+  .title {
+    margin-bottom: 20px;
+    color: #033540;
+  }
+
+  .logosRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+
+  .storeLogo {
+    height: 50px;
+    flex: 0 1 150px; /* Adjust the flex-grow, flex-shrink, and base width */
+  }
+}

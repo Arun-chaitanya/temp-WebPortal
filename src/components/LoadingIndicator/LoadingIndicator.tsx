@@ -2,7 +2,7 @@ import clsx from "clsx";
 
 import { APP_NAME } from "@config/constants";
 
-import Image from "@components/ImageNew";
+import Image from "@components/Image";
 
 import styles from "./LoadingIndicator.module.scss";
 

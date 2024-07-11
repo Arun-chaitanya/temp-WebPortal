@@ -9,7 +9,7 @@ import SEO from "@components/SEO";
 import Text from "@components/Text";
 
 import styles from "./Layout.module.scss";
-import Footer from "@components/FooterV2";
+import Footer from "@components/Footer";
 import { useCallback, useEffect } from "react";
 
 import { useRouter } from "next/router";

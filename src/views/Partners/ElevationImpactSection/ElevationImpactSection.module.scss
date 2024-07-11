@@ -1,0 +1,42 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
+.elevationImpactSection {
+  text-align: center;
+  padding: 60px 0;
+  background-color: $atomic-mermaid-light;
+}
+
+.sectionTitle {
+  margin-bottom: 40px;
+  font-size: 55px;
+  letter-spacing: 3px;
+  line-height: 65px;
+}
+
+.cards {
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+.card {
+  width: 300px;
+  text-align: center;
+}
+
+.icon {
+  display: block;
+  margin: 0 auto 25px;
+  height: 128px;
+}
+
+.cardTitle {
+  margin-bottom: 16px;
+  font-size: 25px;
+}
+
+.cardContent {
+  font-size: 25px;
+  line-height: 1.5;
+}

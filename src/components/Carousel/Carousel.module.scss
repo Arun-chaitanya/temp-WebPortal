@@ -5,12 +5,11 @@
   --swiper-pagination-bullet-inactive-color: #{$shade4};
   --swiper-pagination-bullet-inactive-opacity: 1;
   :global(.swiper-pagination) {
-    bottom: 0;
     :global(.swiper-pagination-bullet-active) {
       background: $white;
     }
-    :global(.swiper-pagination-bullet) {
-      margin-inline: 1rem;
+    :global(.swiper-button-next) {
+      right: 10rem;
     }
   }
 }

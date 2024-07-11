@@ -19,7 +19,7 @@ const RoleStep: React.FC<RoleStepProps> = ({ setStepNumber, setSelectedRole, sel
   return (
     <>
       <Box padding={"1.5rem"} borderBottom={"1px solid #e4e7ec"}>
-        <Typography fontSize={"1.125rem"} fontWeight={700} fontFamily={"Merriweather"}>
+        <Typography fontSize={"1.125rem"} fontWeight={700} fontFamily={"Montserrat"}>
           Who are you?
         </Typography>
         <Box className={styles.roleCardContainer}>

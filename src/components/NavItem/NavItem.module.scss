@@ -19,8 +19,12 @@
   position: absolute;
   bottom: -5px;
   width: 0;
-  border-bottom: 2px solid $primary-color;
+  border-bottom: 2px solid $white;
   transition: $transition-default;
+}
+
+.activeUnderline {
+  width: 100%;
 }
 
 .active {
@@ -36,7 +40,7 @@
 }
 
 .right {
-  margin-left: 1.5625rem;
+  margin-left: 0;
 }
 
 .justify {
@@ -48,7 +52,7 @@
 }
 
 .header {
-  @include body-font(1.25rem, 400, $white);
+  @include body-font(1.25rem, 700, $white);
 }
 
 .center {

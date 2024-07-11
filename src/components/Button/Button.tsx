@@ -26,6 +26,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     fullWidth = false,
     isLowercase = false,
     isLoading = false,
+    size = "medium",
     ...rest
   } = props;
 
@@ -45,6 +46,7 @@ const Button: React.FC<ButtonProps> = (props) => {
     styles.root,
     fullWidth && styles.fullWidth,
     variant && styles[variant],
+    size && styles[size],
     isLowercase && styles.lowercase,
     className && className
   );
@@ -107,6 +109,7 @@ export type ButtonProps = Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, "o
     href?: string | UrlObject;
     fullWidth?: boolean;
     variant?: "text" | "contained" | "action" | "link" | "normal" | "outlined" | "gray" | "light" | "dark" | "gray2";
+    size?: "small" | "medium" | "large";
     isLowercase?: boolean;
     isLoading?: boolean;
     leftIcon?: JSX.Element | null;

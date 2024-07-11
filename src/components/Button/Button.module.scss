@@ -2,8 +2,8 @@
 
 .root {
   font-family: $body-font;
-  font-size: 20px;
-  font-weight: 600;
+  font-size: 25px;
+  font-weight: 700;
   color: $white;
   transition: $transition-default;
   cursor: pointer;
@@ -11,7 +11,6 @@
   align-items: center;
   justify-content: center;
   white-space: nowrap;
-  min-height: 52px;
   border-radius: 8px;
 
   &:disabled {
@@ -20,20 +19,37 @@
   }
 }
 
+//sizes
+
+.small {
+  min-height: 50px;
+  padding: 6px 24px;
+}
+
+.large {
+  min-height: 110px;
+  padding: 12px 32px;
+}
+
+.medium {
+  min-height: 60px;
+  padding: 12px 24px;
+}
+
+//variants
+
 .contained {
   justify-content: center;
-  background-color: $primary;
-  padding: 8px 24px;
+  background-color: $neon-blaze;
 
   &:hover:not([disabled]) {
-    background-color: $primary0;
+    background-color: $neon-blaze-light;
   }
 }
 
 .dark {
   justify-content: center;
-  background-color: $black;
-  padding: 8px 24px;
+  background-color: $midnight-lagoon;
 
   &:hover:not([disabled]) {
     background-color: $black;
@@ -41,8 +57,6 @@
 }
 
 .action {
-  min-height: 56px;
-  padding: 12px 16px;
   justify-content: space-between;
   background-color: $white;
   color: $black;
@@ -59,7 +73,6 @@
 
 .light {
   justify-content: center;
-  padding: 8px 24px;
   background-color: $white;
   color: $black;
 
@@ -155,11 +168,9 @@
 .outlined {
   border: 1px $white solid;
   justify-content: center;
-  padding: 8px 24px;
 }
 
 .gray {
-  padding: 8px 24px;
   justify-content: center;
   background-color: $shade3;
   border: 2px solid $shade3;
@@ -170,7 +181,6 @@
 }
 
 .gray2 {
-  padding: 8px 24px;
   justify-content: center;
   background-color: $shade3;
 }

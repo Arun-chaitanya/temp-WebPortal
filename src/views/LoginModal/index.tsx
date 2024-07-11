@@ -37,7 +37,7 @@ const LoginModal = () => {
             <Box>
               <Typography
                 sx={{ fontSize: { xs: "1.25rem", sm: "1.5rem" } }}
-                fontFamily={"Merriweather"}
+                fontFamily={"Montserrat"}
                 position={"relative"}
                 textTransform={"uppercase"}
               >

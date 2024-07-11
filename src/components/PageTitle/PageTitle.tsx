@@ -5,13 +5,14 @@ import Title, { TitleProps } from "@components/Title";
 import styles from "./PageTitle.module.scss";
 
 const PageTitle: React.FC<PageTitleProps> = (props) => {
-  const { children, variant = "small", className, ...titleProps } = props;
+  const { children, variant = "small", className, color = "midnight-lagoon", ...titleProps } = props;
   return (
     <Title
       variant="h1"
-      className={clsx(variant && styles[variant], className)}
       data-testid="page-title"
       {...titleProps}
+      className={clsx(styles.root, variant && styles[variant], className)}
+      color={color}
     >
       {children}
     </Title>

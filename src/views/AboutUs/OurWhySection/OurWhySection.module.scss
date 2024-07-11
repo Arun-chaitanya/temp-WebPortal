@@ -1,0 +1,41 @@
+@import "src/styles/variables";
+
+.ourWhySection {
+  padding: 60px 0;
+}
+
+.whyText {
+  padding: 52px 80px !important;
+  background-color: #733156ff;
+}
+
+.ourWhyRow {
+  margin: 0 !important;
+}
+
+.year {
+  font-size: 2rem;
+  color: #ffffff;
+}
+
+.description {
+  font-size: 1.2rem;
+  color: #ffffff;
+  border-top: 2px solid $galatic-grape;
+  padding-top: 1rem;
+  margin-top: 1rem;
+}
+
+.whyImage {
+  min-height: 100%;
+  height: 400px;
+
+  img {
+    object-fit: cover;
+  }
+}
+
+.whyImageContainer {
+  padding: 0 !important;
+  background-color: lightcyan;
+}

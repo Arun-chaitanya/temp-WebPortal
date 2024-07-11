@@ -1,0 +1,48 @@
+/* src/views/Home/CareCoveCommunity/CareCoveCommunity.module.scss */
+.careCoveCommunity {
+  padding: 60px 0;
+  text-align: center;
+  background-color: #fff5f5;
+
+  .title {
+    margin-bottom: 20px;
+    color: #733156;
+  }
+
+  .carouselContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .carousel {
+    width: 50%; /* Occupy half of the container width */
+  }
+
+  .testimonial {
+    background-color: #ff5678;
+    padding: 40px;
+    border-radius: 12px;
+    text-align: center;
+    color: #ffffff;
+    margin: 0 auto; /* Center align the testimonial within the carousel */
+
+    .image {
+      margin-bottom: 20px;
+      width: 150px; /* Adjust as necessary */
+      height: 150px; /* Adjust as necessary */
+      border-radius: 50%;
+    }
+
+    .receipt,
+    .quote {
+      margin-bottom: 20px;
+      font-size: 25px;
+      font-style: italic;
+    }
+
+    .author {
+      font-size: 25px;
+    }
+  }
+}

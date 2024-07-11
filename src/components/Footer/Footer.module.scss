@@ -1,0 +1,81 @@
+@import "src/styles/variables";
+
+.footer {
+  background-color: $neon-blaze;
+  padding: 20px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+
+  @media (max-width: 768px) {
+    padding: 20px;
+  }
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1440px;
+    align-items: center;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  .logo {
+    flex: 1;
+  }
+
+  .right {
+    flex: 2;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+  }
+
+  .links {
+    margin-left: 20px;
+    font-weight: 700;
+    font-size: 25px;
+    text-align: right;
+
+    @media (max-width: 768px) {
+      text-align: center;
+      margin: 10px 0;
+    }
+  }
+
+  .socialIcons {
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+
+    .icon {
+      margin: 0 5px;
+      height: 40px;
+      width: 40px;
+      background-color: black;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        width: 28px;
+        height: 28px;
+      }
+    }
+  }
+
+  .copyright {
+    margin-top: 30px;
+    font-size: 15px;
+    text-align: center;
+    color: white;
+  }
+}

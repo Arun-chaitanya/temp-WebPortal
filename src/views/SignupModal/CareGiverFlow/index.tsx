@@ -31,7 +31,7 @@ const CareGiverFlow = ({ infoFormData, setinfoFormData, setStepNumber }) => {
         flexDirection={"column"}
         borderBottom={"1px solid #e4e7ec"}
       >
-        <Typography fontFamily={"Merriweather"} fontSize={"1.125rem"} color={"primary"}>
+        <Typography fontFamily={"Montserrat"} fontSize={"1.125rem"} color={"primary"}>
           Help your support network understand your unique caregiving journey!
         </Typography>
         <Box display={"flex"} flexDirection={"column"} gap={"1rem"}>
