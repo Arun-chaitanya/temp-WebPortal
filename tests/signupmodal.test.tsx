@@ -7,7 +7,33 @@ import Header from "@components/Header";
 import SignupModal from "@views/SignupModal";
 
 describe("Signup modal", () => {
+  const useRouter = jest.spyOn(require("next/router"), "useRouter");
+
+  useRouter.mockImplementation(() => ({
+    route: "/",
+    pathname: "",
+    query: "",
+    asPath: "",
+    push: jest.fn(),
+    replace: jest.fn(),
+    reload: jest.fn(),
+    back: jest.fn(),
+    prefetch: jest.fn().mockResolvedValue(undefined),
+    beforePopState: jest.fn(),
+    events: {
+      on: jest.fn(),
+      off: jest.fn(),
+      emit: jest.fn(),
+    },
+  }));
   beforeEach(() => {
+    useRouter.mockReturnValue({
+      route: "/",
+      pathname: "",
+      query: "",
+      asPath: "",
+    });
+
     // Reset the store state before each test
     useAppstore.setState((state: StoreState) => ({
       ...state,
