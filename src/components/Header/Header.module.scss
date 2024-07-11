@@ -1,7 +1,7 @@
 @import "src/styles/variables";
 @import "src/styles/mixins";
 .root {
-  background-color: #679749; // Green background color
+  background-color: $neon-blaze; // Green background color
   padding: 16px 32px;
   @media (max-width: $screen_sm) {
     padding: 12px 16px;

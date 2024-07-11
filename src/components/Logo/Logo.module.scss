@@ -3,18 +3,12 @@
 .logo {
   display: block;
   position: relative;
-  max-height: 60px;
-  aspect-ratio: 3.94;
+  max-height: 30px;
+  aspect-ratio: 7.87;
 }
 
 .header {
-  height: 4.375rem;
-  @media (max-width: $screen_sm) {
-    max-height: 30px;
-  }
 }
 
 .footer {
-  height: 4.375rem;
-  aspect-ratio: 3.94;
 }

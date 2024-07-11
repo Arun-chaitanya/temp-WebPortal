@@ -1,15 +1,15 @@
 import clsx from "clsx";
 import Link from "next/link";
 
-import Image from "@components/ImageNew";
+import Image from "@components/Image";
 
 import styles from "./Logo.module.scss";
 import { handleTrackEvent } from "@utils/analytics";
 import { FOOTER_EVENTS, HEADER_EVENTS } from "@config/events";
 
 const LOGO_SRC = {
-  header: "/assets/carecove_logo_reversed.png",
-  footer: "/assets/carecove_logo_reversed.png",
+  header: "/assets/carecove_logo.png",
+  footer: "/assets/carecove_logo.png",
 };
 
 const LOGO_ALT = {

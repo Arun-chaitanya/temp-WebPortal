@@ -1,0 +1,18 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
+.heroContent {
+  width: 100%;
+  position: relative;
+}
+
+.heroContentBox {
+  display: block !important;
+  justify-content: flex-start;
+  background-color: $oceanic !important;
+}
+
+.heroImageBox {
+  background-image: url("/assets/partners/hero-background.png");
+  background-position: left center;
+}

@@ -41,7 +41,7 @@ export type TitleProps = Omit<React.HTMLAttributes<any>, "style"> & {
   font?: "primary" | "secondary";
   isUppercase?: boolean;
   className?: string;
-  color?: "light" | "grey" | "dark" | "danger" | "success" | "primary";
+  color?: "light" | "dark" | "midnight-lagoon" | "radical-plum" | "oceanic";
   variant?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
   align?: "left" | "center" | "right";
   style?: "normal" | "italic";

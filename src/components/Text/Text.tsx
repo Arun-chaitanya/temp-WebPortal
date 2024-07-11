@@ -38,7 +38,18 @@ const Text: React.FC<TextProps> = (props) => {
 
 export type TextProps = React.HTMLAttributes<any> & {
   font?: "primary" | "secondary";
-  color?: "primary-color" | "light" | "grey" | "dark" | "danger" | "success" | "info";
+  color?:
+    | "primary-color"
+    | "light"
+    | "grey"
+    | "dark"
+    | "danger"
+    | "success"
+    | "info"
+    | "midnight-lagoon"
+    | "radical-plum"
+    | "oceanic"
+    | "neon-blaze";
   weight?: "normal" | "medium" | "semi-bold" | "bold" | "heavy";
   size?: "xxxs" | "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
   align?: "left" | "center" | "right" | "justify";

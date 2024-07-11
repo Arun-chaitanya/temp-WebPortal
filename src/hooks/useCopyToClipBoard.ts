@@ -14,7 +14,7 @@ const useCopyToClipBoard = () => {
           console.error("Failed to copy text: ", err);
         });
     } else {
-      console.log("clipboard not found");
+      console.error("clipboard not found");
     }
   };
 

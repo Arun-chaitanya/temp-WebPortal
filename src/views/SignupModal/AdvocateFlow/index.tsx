@@ -46,7 +46,7 @@ const AdvocateFlow = ({ setStepNumber }) => {
         flexDirection={"column"}
         borderBottom={"1px solid #e4e7ec"}
       >
-        <Typography fontFamily={"Merriweather"} fontSize={"1.125rem"} color={"primary"}>
+        <Typography fontFamily={"Montserrat"} fontSize={"1.125rem"} color={"primary"}>
           Enter information about the caregiver you want to support. We’ll send them an invite to join Carecove and
           start saving together.{" "}
         </Typography>

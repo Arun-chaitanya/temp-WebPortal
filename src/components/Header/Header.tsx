@@ -33,15 +33,17 @@ const Header: React.FC = () => {
   const renderLinks = () => (
     <>
       {tabs.map((item, index) => (
-        <NavItem
-          onClick={!item.href ? handleSignupModal : handleTrackEvent(item.event)}
-          key={item.href}
-          className={isTab ? "" : "pl10 pr10"}
-          href={item.href}
-          exact
-        >
-          {item.text}
-        </NavItem>
+        <>
+          <NavItem
+            onClick={!item.href ? handleSignupModal : handleTrackEvent(item.event)}
+            key={item.href}
+            href={item.href}
+            showDivider={index !== tabs.length - 1}
+            exact
+          >
+            {item.text}
+          </NavItem>
+        </>
       ))}
     </>
   );
@@ -55,7 +57,7 @@ const Header: React.FC = () => {
           <Col xs={4} sm={4} md={4.5} lg={4}>
             <Logo />
           </Col>
-          <Col xs={8} sm={8} md={7.5} lg={8} className="flex items-center justify-end space-x-6">
+          <Col xs={8} sm={8} md={7.5} lg={8} className="flex items-center justify-end">
             <NavList>{renderLinks()}</NavList>
           </Col>
         </Row>

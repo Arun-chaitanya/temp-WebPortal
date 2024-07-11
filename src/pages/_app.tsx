@@ -9,6 +9,9 @@ import { ThemeProvider } from "@mui/material/styles";
 import "@styles/classes.scss";
 import "@styles/fonts.scss";
 import "@styles/globals.scss";
+import "swiper/scss";
+import "swiper/scss/navigation";
+import "swiper/scss/pagination";
 import Head from "next/head";
 
 import Analytics from "@components/Analytics/analytics";
@@ -25,7 +28,7 @@ const theme = createTheme({
     },
   },
   typography: {
-    fontFamily: "Poppins, sans-serif",
+    fontFamily: "Raleway, sans-serif",
   },
   palette: {
     primary: {

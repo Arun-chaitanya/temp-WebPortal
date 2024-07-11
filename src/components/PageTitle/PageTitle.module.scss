@@ -1,7 +1,12 @@
 @import "src/styles/variables";
 
+.root {
+  font-weight: 900 !important;
+  letter-spacing: 3px;
+}
+
 .small {
-  font-size: 3.2rem;
+  font-size: 3.5rem;
 }
 
 .medium {

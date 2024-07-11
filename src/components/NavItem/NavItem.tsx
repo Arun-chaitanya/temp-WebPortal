@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import styles from "./NavItem.module.scss";
 
 const NavItem: React.FC<NavItemProps> = (props) => {
+  const router = useRouter();
   const {
     children,
     className,
@@ -18,26 +19,35 @@ const NavItem: React.FC<NavItemProps> = (props) => {
     showActive = true,
     position = "right",
     variant = "header",
+    showDivider = false,
     ...rest
   } = props;
 
   // const router = useRouter();
 
-  // const isActive =
-  //   showActive && (active || (href && (exact ? router.asPath === href : router.asPath.startsWith(href))));
+  const isActive =
+    showActive && (active || (href && (exact ? router.asPath === href : router.asPath.startsWith(href))));
 
   const renderLink = () => {
     if (!href) return <a onClick={onClick}>{children}</a>;
     if (isExternal)
       return (
-        <a href={href} onClick={onClick} target="_blank" rel="noopener noreferrer">
-          {children}
-        </a>
+        <div>
+          <a href={href} onClick={onClick} target="_blank" rel="noopener noreferrer" className="relative">
+            {children}
+            <div className={clsx(styles.underline, isActive && styles.activeUnderline)}></div>
+          </a>
+          {showDivider && <span className="mh10">|</span>}
+        </div>
       );
     return (
-      <Link {...rest} href={href} onClick={onClick}>
-        {children}
-      </Link>
+      <div>
+        <Link {...rest} href={href} onClick={onClick} className="relative">
+          {children}
+          <div className={clsx(styles.underline, isActive && styles.activeUnderline)}></div>
+        </Link>
+        {showDivider && <span className="mh10">|</span>}
+      </div>
     );
   };
 
@@ -61,6 +71,7 @@ type NavItemProps = React.PropsWithChildren<
     variant?: "body" | "header";
     id?: string;
     underlineClassName?: string;
+    showDivider?: boolean;
   }
 >;
 

@@ -1,0 +1,46 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+.heroSection {
+  background-color: #a62152;
+  padding: 2.5rem 0;
+  color: #ffffff;
+
+  .textContainer {
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+    line-height: 3.375rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+  }
+
+  .line {
+    margin: 1rem auto;
+    border-bottom: 2px solid #ffffff;
+    width: 20%;
+  }
+
+  .subhead {
+    font-size: 1.5rem;
+    line-height: 150%;
+    margin-top: 1rem;
+  }
+
+  .image {
+    width: 100%;
+    object-fit: cover;
+    height: 600px;
+  }
+}
+
+.heroContentBox {
+  background-color: $radical-plum !important;
+}
+
+.heroImageBox {
+  background-image: url("/assets/aboutus/hero-background.png");
+  background-position: right center;
+}

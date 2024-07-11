@@ -1,0 +1,165 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
+.contributionForCaregiver {
+  padding: 60px 0;
+  text-align: center;
+
+  .title {
+    margin-bottom: 20px;
+    color: #033540;
+  }
+
+  .subtitle {
+    margin-bottom: 40px;
+    color: #033540;
+  }
+
+  .diagramContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    position: relative;
+  }
+
+  .diagram {
+    position: relative;
+    width: 100%;
+    max-width: 865px;
+    min-height: 500px;
+
+    .centralPerson {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+
+      .centralImage {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+      }
+
+      .centralName {
+        margin-top: 10px;
+        font-size: 25px;
+      }
+    }
+
+    .connection {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100%;
+      height: auto;
+    }
+
+    .person {
+      position: absolute;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      .personImage {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+      }
+
+      .personName {
+        margin-top: 10px;
+        font-size: 25px;
+      }
+
+      .boostText {
+        margin-top: 5px;
+        font-size: 15px;
+        font-style: italic;
+      }
+    }
+  }
+
+  .receivedAmount {
+    margin-top: 40px;
+    font-size: 25px;
+    color: #033540;
+  }
+
+  .receivedBoosts {
+    margin-top: 10px;
+    font-size: 15px;
+    color: #033540;
+  }
+
+  @media (max-width: 768px) {
+    .diagram {
+      .centralPerson .centralImage {
+        width: 100px;
+        height: 100px;
+      }
+
+      .centralPerson .centralName {
+        font-size: 20px;
+      }
+
+      .person .personImage {
+        width: 80px;
+        height: 80px;
+      }
+
+      .person .personName {
+        font-size: 20px;
+      }
+
+      .person .boostText {
+        font-size: 12px;
+      }
+    }
+
+    .receivedAmount {
+      font-size: 20px;
+    }
+
+    .receivedBoosts {
+      font-size: 12px;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .diagram {
+      .centralPerson .centralImage {
+        width: 80px;
+        height: 80px;
+      }
+
+      .centralPerson .centralName {
+        font-size: 18px;
+      }
+
+      .person .personImage {
+        width: 60px;
+        height: 60px;
+      }
+
+      .person .personName {
+        font-size: 18px;
+      }
+
+      .person .boostText {
+        font-size: 10px;
+      }
+    }
+
+    .receivedAmount {
+      font-size: 18px;
+    }
+
+    .receivedBoosts {
+      font-size: 10px;
+    }
+  }
+}
