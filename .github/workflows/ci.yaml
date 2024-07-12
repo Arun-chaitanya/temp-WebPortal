@@ -2,15 +2,46 @@ name: WebPortal CI
 
 on:
   push:
-    branches: [ "main", "master" ]
+    branches: [ "main", "feature/**", "hotfix/**" ]
   pull_request:
     branches: [ "main" ]
+  release:
+    types: [created]
 
 jobs:
-  docker-in-linux-tests:
-
+  workflow-config:
     runs-on: ubuntu-latest
+    steps:
+      - name: Determine environment from branch name
+        id: env_check
+        run: |
+          echo "Running on branch ${{ github.ref }}"
+          if [[ "${{ github.event_name }}" == "release" ]]; then
+            # A Github release was created -> we deploy to PROD
+            echo "env_name=prod" >> $GITHUB_OUTPUT
+            echo "slack_channel=cicd-notifications" >> $GITHUB_OUTPUT
+            echo "deploy_to_cloud=true" >> $GITHUB_OUTPUT
+          elif [[ "${{ github.ref_name }}" == "main" || "${{ vars.DEV_BRANCHES }}" == *"${{ github.ref_name }}"* ]]; then
+            echo "env_name=dev" >> $GITHUB_OUTPUT
+            echo "slack_channel=cicd-notifications-dev" >> $GITHUB_OUTPUT
+            echo "deploy_to_cloud=true" >> $GITHUB_OUTPUT
+          else
+            # All other branches are built but not deployed to an environment
+            echo "env_name=dev" >> $GITHUB_OUTPUT
+            echo "slack_channel=cicd-notifications-dev" >> $GITHUB_OUTPUT
+            echo "deploy_to_cloud=false"  >> $GITHUB_OUTPUT
+          fi
+      - name: Log chosen environment
+        run: echo "Running workflow for environment ${{ steps.env_check.outputs.env_name }}"
+    outputs:
+      env-name: ${{ steps.env_check.outputs.env_name }}
+      slack-channel: ${{ steps.env_check.outputs.slack_channel }}
+      deploy-to-cloud: ${{ steps.env_check.outputs.deploy_to_cloud }}
 
+
+  docker-in-linux-tests:
+    needs: [workflow-config]
+    runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
     - name: Make docker command available
@@ -21,27 +52,13 @@ jobs:
       run: docker run test-image npm run test
 
   push-and-deploy:
-    needs: docker-in-linux-tests
-    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+    needs: [workflow-config, docker-in-linux-tests]
+    if: needs.workflow-config.outputs.deploy-to-cloud == 'true'
     runs-on: ubuntu-latest
-    environment: ${{ (github.ref == 'refs/heads/main' && 'dev') || (github.ref == 'refs/heads/master' && 'prod') }}
+    environment: ${{ needs.workflow-config.outputs.env-name }}
     steps:
-      - name: Set environment variables
-        id: set-vars
-        run: |
-          if [ "${{ github.ref }}" == "refs/heads/main" ]; then
-            echo "ECR_REPOSITORY=web-portal" >> $GITHUB_ENV
-            echo "TASK_DEF_NAME=web-portal-td" >> $GITHUB_ENV
-            echo "SERVICE_NAME=web-portal-dev" >> $GITHUB_ENV
-            echo "CLUSTER_NAME=carecove-dev" >> $GITHUB_ENV
-          else
-            echo "ECR_REPOSITORY=web" >> $GITHUB_ENV
-            echo "TASK_DEF_NAME=web" >> $GITHUB_ENV
-            echo "SERVICE_NAME=web" >> $GITHUB_ENV
-            echo "CLUSTER_NAME=carecove-prod" >> $GITHUB_ENV
-          fi
-
       - uses: actions/checkout@v4
+
       - uses: aws-actions/configure-aws-credentials@v1
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
@@ -58,13 +75,13 @@ jobs:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           IMAGE_TAG: ${{ github.sha }}
         run: |
-          docker build -f Dockerfile.prod -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-          echo "image=$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG" >> $GITHUB_OUTPUT
+          docker build -f Dockerfile.prod -t $ECR_REGISTRY/${{ vars.ECR_REPOSITORY }}:$IMAGE_TAG .
+          docker push $ECR_REGISTRY/${{ vars.ECR_REPOSITORY }}:$IMAGE_TAG
+          echo "image=$ECR_REGISTRY/${{ vars.ECR_REPOSITORY }}:$IMAGE_TAG" >> $GITHUB_OUTPUT
 
       - name: Download task definition
         run: |
-          aws ecs describe-task-definition --task-definition $TASK_DEF_NAME --query taskDefinition > task-definition.json
+          aws ecs describe-task-definition --task-definition ${{ vars.TASK_DEF_NAME }} --query taskDefinition > task-definition.json
 
       - name: Fill in the new image ID in the Amazon ECS task definition
         id: task-def
@@ -78,6 +95,6 @@ jobs:
         uses: aws-actions/amazon-ecs-deploy-task-definition@v1
         with:
           task-definition: ${{ steps.task-def.outputs.task-definition }}
-          service: ${{ env.SERVICE_NAME }}
-          cluster: ${{ env.CLUSTER_NAME }}
+          service: ${{ vars.SERVICE_NAME }}
+          cluster: ${{ vars.CLUSTER_NAME }}
           wait-for-service-stability: true
