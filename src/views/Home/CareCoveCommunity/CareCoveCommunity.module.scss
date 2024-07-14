@@ -1,4 +1,5 @@
-/* src/views/Home/CareCoveCommunity/CareCoveCommunity.module.scss */
+@import "src/styles/variables";
+
 .careCoveCommunity {
   padding: 60px 0;
   text-align: center;
@@ -17,28 +18,48 @@
 
   .carousel {
     width: 50%; /* Occupy half of the container width */
+    @media (max-width: $screen_sm) {
+      width: 100%; /* Occupy full width on smaller screens */
+    }
   }
 
   .testimonial {
-    background-color: #ff5678;
-    padding: 40px;
+    background-color: $electric-sunset;
+    padding: 40px 60px;
     border-radius: 12px;
     text-align: center;
     color: #ffffff;
     margin: 0 auto; /* Center align the testimonial within the carousel */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 800px;
+    justify-content: center;
+    @media (max-width: $screen_sm) {
+      padding: 40px;
+    }
 
     .image {
-      margin-bottom: 20px;
-      width: 150px; /* Adjust as necessary */
-      height: 150px; /* Adjust as necessary */
+      margin-bottom: 40px;
+      width: 260px;
+      height: 260px;
       border-radius: 50%;
+      @media (max-width: $screen_sm) {
+        width: 200px;
+        height: 200px;
+      }
     }
 
     .receipt,
     .quote {
-      margin-bottom: 20px;
+      padding-bottom: 30px;
+      border-bottom: 1px solid $white;
+      margin-bottom: 30px;
       font-size: 25px;
       font-style: italic;
+      @media (max-width: $screen_sm) {
+        font-size: 20px;
+      }
     }
 
     .author {

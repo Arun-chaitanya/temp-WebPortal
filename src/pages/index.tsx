@@ -33,7 +33,7 @@ const Home: NextPage = () => {
       <CashbackStore />
       <HowItWorks />
       <ContributionForCaregiver />
-      {/* <CareCoveCommunity /> */}
+      <CareCoveCommunity />
       <section className="pv60">
         <Container>
           <div className="flex column align-center">
