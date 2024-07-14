@@ -7,10 +7,10 @@
 
 .input {
   @include body-font(16px, 500, $dark);
-  height: 2.875rem;
-  padding: 0 1.25rem;
+  height: 3.75rem;
+  padding: 0 1.5rem;
   width: 100%;
-  border: 1.25px solid $border;
+  border: 1px solid $border;
   transition: $transition-default;
 
   @media (max-width: $screen_sm) {
@@ -48,7 +48,7 @@
 
 .rounded {
   background-color: $white;
-  border-radius: 5px;
+  border-radius: 12px;
   @media (max-width: $screen_sm) {
     border-color: $border;
   }
