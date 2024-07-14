@@ -39,7 +39,11 @@ const CareCoveCommunity: React.FC = () => {
           Hear From Our Carecove Team
         </PageTitle>
         <div className={styles.carouselContainer}>
-          <Carousel components={slides} className={styles.carousel} />
+          <Carousel
+            components={slides}
+            className={styles.carousel}
+            classes={{ leftNav: styles.leftNav, rightNav: styles.rightNav }}
+          />
         </div>
       </Container>
     </section>
