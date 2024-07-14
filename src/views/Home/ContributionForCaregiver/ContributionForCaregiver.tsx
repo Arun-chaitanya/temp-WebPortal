@@ -20,6 +20,11 @@ const ContributionForCaregiver: React.FC = () => {
           {<br />}
           by receiving regular financial support through collective effort.
         </Text>
+        <Image
+          src="/assets/home/empowering-caregivers.webp"
+          alt="Contribution for Caregiver"
+          className={styles.image}
+        />
       </Container>
     </section>
   );
