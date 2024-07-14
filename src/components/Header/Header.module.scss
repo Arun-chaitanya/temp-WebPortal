@@ -28,3 +28,19 @@
 .text {
   color: #fff;
 }
+
+.menuIcon {
+  path {
+    stroke: $neon-blaze;
+  }
+}
+
+.iconLink {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  background-color: $white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

@@ -10,10 +10,16 @@ import SignupModal from "@views/SignupModal";
 import LoginModal from "@views/LoginModal";
 import { handleTrackEvent } from "@utils/analytics";
 import { HEADER_EVENTS } from "@config/events";
+import { Drawer } from "@mui/material";
+import { useState } from "react";
+import SideNav from "./SideNav";
+import clsx from "clsx";
+import Menu from "@icons/Menu";
 
 const Header: React.FC = () => {
   const { t } = useTranslation("header");
-  const isTab = useBreakpoint({ max: "md" });
+  const isMobile = useBreakpoint({ max: "sm" });
+  const [sideDrawer, setSideDrawer] = useState(false);
 
   const tabs = [
     { href: "/aboutus", text: t("About Us"), event: HEADER_EVENTS.HEADER_ABOUT_US_NAVIGATION_CLICKED },
@@ -28,6 +34,11 @@ const Header: React.FC = () => {
 
   const handleSignupModal = () => {
     setLoginModal(true);
+  };
+
+  const handleSideDrawer = () => {
+    setSideDrawer(true);
+    handleTrackEvent("click_top_menu", { text: "nav-menu" });
   };
 
   const renderLinks = () => (
@@ -58,9 +69,26 @@ const Header: React.FC = () => {
             <Logo />
           </Col>
           <Col xs={8} sm={8} md={7.5} lg={8} className="flex items-center justify-end">
-            <NavList>{renderLinks()}</NavList>
+            {isMobile ? (
+              <div className={clsx(styles.iconLink, "cursor-pointer relative")} onClick={handleSideDrawer}>
+                <Menu className={styles.menuIcon} />
+              </div>
+            ) : (
+              <NavList>{renderLinks()}</NavList>
+            )}
           </Col>
         </Row>
+        {isMobile && (
+          <Drawer
+            className={styles.fixed}
+            anchor="right"
+            open={sideDrawer}
+            onClose={() => setSideDrawer(false)}
+            classes={{ paper: styles.drawer }}
+          >
+            <SideNav />
+          </Drawer>
+        )}
       </Container>
     </header>
   );

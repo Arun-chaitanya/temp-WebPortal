@@ -18,12 +18,10 @@ const NavItem: React.FC<NavItemProps> = (props) => {
     isExternal = false,
     showActive = true,
     position = "right",
-    variant = "header",
+    variant = "big",
     showDivider = false,
     ...rest
   } = props;
-
-  // const router = useRouter();
 
   const isActive =
     showActive && (active || (href && (exact ? router.asPath === href : router.asPath.startsWith(href))));
@@ -68,7 +66,7 @@ type NavItemProps = React.PropsWithChildren<
     active?: boolean;
     showActive?: boolean;
     position?: "left" | "right" | "justify" | "center";
-    variant?: "body" | "header";
+    variant?: "big" | "medium" | "small";
     id?: string;
     underlineClassName?: string;
     showDivider?: boolean;

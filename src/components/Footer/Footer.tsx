@@ -1,6 +1,5 @@
 /* src/components/Footer/Footer.tsx */
 import React from "react";
-import Link from "next/link";
 import styles from "./Footer.module.scss";
 import clsx from "clsx";
 import Logo from "@components/Logo";
@@ -30,7 +29,7 @@ const Footer: React.FC<React.HTMLProps<HTMLDivElement>> = (className, disabled, 
     { href: "/privacypolicy", text: "Privacy Policy", event: FOOTER_EVENTS.FOOTER_PARTNER_CLICKED },
   ];
 
-  const renderLinks = (list, variant: "header" | "body" = "header") => (
+  const renderLinks = (list, variant: "big" | "medium" | "small" = "big") => (
     <>
       {list.map((item, index) => (
         <>
@@ -55,8 +54,8 @@ const Footer: React.FC<React.HTMLProps<HTMLDivElement>> = (className, disabled, 
       <div className={styles.container}>
         <Logo className={styles.logo} variant="footer" />
         <div className={styles.right}>
-          <NavList>{renderLinks(tabs)}</NavList>
-          <NavList>{renderLinks(subTabs, "body")}</NavList>
+          <NavList>{renderLinks(tabs, isMobile ? "medium" : "big")}</NavList>
+          <NavList>{renderLinks(subTabs, isMobile ? "small" : "medium")}</NavList>
           <div className={styles.socialIcons}>
             <IconButton
               className={styles.icon}
