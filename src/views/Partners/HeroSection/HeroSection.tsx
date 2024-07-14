@@ -19,7 +19,7 @@ const HeroSection: React.FC = () => {
         <Text size="xl" weight="bold" color="light" className="mb30">
           Invest in caregiver support & reap the rewards of compassion.
         </Text>
-        <Button onClick={mailToCarecove} size={isMobile ? "small" : "medium"} fullWidth>
+        <Button onClick={mailToCarecove} size={isMobile ? "small" : "medium"} fullWidth={isMobile}>
           <Text size={isMobile ? "lg" : "xl"} weight="bold" color="light">
             {CONTACT_US_EMAIL}
           </Text>
