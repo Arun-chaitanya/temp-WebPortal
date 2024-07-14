@@ -6,10 +6,10 @@ import styles from "./HeroSection.module.scss";
 import { mailToCarecove } from "@utils/index";
 import Hero from "@components/Hero";
 import { CONTACT_US_EMAIL } from "@config/constants";
-import BannerImage from "../../../../public/banner2.jpeg";
-import Image from "@components/Image";
+import useBreakpoint from "@hooks/useBreakpoint";
 
 const HeroSection: React.FC = () => {
+  const isMobile = useBreakpoint({ max: "sm" });
   return (
     <Hero classes={{ left: styles.heroContentBox, right: styles.heroImageBox }}>
       <div className={styles.heroContent}>
@@ -19,7 +19,11 @@ const HeroSection: React.FC = () => {
         <Text size="xl" weight="bold" color="light" className="mb30">
           Invest in caregiver support & reap the rewards of compassion.
         </Text>
-        <Button onClick={mailToCarecove}>{CONTACT_US_EMAIL}</Button>
+        <Button onClick={mailToCarecove} size={isMobile ? "small" : "medium"} fullWidth>
+          <Text size={isMobile ? "lg" : "xl"} weight="bold" color="light">
+            {CONTACT_US_EMAIL}
+          </Text>
+        </Button>
       </div>
     </Hero>
   );

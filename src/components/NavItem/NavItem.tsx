@@ -23,8 +23,6 @@ const NavItem: React.FC<NavItemProps> = (props) => {
     ...rest
   } = props;
 
-  // const router = useRouter();
-
   const isActive =
     showActive && (active || (href && (exact ? router.asPath === href : router.asPath.startsWith(href))));
 

@@ -16,5 +16,6 @@
 
 .navItem {
   @include body-font(1.5rem, 700, $midnight-lagoon);
+  color: $midnight-lagoon !important;
   margin-bottom: 10px;
 }

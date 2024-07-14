@@ -23,13 +23,7 @@ const SideNav = () => {
     <>
       {tabs.map((item, index) => (
         <>
-          <NavItem
-            onClick={handleTrackEvent(item.event)}
-            key={item.href}
-            href={item.href}
-            exact
-            className={styles.navItem}
-          >
+          <NavItem key={item.href} href={item.href} exact className={styles.navItem}>
             {item.text}
           </NavItem>
         </>
