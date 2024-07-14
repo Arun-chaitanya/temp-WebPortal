@@ -18,6 +18,9 @@
 
   .carousel {
     width: 50%; /* Occupy half of the container width */
+    @media (max-width: $screen_md) {
+      width: 75%;
+    }
     @media (max-width: $screen_sm) {
       width: 100%; /* Occupy full width on smaller screens */
     }
@@ -65,5 +68,19 @@
     .author {
       font-size: 25px;
     }
+  }
+}
+
+.leftNav {
+  left: 5rem;
+  @media (max-width: $screen_md) {
+    left: 3rem;
+  }
+}
+
+.rightNav {
+  right: 5rem;
+  @media (max-width: $screen_md) {
+    right: 3rem;
   }
 }
