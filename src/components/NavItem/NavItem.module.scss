@@ -47,12 +47,16 @@
   padding: 0 0.625rem;
 }
 
-.body {
+.big {
+  @include body-font(1.5rem, 700, $white);
+}
+
+.medium {
   @include body-font(1rem, 600, $white);
 }
 
-.header {
-  @include body-font(1.5rem, 700, $white);
+.small {
+  @include body-font(0.8rem, 600, $white);
 }
 
 .center {
