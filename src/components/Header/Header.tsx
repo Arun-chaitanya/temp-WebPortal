@@ -14,7 +14,7 @@ import { Drawer } from "@mui/material";
 import { useState } from "react";
 import SideNav from "./SideNav";
 import clsx from "clsx";
-import LinkedIn from "@icons/LinkedIn";
+import Menu from "@icons/Menu";
 
 const Header: React.FC = () => {
   const { t } = useTranslation("header");
@@ -71,7 +71,7 @@ const Header: React.FC = () => {
           <Col xs={8} sm={8} md={7.5} lg={8} className="flex items-center justify-end">
             {isMobile ? (
               <div className={clsx(styles.iconLink, "cursor-pointer relative")} onClick={handleSideDrawer}>
-                <LinkedIn />
+                <Menu className={styles.menuIcon} />
               </div>
             ) : (
               <NavList>{renderLinks()}</NavList>
