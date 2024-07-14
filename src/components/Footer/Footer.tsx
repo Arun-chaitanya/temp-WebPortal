@@ -7,30 +7,56 @@ import Logo from "@components/Logo";
 import IconButton from "@components/IconButton";
 import useBreakpoint from "@hooks/useBreakpoint";
 import { handleTrackEvent } from "@utils/analytics";
-import { FOOTER_EVENTS, FOOTER_SOCIALS_TYPE } from "@config/events";
+import { FOOTER_EVENTS, FOOTER_SOCIALS_TYPE, HEADER_EVENTS } from "@config/events";
 import LinkedIn from "@icons/LinkedIn";
+import Facebook from "@icons/Facebook";
+import Twitter from "@icons/Twitter";
+import Instagram from "@icons/Instagram";
+import NavItem from "@components/NavItem";
+import NavList from "@components/NavList";
 
 const Footer: React.FC<React.HTMLProps<HTMLDivElement>> = (className, disabled, ...props) => {
   const isMobile = useBreakpoint({ max: "sm" });
+
+  const tabs = [
+    { href: "/aboutus", text: "About Us", event: FOOTER_EVENTS.FOOTER_ABOUT_US_CLICKED },
+    { href: "/partners", text: "Partner With Us", event: FOOTER_EVENTS.FOOTER_PARTNER_CLICKED },
+    { href: "/contactus", text: "Contact Us", event: FOOTER_EVENTS.FOOTER_PARTNER_CLICKED },
+  ];
+
+  const subTabs = [
+    { href: "/faq", text: "FAQ", event: FOOTER_EVENTS.FOOTER_ABOUT_US_CLICKED },
+    { href: "/termsofservice", text: "Terms of Service", event: FOOTER_EVENTS.FOOTER_PARTNER_CLICKED },
+    { href: "/privacypolicy", text: "Privacy Policy", event: FOOTER_EVENTS.FOOTER_PARTNER_CLICKED },
+  ];
+
+  const renderLinks = (list, variant: "header" | "body" = "header") => (
+    <>
+      {list.map((item, index) => (
+        <>
+          <NavItem
+            variant={variant}
+            onClick={handleTrackEvent(item.event)}
+            key={item.href}
+            href={item.href}
+            showDivider={index !== tabs.length - 1}
+            exact
+            showActive={false}
+          >
+            {item.text}
+          </NavItem>
+        </>
+      ))}
+    </>
+  );
 
   return (
     <footer className={clsx(styles.footer, className)}>
       <div className={styles.container}>
         <Logo className={styles.logo} variant="footer" />
         <div className={styles.right}>
-          <div className={styles.links}>
-            <Link href="/aboutus" onClick={handleTrackEvent(FOOTER_EVENTS.FOOTER_ABOUT_US_CLICKED)}>
-              About Us
-            </Link>
-            {" | "}
-            <Link href="/partners" onClick={handleTrackEvent(FOOTER_EVENTS.FOOTER_PARTNER_CLICKED)}>
-              Partner with us
-            </Link>
-            {" | "}
-            <Link href="/contact" onClick={handleTrackEvent(FOOTER_EVENTS.FOOTER_CONTACT_US_CLICKED)}>
-              Contact us
-            </Link>
-          </div>
+          <NavList>{renderLinks(tabs)}</NavList>
+          <NavList>{renderLinks(subTabs, "body")}</NavList>
           <div className={styles.socialIcons}>
             <IconButton
               className={styles.icon}
@@ -40,17 +66,7 @@ const Footer: React.FC<React.HTMLProps<HTMLDivElement>> = (className, disabled, 
                 socialMediaName: FOOTER_SOCIALS_TYPE.FACEBOOK,
               })}
             >
-              <LinkedIn />
-            </IconButton>
-            <IconButton
-              className={styles.icon}
-              isExternal
-              href={"https://www.instagram.com/"}
-              onClick={handleTrackEvent(FOOTER_EVENTS.FOOTER_SOCIALS_CLICKED, {
-                socialMediaName: FOOTER_SOCIALS_TYPE.INSTAGRAM,
-              })}
-            >
-              <LinkedIn />
+              <Facebook />
             </IconButton>
             <IconButton
               className={styles.icon}
@@ -60,7 +76,17 @@ const Footer: React.FC<React.HTMLProps<HTMLDivElement>> = (className, disabled, 
                 socialMediaName: FOOTER_SOCIALS_TYPE.TWITTER,
               })}
             >
-              <LinkedIn />
+              <Twitter />
+            </IconButton>
+            <IconButton
+              className={styles.icon}
+              isExternal
+              href={"https://www.instagram.com/"}
+              onClick={handleTrackEvent(FOOTER_EVENTS.FOOTER_SOCIALS_CLICKED, {
+                socialMediaName: FOOTER_SOCIALS_TYPE.INSTAGRAM,
+              })}
+            >
+              <Instagram />
             </IconButton>
             <IconButton
               className={styles.icon}
@@ -72,7 +98,7 @@ const Footer: React.FC<React.HTMLProps<HTMLDivElement>> = (className, disabled, 
             >
               <LinkedIn />
             </IconButton>
-            <IconButton
+            {/* <IconButton
               className={styles.icon}
               isExternal
               href={"https://www.youtube.com/"}
@@ -81,7 +107,7 @@ const Footer: React.FC<React.HTMLProps<HTMLDivElement>> = (className, disabled, 
               })}
             >
               <LinkedIn />
-            </IconButton>
+            </IconButton> */}
           </div>
         </div>
       </div>

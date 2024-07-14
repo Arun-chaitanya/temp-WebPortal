@@ -17,7 +17,6 @@
     justify-content: space-between;
     width: 100%;
     max-width: 1440px;
-    align-items: center;
 
     @media (max-width: 768px) {
       flex-direction: column;
@@ -27,6 +26,7 @@
 
   .logo {
     flex: 1;
+    margin-top: 1.2rem;
   }
 
   .right {
@@ -57,18 +57,12 @@
 
     .icon {
       margin: 0 5px;
-      height: 40px;
-      width: 40px;
-      background-color: black;
+      height: 36px;
+      width: 36px;
       border-radius: 50%;
       display: flex;
       justify-content: center;
       align-items: center;
-
-      img {
-        width: 28px;
-        height: 28px;
-      }
     }
   }
 

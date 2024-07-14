@@ -5,6 +5,7 @@ import styles from "./ElevationImpactSection.module.scss";
 import Image from "@components/Image";
 import { Container } from "@mui/material";
 import Button from "@components/Button";
+import { Col, Row } from "react-grid-system";
 
 const ElevationImpactSection: React.FC = () => {
   return (
@@ -14,8 +15,8 @@ const ElevationImpactSection: React.FC = () => {
           <PageTitle color="midnight-lagoon" className="mb85">
             Elevate Your Impact
           </PageTitle>
-          <div className={styles.cards}>
-            <div className={styles.card}>
+          <Row>
+            <Col xs={12} lg={4} className={styles.card}>
               <Image src="/assets/partners/unlock-icon.svg" alt="Unlock" className={styles.icon} />
               <Text weight="bold" size="xl" color="midnight-lagoon" align="center" className="mb15">
                 Unlock
@@ -23,8 +24,8 @@ const ElevationImpactSection: React.FC = () => {
               <Text weight="medium" size="xl" color="midnight-lagoon" align="center" className={styles.cardContent}>
                 New revenue opportunities by supporting a vital cause.
               </Text>
-            </div>
-            <div className={styles.card}>
+            </Col>
+            <Col xs={12} lg={4} className={styles.card}>
               <Image src="/assets/partners/extend-icon.svg" alt="Extend" className={styles.icon} />
               <Text weight="bold" size="xl" color="midnight-lagoon" align="center" className="mb15">
                 Extend
@@ -32,8 +33,8 @@ const ElevationImpactSection: React.FC = () => {
               <Text weight="medium" size="xl" color="midnight-lagoon" align="center" className={styles.cardContent}>
                 Your market reach by connecting with our extensive caregiver network.
               </Text>
-            </div>
-            <div className={styles.card}>
+            </Col>
+            <Col xs={12} lg={4} className={styles.card}>
               <Image src="/assets/partners/gain-icon.svg" alt="Gain" className={styles.icon} />
               <Text weight="bold" size="xl" color="midnight-lagoon" align="center" className="mb15">
                 Gain
@@ -41,8 +42,8 @@ const ElevationImpactSection: React.FC = () => {
               <Text weight="medium" size="xl" color="midnight-lagoon" align="center" className={styles.cardContent}>
                 Recognition as a valued partner in Carecove’s directory of trusted allies.
               </Text>
-            </div>
-          </div>
+            </Col>
+          </Row>
         </Container>
       </section>
       <section className="mv60 flex justify-center">

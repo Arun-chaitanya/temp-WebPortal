@@ -6,9 +6,9 @@ import "react-toastify/dist/ReactToastify.css";
 import { createTheme } from "@mui/material/styles";
 import { ThemeProvider } from "@mui/material/styles";
 
-import "@styles/classes.scss";
 import "@styles/fonts.scss";
 import "@styles/globals.scss";
+import "@styles/classes.scss";
 import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";

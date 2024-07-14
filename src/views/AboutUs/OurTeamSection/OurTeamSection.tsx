@@ -14,7 +14,7 @@ const teamMembers = [
         Co-Founder
       </>
     ),
-    image: "./assets/image-placeholder-alice.svg",
+    image: "/assets/coreteam/alice.png",
   },
   {
     name: "Stephen Lane",
@@ -24,42 +24,32 @@ const teamMembers = [
         Co-Founder
       </>
     ),
-    image: "./assets/image-placeholder-steve.svg",
+    image: "/assets/coreteam/steve.png",
   },
   {
     name: "Matt Hasten",
     role: "Chief Product Officer",
-    image: "./assets/image-placeholder-matt.svg",
+    image: "/assets/coreteam/matt.png",
   },
   {
     name: "Bruno Botvinik",
     role: "Technical Advisor",
-    image: "./assets/image-placeholder-bruno.svg",
+    image: "/assets/coreteam/bruno.png",
   },
   {
     name: "Stephanie Euzebio",
     role: <>Head of Design</>,
-    image: "./assets/image-placeholder-steph.svg",
+    image: "/assets/coreteam/steph.png",
   },
   {
     name: "Preet Singh",
     role: "Design",
-    image: "./assets/image-placeholder-preet.svg",
-  },
-  {
-    name: "Harsh Bhagtani",
-    role: "Engineer",
-    image: "./assets/image-placeholder-harsh.svg",
+    image: "/assets/coreteam/preet.png",
   },
   {
     name: "Arun Chaitanya",
     role: "Engineer",
-    image: "./assets/image-placeholder-arun.svg",
-  },
-  {
-    name: "Sai Krishna",
-    role: "Engineer",
-    image: "./assets/image-placeholder-sai.svg",
+    image: "/assets/coreteam/arun.png",
   },
 ];
 

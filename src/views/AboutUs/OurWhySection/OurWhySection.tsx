@@ -4,8 +4,10 @@ import PageTitle from "@components/PageTitle";
 import Text from "@components/Text";
 import Image from "@components/Image";
 import styles from "./OurWhySection.module.scss";
+import useBreakpoint from "@hooks/useBreakpoint";
 
 const OurWhySection: React.FC = () => {
+  const isMobile = useBreakpoint({ max: "sm" });
   return (
     <section className={styles.ourWhySection}>
       <PageTitle align="center" className="mb60" color="radical-plum">
@@ -20,14 +22,16 @@ const OurWhySection: React.FC = () => {
           </Text>
         </Col>
         <Col xs={12} lg={5.75} className={styles.whyImageContainer}>
-          <Image src="/assets/coreteam/steve.png" alt="Steve with Family" className={styles.whyImage} />
+          <Image src="/assets/coreteam/steve-family.png" alt="Steve with Family" className={styles.whyImage} />
         </Col>
       </Row>
 
-      <Row className={styles.ourWhyRow}>
-        <Col xs={12} lg={5.75} className={styles.whyImageContainer}>
-          <Image src="/assets/coreteam/george.png" alt="Steve with Family" className={styles.whyImage} />
-        </Col>
+      <Row className={styles.ourWhyRow} direction={isMobile ? "row-reverse" : "row"}>
+        {!isMobile && (
+          <Col xs={12} lg={5.75} className={styles.whyImageContainer}>
+            <Image src="/assets/coreteam/alice-family.png" alt="Alice with Family" className={styles.whyImage} />
+          </Col>
+        )}
         <Col xs={12} lg={6.25} className={styles.whyText}>
           <PageTitle color="light">2022</PageTitle>
           <Text className={styles.description}>
@@ -35,6 +39,11 @@ const OurWhySection: React.FC = () => {
             unwavering support, easing the burden of her new, challenging reality.
           </Text>
         </Col>
+        {isMobile && (
+          <Col xs={12} lg={5.75} className={styles.whyImageContainer}>
+            <Image src="/assets/coreteam/alice-family.png" alt="Steve with Family" className={styles.whyImage} />
+          </Col>
+        )}
       </Row>
 
       <Row className={styles.ourWhyRow}>
@@ -46,7 +55,7 @@ const OurWhySection: React.FC = () => {
           </Text>
         </Col>
         <Col xs={12} lg={5.75} className={styles.whyImageContainer}>
-          <Image src="./assets/coreteam/steve_and_alice.png" alt="Steve with Family" className={styles.whyImage} />
+          <Image src="./assets/coreteam/steve-and-alice.png" alt="Steve with Family" className={styles.whyImage} />
         </Col>
       </Row>
     </section>

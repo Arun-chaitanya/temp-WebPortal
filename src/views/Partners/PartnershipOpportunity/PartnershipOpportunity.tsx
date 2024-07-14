@@ -5,6 +5,8 @@ import Button from "@components/Button";
 import styles from "./PartnershipOpportunity.module.scss";
 import Image from "@components/Image";
 import { Container } from "@mui/material";
+import { Col, Row } from "react-grid-system";
+import useBreakpoint from "@hooks/useBreakpoint";
 
 type PartnershipContentType = {
   title: string;
@@ -79,33 +81,36 @@ const PARTNERSHIP_CONTENT: PartnershipContentType[] = [
 ];
 
 const PartnershipCard: React.FC<PartnershipContentType> = (props) => {
-  const { title, description, partnerBenefitsPoints } = props;
+  const { icon, title, description, partnerBenefitsPoints } = props;
   return (
-    <div className={styles.card}>
-      <Image src={""} alt="Sponsors" className={styles.icon} />
-      <Text weight="semi-bold" size="xl" color="radical-plum" align="center" className="mb20">
-        {title}
-      </Text>
-      <Text weight="medium" size="lg" color="radical-plum" align="center" className="mb90">
-        {description}
-      </Text>
-      <div className="flex justify-center mb50">
-        <Button size="small" style={{ width: "80%" }} variant="dark">
-          Learn More
-        </Button>
-      </div>
+    <Col xs={12} lg={4} className="mb20">
+      <div className={styles.card}>
+        <Image src={icon} alt="Sponsors" className={styles.icon} />
+        <Text weight="semi-bold" size="xl" color="radical-plum" align="center" className="mb20">
+          {title}
+        </Text>
+        <Text weight="medium" size="lg" color="radical-plum" align="center" className="mb90">
+          {description}
+        </Text>
+        <div className="flex justify-center mb50">
+          <Button size="small" style={{ width: "80%" }} variant="dark">
+            Learn More
+          </Button>
+        </div>
 
-      <Text weight="bold" size="lg" color="radical-plum" align="center" className="mb30">
-        Partner Benefits
-      </Text>
-      <Text weight="medium" size="lg" color="radical-plum" align="center">
-        {partnerBenefitsPoints}
-      </Text>
-    </div>
+        <Text weight="bold" size="lg" color="radical-plum" align="center" className="mb30">
+          Partner Benefits
+        </Text>
+        <Text weight="medium" size="lg" color="radical-plum" align="center">
+          {partnerBenefitsPoints}
+        </Text>
+      </div>
+    </Col>
   );
 };
 
 const PartnershipOpportunity: React.FC = () => {
+  const isMobile = useBreakpoint({ max: "sm" });
   return (
     <section className={styles.partnershipOpportunitiesSection}>
       <PageTitle color="oceanic" align="center" className="mb30">
@@ -115,11 +120,11 @@ const PartnershipOpportunity: React.FC = () => {
         <Text size="xl" color="oceanic" align="center" weight="bold" className="mb45">
           Shape a World Where Caregivers Thrive.
         </Text>
-        <div className={styles.cards}>
+        <Row className={styles.cards} gutterWidth={isMobile ? 0 : 30}>
           {PARTNERSHIP_CONTENT.map((content, index) => (
             <PartnershipCard {...content} key={index} />
           ))}
-        </div>
+        </Row>
         <div className="flex justify-center">
           <Button size="small">Join The Waitlist</Button>
         </div>

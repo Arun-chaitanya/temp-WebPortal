@@ -18,7 +18,7 @@ const Header: React.FC = () => {
   const tabs = [
     { href: "/aboutus", text: t("About Us"), event: HEADER_EVENTS.HEADER_ABOUT_US_NAVIGATION_CLICKED },
     { href: "/partners", text: t("Partner With Us"), event: HEADER_EVENTS.HEADER_PARTNER_NAVIGATION_CLICKED },
-    { href: "", text: t("Login") },
+    // { href: "", text: t("Login") },
   ];
 
   const setLoginModal = useAppstore((state: StoreState) => state.setLoginModal);

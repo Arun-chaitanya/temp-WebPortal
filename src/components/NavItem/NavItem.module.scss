@@ -48,11 +48,11 @@
 }
 
 .body {
-  @include body-font(1.25rem, 400, $white);
+  @include body-font(1rem, 600, $white);
 }
 
 .header {
-  @include body-font(1.25rem, 700, $white);
+  @include body-font(1.5rem, 700, $white);
 }
 
 .center {
