@@ -7,30 +7,58 @@ import Carousel from "@components/Carousel";
 import styles from "./CareCoveCommunity.module.scss";
 import useBreakpoint from "@hooks/useBreakpoint";
 
-const Testimonial: React.FC<{ key: number }> = ({ key }) => {
+const TESTINOMIALS = [
+  {
+    image: "./assets/coreteam/steve.png",
+    quote:
+      "“I wouldn’t be in the position I am today if it wasn’t for the support I received from Jackie. I started Carecove because it sucks to be a “Jackie” but it's SO important and I think little bits of support from friends can go a long way!”.",
+    name: "Stephen Lane",
+    position: "Executive Chairman & Co -Founder",
+  },
+  {
+    image: "./assets/coreteam/alice.png",
+    quote:
+      "Caring for someone you love, is both rewarding and thankless. Friends and family around you raising you up, as you care for someone special, it gives you the strength to push through the hard days. ",
+    name: "Alice Lewis",
+    position: "CEO, Co-Founder",
+  },
+  {
+    image: "./assets/coreteam/matt.png",
+    quote:
+      "We all have moments in life when we need to rely on others and others need to rely on us. In those moments, BOTH people need support.",
+    name: "Matt Hasten",
+    position: "Chief Product Officer",
+  },
+];
+
+type TestinomialType = {
+  image: string;
+  quote: string;
+  name: string;
+  position: string;
+};
+
+const Testimonial: React.FC<TestinomialType & { key: number }> = ({ key, image, quote, name, position }) => {
   const isMobile = useBreakpoint({ max: "sm" });
   return (
     <div className={styles.testimonial} key={key}>
-      <Image src={"./assets/coreteam/steve.png"} alt="Testimonial" className={styles.image} />
+      <Image src={image} alt="Testimonial" className={styles.image} />
 
       <Text align="center" weight="medium" color="light" size="lg" className={styles.quote}>
-        “I wouldn’t be in the position I am today if it wasn’t for the support I received from Jackie. I started
-        {/* eslint-disable-next-line react/no-unescaped-entities */}
-        Carecove because it sucks to be a “Jackie” but it's SO important and I think little bits of support from friends
-        can go a long way!”.
+        {quote}
       </Text>
       <Text align="center" weight="bold" color="light" size={isMobile ? "lg" : "xl"}>
-        Stephen Lane
+        {name}
       </Text>
       <Text align="center" weight="bold" color="light" size={isMobile ? "lg" : "xl"}>
-        Executive Chairman & Co -Founder
+        {position}
       </Text>
     </div>
   );
 };
 
 const CareCoveCommunity: React.FC = () => {
-  const slides = [<Testimonial key={1} />, <Testimonial key={2} />, <Testimonial key={3} />];
+  const slides = TESTINOMIALS.map((testinomial, index) => <Testimonial key={1} {...testinomial} />);
 
   return (
     <section className={styles.careCoveCommunity}>
