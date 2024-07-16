@@ -13,7 +13,7 @@ const HeroSection: React.FC = () => {
   return (
     <Hero classes={{ left: styles.heroContentBox, right: styles.heroImageBox }}>
       <div className={styles.heroContent}>
-        <PageTitle color="light" className="mb20">
+        <PageTitle color="light" className="mb20" variant="medium">
           Grow with Carecove.
         </PageTitle>
         <Text size="xl" weight="bold" color="light" className="mb30">

@@ -58,7 +58,7 @@ const HeroSection: React.FC = () => {
   return (
     <Hero classes={{ left: styles.heroContentBox, right: styles.heroImageBox }}>
       <div className={styles.heroContent}>
-        <PageTitle color="light" className="mb10">
+        <PageTitle color="light" className="mb10" variant="medium">
           Every Purchase Counts
         </PageTitle>
         <Text color="light" weight="bold" size="xl" className="mb30">

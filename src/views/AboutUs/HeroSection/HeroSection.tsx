@@ -8,7 +8,7 @@ const HeroSection: React.FC = () => {
     <Hero classes={{ left: styles.heroContentBox, right: styles.heroImageBox }}>
       <div className={styles.heroContent}>
         <div className={styles.textContainer}>
-          <PageTitle color="light" className="mb20">
+          <PageTitle color="light" className="mb20" variant="medium">
             Boosting Caregivers.
           </PageTitle>
           <PageTitle color="light" className="mb30">
