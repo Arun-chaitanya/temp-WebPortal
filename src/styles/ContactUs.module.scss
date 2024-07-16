@@ -1,0 +1,17 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
+.row {
+  margin: 0 !important;
+}
+
+.column {
+  padding: 0 !important;
+  margin-bottom: 60px;
+}
+
+.description {
+  a {
+    text-decoration: underline;
+  }
+}

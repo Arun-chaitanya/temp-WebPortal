@@ -6,10 +6,10 @@ const Hero: React.FC<HeroProps> = ({ className, children, classes }) => {
   return (
     <section className={clsx(styles.hero, className)}>
       <Row className={styles.row}>
-        <Col xs={12} md={4.5} className={clsx(styles.colLeft, classes?.left)}>
+        <Col xs={12} md={5} className={clsx(styles.colLeft, classes?.left)}>
           {children}
         </Col>
-        <Col xs={12} md={7.5} className={clsx(styles.colRight, classes?.right)}></Col>
+        <Col xs={12} md={7} className={clsx(styles.colRight, classes?.right)}></Col>
       </Row>
     </section>
   );

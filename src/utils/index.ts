@@ -1,7 +1,12 @@
-import { CONTACT_US_EMAIL } from "@config/constants";
+import { CONTACT_US_EMAIL, SUPPORT_EMAIL } from "@config/constants";
 
 export const mailToCarecove = () => {
   const mailtoLink = `mailto:${CONTACT_US_EMAIL}`;
+  window.location.href = mailtoLink;
+};
+
+export const mailToSupportCarecove = () => {
+  const mailtoLink = `mailto:${SUPPORT_EMAIL}`;
   window.location.href = mailtoLink;
 };
 
