@@ -43,7 +43,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       <AuthProvider>
         <ThemeProvider theme={theme}>
           <Head>
-            <link rel="icon" href="/logo.png" />
+            <link rel="icon" href="/assets/meta-logo.svg" />
           </Head>
 
           <Analytics />
