@@ -24,7 +24,7 @@ const Footer: React.FC<React.HTMLProps<HTMLDivElement>> = (className, disabled, 
   ];
 
   const subTabs = [
-    { href: "/faq", text: "FAQ", event: FOOTER_EVENTS.FOOTER_ABOUT_US_CLICKED },
+    // { href: "/faq", text: "FAQ", event: FOOTER_EVENTS.FOOTER_ABOUT_US_CLICKED },
     { href: "/termsofservice", text: "Terms of Service", event: FOOTER_EVENTS.FOOTER_PARTNER_CLICKED },
     { href: "/privacypolicy", text: "Privacy Policy", event: FOOTER_EVENTS.FOOTER_PARTNER_CLICKED },
   ];
@@ -38,7 +38,7 @@ const Footer: React.FC<React.HTMLProps<HTMLDivElement>> = (className, disabled, 
             onClick={handleTrackEvent(item.event)}
             key={item.href}
             href={item.href}
-            showDivider={index !== tabs.length - 1}
+            showDivider={index !== list.length - 1}
             exact
             showActive={false}
           >
