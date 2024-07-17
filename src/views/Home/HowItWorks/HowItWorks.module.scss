@@ -36,8 +36,8 @@
 
 .stepImage {
   margin-bottom: 20px;
-  width: 108px; /* Keep the appropriate size for the image */
-  height: 83px; /* Adjust the height as necessary */
+  width: 80px;
+  height: 80px;
 }
 
 .stepTitle {
@@ -57,7 +57,7 @@
   display: flex;
   justify-content: center;
   @media (max-width: $screen_sm) {
-    margin-top: 40px;
+    margin-top: 10px;
   }
 }
 

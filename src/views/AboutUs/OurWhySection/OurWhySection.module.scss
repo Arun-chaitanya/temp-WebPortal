@@ -35,10 +35,6 @@
 .whyImage {
   min-height: 100%;
   height: 400px;
-
-  img {
-    object-fit: cover;
-  }
   @media (max-width: $screen_sm) {
     height: 200px;
   }

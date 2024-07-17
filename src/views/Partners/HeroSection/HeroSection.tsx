@@ -16,7 +16,7 @@ const HeroSection: React.FC = () => {
         <PageTitle color="light" className="mb20" variant="medium">
           Grow with Carecove.
         </PageTitle>
-        <Text size="xl" weight="bold" color="light" className="mb30">
+        <Text size={isMobile ? "lg" : "xl"} weight="bold" color="light" className="mb30">
           Invest in caregiver support & reap the rewards of compassion.
         </Text>
         <Button onClick={mailToCarecove} size={isMobile ? "small" : "medium"} fullWidth={isMobile}>

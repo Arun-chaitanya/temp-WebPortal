@@ -20,7 +20,11 @@
     padding: 0 40px;
     @media (max-width: $screen_sm) {
       padding: 0 20px;
-      margin-top: 40px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+    img {
+      object-fit: contain;
     }
   }
 
@@ -28,7 +32,8 @@
     height: 50px;
     flex: 0 1 150px; /* Adjust the flex-grow, flex-shrink, and base width */
     @media (max-width: $screen_sm) {
-      flex: 0 1 130px; /* Adjust the flex-grow, flex-shrink, and base width */
+      flex: 0 1 200px; /* Adjust the flex-grow, flex-shrink, and base width */
+      height: 70px;
     }
   }
 }

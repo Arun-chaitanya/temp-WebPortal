@@ -9,11 +9,11 @@ import useBreakpoint from "@hooks/useBreakpoint";
 
 const TESTINOMIALS = [
   {
-    image: "./assets/coreteam/steve.png",
+    image: "./assets/coreteam/steve-home.png",
     quote:
-      "“I wouldn’t be in the position I am today if it wasn’t for the support I received from Jackie. I started Carecove because it sucks to be a “Jackie” but it's SO important and I think little bits of support from friends can go a long way!”.",
+      "The support of friends and family was invaluable for my wife, who had to become a caregiver overnight after I was severely injured by a drunk driver. That’s why Carecove exists – to make it incredibly easy to support caregivers.",
     name: "Stephen Lane",
-    position: "Executive Chairman & Co -Founder",
+    position: "Co-Founder",
   },
   {
     image: "./assets/coreteam/alice.png",
@@ -23,7 +23,7 @@ const TESTINOMIALS = [
     position: "CEO, Co-Founder",
   },
   {
-    image: "./assets/coreteam/matt.png",
+    image: "./assets/coreteam/matt-home.jpg",
     quote:
       "We all have moments in life when we need to rely on others and others need to rely on us. In those moments, BOTH people need support.",
     name: "Matt Hasten",
@@ -44,13 +44,13 @@ const Testimonial: React.FC<TestinomialType & { key: number }> = ({ key, image, 
     <div className={styles.testimonial} key={key}>
       <Image src={image} alt="Testimonial" className={styles.image} />
 
-      <Text align="center" weight="medium" color="light" size="lg" className={styles.quote}>
+      <Text align="center" weight="medium" color="light" className={styles.quote} style="italic">
         {quote}
       </Text>
-      <Text align="center" weight="bold" color="light" size={isMobile ? "lg" : "xl"}>
+      <Text align="center" weight="bold" color="light" size={isMobile ? "md" : "lg"}>
         {name}
       </Text>
-      <Text align="center" weight="bold" color="light" size={isMobile ? "lg" : "xl"}>
+      <Text align="center" weight="bold" color="light" size={isMobile ? "md" : "lg"}>
         {position}
       </Text>
     </div>
