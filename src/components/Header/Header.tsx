@@ -3,10 +3,11 @@ import { Container, Row, Col } from "react-grid-system";
 import useBreakpoint from "@hooks/useBreakpoint";
 import Logo from "@components/Logo";
 import NavItem from "@components/NavItem";
+
 import NavList from "@components/NavList";
-import styles from "./Header.module.scss";
-import useAppstore, { StoreState } from "@store/useAppstore";
+
 import SignupModal from "@views/SignupModal";
+import useAppstore, { StoreState } from "@store/useAppstore";
 import LoginModal from "@views/LoginModal";
 import { handleTrackEvent } from "@utils/analytics";
 import { HEADER_EVENTS } from "@config/events";
@@ -15,6 +16,8 @@ import { useState } from "react";
 import SideNav from "./SideNav";
 import clsx from "clsx";
 import Menu from "@icons/Menu";
+import FullContainer from "@components/FullContainer";
+import styles from "./Header.module.scss";
 
 const Header: React.FC = () => {
   const { t } = useTranslation("header");
@@ -63,7 +66,7 @@ const Header: React.FC = () => {
     <header className={styles.root} data-testid="header">
       {signupModal && <SignupModal />}
       {loginModal && <LoginModal />}
-      <Container fluid className={styles.container}>
+      <FullContainer className={styles.container}>
         <Row align="center" nogutter justify="between">
           <Col xs={4} sm={4} md={4.5} lg={4}>
             <Logo />
@@ -89,7 +92,7 @@ const Header: React.FC = () => {
             <SideNav />
           </Drawer>
         )}
-      </Container>
+      </FullContainer>
     </header>
   );
 };

@@ -1,4 +1,3 @@
-/* src/views/Home/ContributionForCaregiver/ContributionForCaregiver.tsx */
 import { Container } from "react-grid-system";
 import Image from "@components/Image";
 import PageTitle from "@components/PageTitle";

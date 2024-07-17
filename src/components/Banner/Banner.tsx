@@ -1,19 +1,17 @@
 import React from "react"; // Add this import statement
 import clsx from "clsx";
-import Link, { LinkProps } from "next/link";
-import { useState } from "react";
-import { UrlObject } from "url";
-
-import CircularProgress from "@mui/material/CircularProgress";
 
 import styles from "./Banner.module.scss";
 import Image from "@components/Image";
+import FullContainer from "@components/FullContainer";
 
 const Banner: React.FC<BannerProps> = (props) => {
   const { className, src } = props;
   return (
     <section>
-      <Image src={src} alt="Banner" className={clsx(styles.banner, className)} />
+      <FullContainer>
+        <Image src={src} alt="Banner" className={clsx(styles.banner, className)} />
+      </FullContainer>
     </section>
   );
 };

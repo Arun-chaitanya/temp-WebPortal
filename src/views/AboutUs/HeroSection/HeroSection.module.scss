@@ -1,7 +1,6 @@
 @import "src/styles/variables";
 @import "src/styles/mixins";
 .heroSection {
-  background-color: #a62152;
   padding: 2.5rem 0;
   color: #ffffff;
 
@@ -36,7 +35,7 @@
   }
 }
 
-.heroContentBox {
+.hero {
   background-color: $radical-plum !important;
 }
 

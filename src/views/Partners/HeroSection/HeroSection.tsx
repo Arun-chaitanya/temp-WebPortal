@@ -11,7 +11,7 @@ import useBreakpoint from "@hooks/useBreakpoint";
 const HeroSection: React.FC = () => {
   const isMobile = useBreakpoint({ max: "sm" });
   return (
-    <Hero classes={{ left: styles.heroContentBox, right: styles.heroImageBox }}>
+    <Hero className={styles.hero} classes={{ left: styles.heroContentBox, right: styles.heroImageBox }}>
       <div className={styles.heroContent}>
         <PageTitle color="light" className="mb20" variant="medium">
           Grow with Carecove.
