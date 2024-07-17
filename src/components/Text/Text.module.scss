@@ -3,10 +3,12 @@
 
 .primary {
   @include body-font(16px, 400);
+  line-height: 150%;
 }
 
 .secondary {
   @include secondary-font(16px, 400);
+  line-height: 150%;
 }
 
 .light {
@@ -119,4 +121,12 @@
 
 .noWrap {
   white-space: nowrap;
+}
+
+.normal {
+  font-style: normal;
+}
+
+.italic {
+  font-style: italic;
 }

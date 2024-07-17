@@ -55,12 +55,12 @@ const Footer: React.FC<React.HTMLProps<HTMLDivElement>> = (className, disabled, 
         <Logo className={styles.logo} variant="footer" />
         <div className={styles.right}>
           <NavList>{renderLinks(tabs, isMobile ? "medium" : "big")}</NavList>
-          <NavList>{renderLinks(subTabs, isMobile ? "small" : "medium")}</NavList>
+          {/* <NavList>{renderLinks(subTabs, isMobile ? "small" : "medium")}</NavList> */}
           <div className={styles.socialIcons}>
             <IconButton
               className={styles.icon}
               isExternal
-              href={"https://www.facebook.com/"}
+              href={"https://www.facebook.com/profile.php?id=61559658616835&mibextid=JRoKGi"}
               onClick={handleTrackEvent(FOOTER_EVENTS.FOOTER_SOCIALS_CLICKED, {
                 socialMediaName: FOOTER_SOCIALS_TYPE.FACEBOOK,
               })}
@@ -70,7 +70,7 @@ const Footer: React.FC<React.HTMLProps<HTMLDivElement>> = (className, disabled, 
             <IconButton
               className={styles.icon}
               isExternal
-              href={"https://twitter.com/"}
+              href={"https://x.com/GetCarecove"}
               onClick={handleTrackEvent(FOOTER_EVENTS.FOOTER_SOCIALS_CLICKED, {
                 socialMediaName: FOOTER_SOCIALS_TYPE.TWITTER,
               })}
@@ -80,7 +80,7 @@ const Footer: React.FC<React.HTMLProps<HTMLDivElement>> = (className, disabled, 
             <IconButton
               className={styles.icon}
               isExternal
-              href={"https://www.instagram.com/"}
+              href={"https://www.instagram.com/getcarecove/"}
               onClick={handleTrackEvent(FOOTER_EVENTS.FOOTER_SOCIALS_CLICKED, {
                 socialMediaName: FOOTER_SOCIALS_TYPE.INSTAGRAM,
               })}
@@ -90,7 +90,7 @@ const Footer: React.FC<React.HTMLProps<HTMLDivElement>> = (className, disabled, 
             <IconButton
               className={styles.icon}
               isExternal
-              href={"https://www.linkedin.com/"}
+              href={"https://www.linkedin.com/company/getcarecove/"}
               onClick={handleTrackEvent(FOOTER_EVENTS.FOOTER_SOCIALS_CLICKED, {
                 socialMediaName: FOOTER_SOCIALS_TYPE.LINKEDIN,
               })}

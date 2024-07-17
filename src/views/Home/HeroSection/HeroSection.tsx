@@ -7,10 +7,12 @@ import { useJoinWaitList } from "@api/home";
 import { toast } from "react-toastify";
 import Hero from "@components/Hero";
 import InputText from "@components/InputText";
+import useBreakpoint from "@hooks/useBreakpoint";
 
 const HeroSection: React.FC = () => {
   const [email, setEmail] = useState("");
   const [error, setError] = useState("");
+  const isMobile = useBreakpoint({ max: "sm" });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const handleSuccess = useCallback((data: any) => {
@@ -61,7 +63,7 @@ const HeroSection: React.FC = () => {
         <PageTitle color="light" className="mb10" variant="medium">
           Every Purchase Counts
         </PageTitle>
-        <Text color="light" weight="bold" size="xl" className="mb30">
+        <Text color="light" weight="bold" size={isMobile ? "lg" : "xl"} className="mb30">
           Cashback on everyday purchases can be a lifeline of support for caregivers.
         </Text>
         <div>

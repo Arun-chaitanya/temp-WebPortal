@@ -7,6 +7,7 @@ const Text: React.FC<TextProps> = (props) => {
     children,
     color = "dark",
     align,
+    style = "normal",
     variant = "p",
     font = "primary",
     weight = "normal",
@@ -25,6 +26,7 @@ const Text: React.FC<TextProps> = (props) => {
         weight && styles[weight],
         size && styles[size],
         align && styles[align],
+        style && styles[style],
         noWrap && styles.noWrap,
         color && styles[color],
         className
@@ -53,6 +55,7 @@ export type TextProps = React.HTMLAttributes<any> & {
   weight?: "normal" | "medium" | "semi-bold" | "bold" | "heavy";
   size?: "xxxs" | "xxs" | "xs" | "sm" | "md" | "lg" | "xl" | "xxl";
   align?: "left" | "center" | "right" | "justify";
+  style?: "normal" | "italic";
   variant?: keyof JSX.IntrinsicElements;
   noWrap?: boolean;
 };

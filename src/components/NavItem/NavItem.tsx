@@ -35,7 +35,7 @@ const NavItem: React.FC<NavItemProps> = (props) => {
             {children}
             <div className={clsx(styles.underline, isActive && styles.activeUnderline)}></div>
           </a>
-          {showDivider && <span className="mh10">|</span>}
+          {showDivider && <span className="mh20">|</span>}
         </div>
       );
     return (
@@ -44,7 +44,7 @@ const NavItem: React.FC<NavItemProps> = (props) => {
           {children}
           <div className={clsx(styles.underline, isActive && styles.activeUnderline)}></div>
         </Link>
-        {showDivider && <span className="mh10">|</span>}
+        {showDivider && <span className="mh20">|</span>}
       </div>
     );
   };
