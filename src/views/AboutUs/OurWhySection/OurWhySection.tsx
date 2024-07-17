@@ -7,7 +7,7 @@ import styles from "./OurWhySection.module.scss";
 import useBreakpoint from "@hooks/useBreakpoint";
 
 const OurWhySection: React.FC = () => {
-  const isMobile = useBreakpoint({ max: "sm" });
+  const isMobile = useBreakpoint({ max: "md" });
   return (
     <section className={styles.ourWhySection}>
       <PageTitle align="center" className="mb60" color="radical-plum">

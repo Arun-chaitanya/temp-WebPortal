@@ -5,6 +5,10 @@
   letter-spacing: 3px;
 }
 
+.x-small {
+  font-size: 2.25rem;
+}
+
 .small {
   font-size: 3.125rem;
 }
@@ -22,6 +26,9 @@
 }
 
 @media (max-width: $screen_md) {
+  .x-small {
+    font-size: 2rem;
+  }
   .small {
     font-size: 2.8rem;
   }
@@ -37,6 +44,9 @@
 }
 
 @media (max-width: $screen_sm) {
+  .x-small {
+    font-size: 1.8rem;
+  }
   .small {
     font-size: 2.4rem;
   }

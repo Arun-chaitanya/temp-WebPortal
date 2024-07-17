@@ -7,6 +7,12 @@
 .whyText {
   padding: 52px 80px !important;
   background-color: #733156ff;
+  @media (max-width: $screen_md) {
+    padding: 52px 60px !important;
+  }
+  @media (max-width: $screen_sm) {
+    padding: 40px !important;
+  }
 }
 
 .ourWhyRow {
@@ -32,6 +38,9 @@
 
   img {
     object-fit: cover;
+  }
+  @media (max-width: $screen_sm) {
+    height: 200px;
   }
 }
 

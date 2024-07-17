@@ -7,6 +7,7 @@ import Image from "@components/Image";
 import { Container } from "@mui/material";
 import { Col, Row } from "react-grid-system";
 import useBreakpoint from "@hooks/useBreakpoint";
+import { routes } from "@config/urls";
 
 type PartnershipContentType = {
   title: string;
@@ -126,7 +127,9 @@ const PartnershipOpportunity: React.FC = () => {
           ))}
         </Row>
         <div className="flex justify-center">
-          <Button size="small">Join The Waitlist</Button>
+          <Button size="small" href={routes.home}>
+            Join The Waitlist
+          </Button>
         </div>
       </Container>
     </section>

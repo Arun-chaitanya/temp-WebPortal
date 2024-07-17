@@ -6,6 +6,7 @@ import Image from "@components/Image";
 import { Container } from "@mui/material";
 import Button from "@components/Button";
 import { Col, Row } from "react-grid-system";
+import { routes } from "@config/urls";
 
 const ElevationImpactSection: React.FC = () => {
   return (
@@ -47,7 +48,9 @@ const ElevationImpactSection: React.FC = () => {
         </Container>
       </section>
       <section className="mv60 flex justify-center">
-        <Button size="small">Join The Waitlist</Button>
+        <Button size="small" href={routes.home}>
+          Join The Waitlist
+        </Button>
       </section>
     </>
   );

@@ -42,7 +42,9 @@ const Home: NextPage = () => {
               {/* eslint-disable-next-line react/no-unescaped-entities */}
               <br /> but it's One of Life's Most Important, Challenging, & Loving Roles.
             </Text>
-            <Button size="small">Join The Waitlist</Button>
+            <Button size="small" href="#home_section">
+              Join The Waitlist
+            </Button>
           </div>
         </Container>
       </section>
