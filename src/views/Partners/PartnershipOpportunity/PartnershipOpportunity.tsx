@@ -82,6 +82,7 @@ const PARTNERSHIP_CONTENT: PartnershipContentType[] = [
 ];
 
 const PartnershipCard: React.FC<PartnershipContentType> = (props) => {
+  const isMobile = useBreakpoint({ max: "sm" });
   const { icon, title, description, partnerBenefitsPoints } = props;
   return (
     <Col xs={12} lg={4} className="mb20">
