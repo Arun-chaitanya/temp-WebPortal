@@ -90,7 +90,7 @@ const PartnershipCard: React.FC<PartnershipContentType> = (props) => {
         <Text weight="semi-bold" size="xl" color="radical-plum" align="center" className="mb20">
           {title}
         </Text>
-        <Text weight="medium" size="lg" color="radical-plum" align="center" className="mb90">
+        <Text weight="medium" size="lg" color="radical-plum" align="center" className={isMobile ? "mb50" : "mb90"}>
           {description}
         </Text>
         <div className="flex justify-center mb50">
