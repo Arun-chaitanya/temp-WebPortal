@@ -29,7 +29,7 @@ const teamMembers = [
   {
     name: "Matt Hasten",
     role: "Chief Product Officer",
-    image: "/assets/coreteam/matt.png",
+    image: "/assets/coreteam/matt-team.jpg",
   },
   {
     name: "Bruno Botvinik",

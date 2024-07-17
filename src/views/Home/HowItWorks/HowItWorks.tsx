@@ -46,7 +46,9 @@ const HowItWorks: React.FC = () => {
           </Col>
         </Row>
         <div className={styles.buttonContainer}>
-          <Button size="small">Join The Waitlist</Button>
+          <Button size="small" href="#home_section">
+            Join The Waitlist
+          </Button>
         </div>
       </Container>
     </section>

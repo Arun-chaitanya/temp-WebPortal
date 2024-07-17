@@ -13,4 +13,7 @@
   align-items: center;
   max-width: 900px;
   gap: 80px;
+  @media (max-width: $screen_md) {
+    gap: 40px;
+  }
 }

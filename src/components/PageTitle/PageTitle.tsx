@@ -20,7 +20,7 @@ const PageTitle: React.FC<PageTitleProps> = (props) => {
 };
 
 type PageTitleProps = Omit<TitleProps, "variant"> & {
-  variant?: "small" | "medium" | "large" | "x-large";
+  variant?: "x-small" | "small" | "medium" | "large" | "x-large";
 };
 
 export default PageTitle;
