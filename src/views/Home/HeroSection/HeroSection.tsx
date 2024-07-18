@@ -23,7 +23,12 @@ const HeroSection: React.FC = () => {
     setIsSubmitted(true);
   }, []);
 
-  const joinWaitListMutation = useJoinWaitList(handleSuccess);
+  const handleError = useCallback((error: any) => {
+    console.log(error);
+    toast.error(error?.data?.detail || "Something went wrong. Please try again later.");
+  }, []);
+
+  const joinWaitListMutation = useJoinWaitList(handleSuccess, handleError);
 
   const validateEmail = useCallback((email: string): string => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;

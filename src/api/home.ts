@@ -1,7 +1,8 @@
 import { useMutation } from "react-query";
+
 import { callApi } from "@api/helpers";
 
-export const useJoinWaitList = (cb: (data: any) => void) => {
+export const useJoinWaitList = (cb: (data: any) => void, errorCallback: (data: any) => void) => {
   const url = "/misc/waitlist";
 
   return useMutation({
@@ -11,6 +12,9 @@ export const useJoinWaitList = (cb: (data: any) => void) => {
     },
     onSuccess: (data: any) => {
       cb(data);
+    },
+    onError: (error: any) => {
+      errorCallback(error?.response);
     },
   });
 };
