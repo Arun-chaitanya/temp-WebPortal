@@ -1,19 +1,27 @@
 import AdvocateIcon from "@icons/AdvocateIcon";
 import CareGiverIcon from "@icons/CareGiverIcon";
 
+const checkWindow = () => typeof window !== "undefined";
+const checkIsProd = () => checkWindow() && window.location.href.includes("www.carecove.com");
+
 export const CONTACT_US_EMAIL = "partner@carecove.com";
 export const PRESS_EMAIL = "press@carecove.com";
 export const HELLO_EMAIL = "hello@carecove.com";
-export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "";
+// export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "";
 export const APP_ENVIRONMENT = process.env.NEXT_PUBLIC_APP_ENVIRONMENT || "";
 export const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID || "";
-export const APP_ORIGIN = process.env.NEXT_PUBLIC_APP_ORIGIN || "";
+// export const APP_ORIGIN = process.env.NEXT_PUBLIC_APP_ORIGIN || "";
 export const TWITTER_WIDGET_SDK = "https://platform.twitter.com/widgets.js";
 export const APP_NAME = "Carecove";
 export const APP_DESCRIPTION = "Company Description";
-export const SEGMENT_KEY = process.env.NEXT_PUBLIC_SEGMENT_KEY || "";
+// export const SEGMENT_KEY = process.env.NEXT_PUBLIC_SEGMENT_KEY || "";
 export const BREAKPOINTS = { xs: 550, sm: 760, md: 1020, lg: 1270, xl: 1420, xxl: 1600 };
-export const IS_PROD = APP_ENVIRONMENT === "PRODUCTION";
+
+export const API_BASE_URL = checkIsProd() ? "https://api.carecove.com" : "https://api-dev.carecove.com";
+export const APP_ORIGIN = checkIsProd() ? "https://www.carecove.com/" : "https://dev.carecove.com/";
+export const SEGMENT_KEY = checkIsProd() ? "DS81XgpolUyOFxScrAHf928RlgG3L92J" : "DA1v9HSJszN5D0z6Il2ZAgQuuqkXUDgb";
+
+console.log("wow IS_PROD", checkIsProd(), API_BASE_URL, APP_ORIGIN, SEGMENT_KEY);
 
 export enum STEPS_ENUM {
   SIGNUP = 1,
