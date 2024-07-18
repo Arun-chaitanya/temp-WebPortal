@@ -1,8 +1,9 @@
 import { SEGMENT_KEY } from "@config/constants";
+
 import { AnalyticsBrowser } from "@segment/analytics-next";
 
 export const analytics = AnalyticsBrowser.load({
-  writeKey: SEGMENT_KEY,
+  writeKey: SEGMENT_KEY || "DA1v9HSJszN5D0z6Il2ZAgQuuqkXUDgb",
 });
 
 export function identifyUser(userId?: string) {
