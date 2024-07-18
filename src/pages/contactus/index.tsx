@@ -1,21 +1,26 @@
-import React from "react";
 import { useRouter } from "next/router";
-import Layout from "@components/Layout";
+import React from "react";
+import { Col, Row } from "react-grid-system";
+
 import { Container } from "@mui/material";
+
+import { CONTACT_US_EMAIL, HELLO_EMAIL, PRESS_EMAIL } from "@config/constants";
+import useBreakpoint from "@hooks/useBreakpoint";
+import { mailToContactCarecove } from "@utils/index";
+
+import Layout from "@components/Layout";
 import PageTitle from "@components/PageTitle";
 import Text from "@components/Text";
 import Title from "@components/Title";
-import { Col, Row } from "react-grid-system";
+
 import styles from "@styles/ContactUs.module.scss";
-import useBreakpoint from "@hooks/useBreakpoint";
-import { mailToSupportCarecove } from "@utils/index";
 
 const CONTACTS = [
   {
     title: "General",
     description: (
       <>
-        For general queries, please email <a onClick={mailToSupportCarecove}>email@carecove.com</a>
+        For general queries, please email <a onClick={() => mailToContactCarecove(HELLO_EMAIL)}>{HELLO_EMAIL}</a>
       </>
     ),
   },
@@ -24,7 +29,7 @@ const CONTACTS = [
     description: (
       <>
         If you have questions or need assistance with your Carecove account, please submit a support request{" "}
-        <a onClick={mailToSupportCarecove}>here</a>
+        <a onClick={() => mailToContactCarecove(HELLO_EMAIL)}>here</a>
       </>
     ),
   },
@@ -32,7 +37,8 @@ const CONTACTS = [
     title: "Partnerships",
     description: (
       <>
-        To learn more about partnering with us email <a onClick={mailToSupportCarecove}>email@carecove.com</a>
+        To learn more about partnering with us email{" "}
+        <a onClick={() => mailToContactCarecove(CONTACT_US_EMAIL)}>{CONTACT_US_EMAIL}</a>
       </>
     ),
   },
@@ -40,22 +46,18 @@ const CONTACTS = [
     title: "Media",
     description: (
       <>
-        For press inquiries, please contact us at <a onClick={mailToSupportCarecove}>email@carecove.com</a>
+        For press inquiries, please contact us at{" "}
+        <a onClick={() => mailToContactCarecove(PRESS_EMAIL)}>{PRESS_EMAIL}</a>
       </>
     ),
   },
   {
-    title: "Address and Phone",
+    title: "Address",
     description: (
       <>
-        123 Main Street
+        48 Summit Ave #3
         <br />
-        22nd Floor
-        <br />
-        Boston, MA 02115
-        <br />
-        <br />
-        123 456-7890
+        Brookline, MA 02446
       </>
     ),
   },

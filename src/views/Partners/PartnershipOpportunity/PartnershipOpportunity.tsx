@@ -1,13 +1,17 @@
 import React from "react";
+import { Col, Row } from "react-grid-system";
+
+import { Container } from "@mui/material";
+
+import { routes } from "@config/urls";
+import useBreakpoint from "@hooks/useBreakpoint";
+
+import Button from "@components/Button";
+import Image from "@components/Image";
 import PageTitle from "@components/PageTitle";
 import Text from "@components/Text";
-import Button from "@components/Button";
+
 import styles from "./PartnershipOpportunity.module.scss";
-import Image from "@components/Image";
-import { Container } from "@mui/material";
-import { Col, Row } from "react-grid-system";
-import useBreakpoint from "@hooks/useBreakpoint";
-import { routes } from "@config/urls";
 
 type PartnershipContentType = {
   title: string;
@@ -95,7 +99,7 @@ const PartnershipCard: React.FC<PartnershipContentType> = (props) => {
           {description}
         </Text>
         <div className="flex justify-center mb50">
-          <Button size="small" style={{ width: "80%" }} variant="dark">
+          <Button size="small" style={{ width: "80%" }} variant="dark" href={routes.home}>
             Learn More
           </Button>
         </div>

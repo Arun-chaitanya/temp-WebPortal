@@ -1,11 +1,13 @@
-/* src/views/Home/CareCoveCommunity/CareCoveCommunity.tsx */
 import { Container } from "react-grid-system";
+
+import useBreakpoint from "@hooks/useBreakpoint";
+
+import Carousel from "@components/Carousel";
 import Image from "@components/Image";
 import PageTitle from "@components/PageTitle";
 import Text from "@components/Text";
-import Carousel from "@components/Carousel";
+
 import styles from "./CareCoveCommunity.module.scss";
-import useBreakpoint from "@hooks/useBreakpoint";
 
 const TESTINOMIALS = [
   {
@@ -16,9 +18,9 @@ const TESTINOMIALS = [
     position: "Co-Founder",
   },
   {
-    image: "./assets/coreteam/alice.png",
+    image: "./assets/coreteam/alice-home.webp",
     quote:
-      "Caring for someone you love, is both rewarding and thankless. Friends and family around you raising you up, as you care for someone special, it gives you the strength to push through the hard days. ",
+      "Caring for someone you love is both rewarding and thankless. The support of friends and family gave me the strength to push through the hardest days of caregiving.",
     name: "Alice Lewis",
     position: "CEO, Co-Founder",
   },
