@@ -1,20 +1,23 @@
 import type { AppProps } from "next/app";
-import { AuthProvider } from "@contexts/AuthContext";
-import QueryProvider from "@contexts/QueryProvider";
+import Head from "next/head";
+import { useEffect } from "react";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { createTheme } from "@mui/material/styles";
-import { ThemeProvider } from "@mui/material/styles";
-
-import "@styles/fonts.scss";
-import "@styles/globals.scss";
-import "@styles/classes.scss";
 import "swiper/scss";
 import "swiper/scss/navigation";
 import "swiper/scss/pagination";
-import Head from "next/head";
+
+import { createTheme } from "@mui/material/styles";
+import { ThemeProvider } from "@mui/material/styles";
+
+import { AuthProvider } from "@contexts/AuthContext";
+import QueryProvider from "@contexts/QueryProvider";
 
 import Analytics from "@components/Analytics/analytics";
+
+import "@styles/classes.scss";
+import "@styles/fonts.scss";
+import "@styles/globals.scss";
 
 const theme = createTheme({
   components: {
