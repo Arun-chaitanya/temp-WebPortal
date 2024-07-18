@@ -1,13 +1,16 @@
-import PageTitle from "@components/PageTitle";
-import Text from "@components/Text";
-import Button from "@components/Button";
-import styles from "./HeroSection.module.scss";
 import { useCallback, useState } from "react";
-import { useJoinWaitList } from "@api/home";
 import { toast } from "react-toastify";
+
+import { useJoinWaitList } from "@api/home";
+import useBreakpoint from "@hooks/useBreakpoint";
+
+import Button from "@components/Button";
 import Hero from "@components/Hero";
 import InputText from "@components/InputText";
-import useBreakpoint from "@hooks/useBreakpoint";
+import PageTitle from "@components/PageTitle";
+import Text from "@components/Text";
+
+import styles from "./HeroSection.module.scss";
 
 const HeroSection: React.FC = () => {
   const [email, setEmail] = useState("");

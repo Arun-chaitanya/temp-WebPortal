@@ -1,23 +1,27 @@
+import clsx from "clsx";
 import useTranslation from "next-translate/useTranslation";
-import { Container, Row, Col } from "react-grid-system";
+import { useState } from "react";
+import { Col, Row } from "react-grid-system";
+
+import { Drawer } from "@mui/material";
+
+import { HEADER_EVENTS } from "@config/events";
 import useBreakpoint from "@hooks/useBreakpoint";
+import { handleTrackEvent } from "@utils/analytics";
+
+import FullContainer from "@components/FullContainer";
 import Logo from "@components/Logo";
 import NavItem from "@components/NavItem";
-
 import NavList from "@components/NavList";
-
-import SignupModal from "@views/SignupModal";
-import useAppstore, { StoreState } from "@store/useAppstore";
 import LoginModal from "@views/LoginModal";
-import { handleTrackEvent } from "@utils/analytics";
-import { HEADER_EVENTS } from "@config/events";
-import { Drawer } from "@mui/material";
-import { useState } from "react";
-import SideNav from "./SideNav";
-import clsx from "clsx";
+import SignupModal from "@views/SignupModal";
+
 import Menu from "@icons/Menu";
-import FullContainer from "@components/FullContainer";
+
 import styles from "./Header.module.scss";
+import SideNav from "./SideNav";
+
+import useAppstore, { StoreState } from "@store/useAppstore";
 
 const Header: React.FC = () => {
   const { t } = useTranslation("header");
