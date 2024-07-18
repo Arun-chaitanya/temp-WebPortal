@@ -1,8 +1,8 @@
-# CareCove WebPortal
+# Carecove WebPortal
 
 ## Description
 
-This is the website for CareCove. It utilizes NextJS and TailwindCSS.
+This is the website for Carecove. It utilizes NextJS and TailwindCSS.
 
 # Contributing to the project
 
@@ -25,9 +25,7 @@ In order to check the logs of the server, run `docker compose logs -f client-dev
 
 Run `docker compose down` to stop the development server
 
-
 ## Local development without Docker (Not recommended)
-
 
 1. Run `pnpm install`
 2. Run `pnpm dev` to start the development server
@@ -38,8 +36,6 @@ Run `docker compose down` to stop the development server
 2. Run `docker compose up -d client-prod` to start the production server
 3. Open `http://localhost:5000` in your browser
 
-
 ## Exit the production server
 
 Run `docker compose down` to stop the production server
-
