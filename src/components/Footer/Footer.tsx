@@ -1,18 +1,22 @@
 /* src/components/Footer/Footer.tsx */
-import React from "react";
-import styles from "./Footer.module.scss";
 import clsx from "clsx";
-import Logo from "@components/Logo";
-import IconButton from "@components/IconButton";
+import React from "react";
+
+import { FOOTER_EVENTS, FOOTER_SOCIALS_TYPE, HEADER_EVENTS } from "@config/events";
 import useBreakpoint from "@hooks/useBreakpoint";
 import { handleTrackEvent } from "@utils/analytics";
-import { FOOTER_EVENTS, FOOTER_SOCIALS_TYPE, HEADER_EVENTS } from "@config/events";
-import LinkedIn from "@icons/LinkedIn";
-import Facebook from "@icons/Facebook";
-import Twitter from "@icons/Twitter";
-import Instagram from "@icons/Instagram";
+
+import IconButton from "@components/IconButton";
+import Logo from "@components/Logo";
 import NavItem from "@components/NavItem";
 import NavList from "@components/NavList";
+
+import Facebook from "@icons/Facebook";
+import Instagram from "@icons/Instagram";
+import LinkedIn from "@icons/LinkedIn";
+import Twitter from "@icons/Twitter";
+
+import styles from "./Footer.module.scss";
 
 const Footer: React.FC<React.HTMLProps<HTMLDivElement>> = (className, disabled, ...props) => {
   const isMobile = useBreakpoint({ max: "sm" });

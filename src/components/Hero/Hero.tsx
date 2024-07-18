@@ -1,7 +1,9 @@
 import clsx from "clsx";
 import { Col, Row } from "react-grid-system";
-import styles from "./Hero.module.scss";
+
 import FullContainer from "@components/FullContainer";
+
+import styles from "./Hero.module.scss";
 
 const Hero: React.FC<HeroProps> = ({ className, children, classes }) => {
   return (

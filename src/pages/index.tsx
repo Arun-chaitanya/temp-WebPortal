@@ -1,16 +1,18 @@
 import type { NextPage } from "next";
-import Layout from "@components/Layout";
-import Text from "@components/Text";
-import { Container } from "react-grid-system";
-import Button from "@components/Button";
 import { useEffect } from "react";
+import { Container } from "react-grid-system";
+
 import useBreakpoint from "@hooks/useBreakpoint";
 import { analytics } from "@utils/analytics";
-import HowItWorks from "@views/Home/HowItWorks";
-import CashbackStore from "@views/Home/CashbackStore";
-import HeroSection from "@views/Home/HeroSection";
+
+import Button from "@components/Button";
+import Layout from "@components/Layout";
+import Text from "@components/Text";
 import CareCoveCommunity from "@views/Home/CareCoveCommunity";
+import CashbackStore from "@views/Home/CashbackStore";
 import ContributionForCaregiver from "@views/Home/ContributionForCaregiver";
+import HeroSection from "@views/Home/HeroSection";
+import HowItWorks from "@views/Home/HowItWorks";
 
 const Home: NextPage = () => {
   const isMobile = useBreakpoint({ max: "md" });
@@ -37,7 +39,7 @@ const Home: NextPage = () => {
               className={isMobile ? "mb50" : "mb50 ph100"}
             >
               {/* eslint-disable-next-line react/no-unescaped-entities */}
-              Nobody Expects to be a Caregiver, but it's One of Life's Most Important, Challenging, & Loving Roles."
+              Nobody Expects to be a Caregiver, but it's One of Life's Most Important, Challenging, & Loving Roles.
             </Text>
             <Button size="small" href="#home_section">
               Join The Waitlist

@@ -71,5 +71,8 @@
     font-size: 15px;
     text-align: center;
     color: white;
+    @media (max-width: $screen_sm) {
+      font-size: 12px;
+    }
   }
 }

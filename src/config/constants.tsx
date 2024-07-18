@@ -2,7 +2,8 @@ import AdvocateIcon from "@icons/AdvocateIcon";
 import CareGiverIcon from "@icons/CareGiverIcon";
 
 export const CONTACT_US_EMAIL = "partner@carecove.com";
-export const SUPPORT_EMAIL = "email@carecove.com";
+export const PRESS_EMAIL = "press@carecove.com";
+export const HELLO_EMAIL = "hello@carecove.com";
 export const API_BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || "";
 export const APP_ENVIRONMENT = process.env.NEXT_PUBLIC_APP_ENVIRONMENT || "";
 export const GA4_ID = process.env.NEXT_PUBLIC_GA4_ID || "";

@@ -1,9 +1,10 @@
-import React from "react"; // Add this import statement
 import clsx from "clsx";
+import React from "react";
+
+import FullContainer from "@components/FullContainer";
+import Image from "@components/Image";
 
 import styles from "./Banner.module.scss";
-import Image from "@components/Image";
-import FullContainer from "@components/FullContainer";
 
 const Banner: React.FC<BannerProps> = (props) => {
   const { className, src } = props;
