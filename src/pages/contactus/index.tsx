@@ -1,11 +1,12 @@
-import { useRouter } from "next/router";
-import React from "react";
+import React, { useEffect } from "react";
 import { Col, Row } from "react-grid-system";
 
 import { Container } from "@mui/material";
 
 import { CONTACT_US_EMAIL, HELLO_EMAIL, PRESS_EMAIL } from "@config/constants";
+import { PAGE_VIEW_EVENTS } from "@config/events";
 import useBreakpoint from "@hooks/useBreakpoint";
+import { trackEvent } from "@utils/analytics";
 import { mailToContactCarecove } from "@utils/index";
 
 import Layout from "@components/Layout";
@@ -63,9 +64,12 @@ const CONTACTS = [
   },
 ];
 
-const AboutUs: React.FC = () => {
-  const router = useRouter();
+const ContactUs: React.FC = () => {
   const isMobile = useBreakpoint({ max: "md" });
+
+  useEffect(() => {
+    trackEvent(PAGE_VIEW_EVENTS.CONTACT_US_PAGE_VIEWED, { page: "Contact Us Page" });
+  }, []);
 
   return (
     <Layout>
@@ -89,4 +93,4 @@ const AboutUs: React.FC = () => {
   );
 };
 
-export default AboutUs;
+export default ContactUs;

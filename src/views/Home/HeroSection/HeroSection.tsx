@@ -2,7 +2,9 @@ import { useCallback, useState } from "react";
 import { toast } from "react-toastify";
 
 import { useJoinWaitList } from "@api/home";
+import { HOME_PAGE_EVENTS } from "@config/events";
 import useBreakpoint from "@hooks/useBreakpoint";
+import { trackEvent } from "@utils/analytics";
 
 import Button from "@components/Button";
 import Hero from "@components/Hero";
@@ -18,10 +20,14 @@ const HeroSection: React.FC = () => {
   const isMobile = useBreakpoint({ max: "sm" });
   const [isSubmitted, setIsSubmitted] = useState(false);
 
-  const handleSuccess = useCallback((data: any) => {
-    toast.success("Welcome to the Caregiver community!");
-    setIsSubmitted(true);
-  }, []);
+  const handleSuccess = useCallback(
+    (data: any) => {
+      toast.success("Welcome to the Caregiver community!");
+      trackEvent(HOME_PAGE_EVENTS.JOIN_WAITLIST_CLICKED, { email });
+      setIsSubmitted(true);
+    },
+    [email]
+  );
 
   const handleError = useCallback((error: any) => {
     console.log(error);

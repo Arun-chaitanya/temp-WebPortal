@@ -1,16 +1,21 @@
-import React from "react";
-import { useRouter } from "next/router";
+import React, { useEffect } from "react";
+
+import { PAGE_VIEW_EVENTS } from "@config/events";
+import { trackEvent } from "@utils/analytics";
+
+import Banner from "@components/Banner";
 import Layout from "@components/Layout";
 import HeroSection from "@views/AboutUs/HeroSection";
-import MissionSection from "@views/AboutUs/MissionSection";
-import ValuesSection from "@views/AboutUs/ValuesSection";
-import OurWhySection from "@views/AboutUs/OurWhySection";
-import OurTeamSection from "@views/AboutUs/OurTeamSection";
 import JoinSection from "@views/AboutUs/JoinSection";
-import Banner from "@components/Banner";
+import MissionSection from "@views/AboutUs/MissionSection";
+import OurTeamSection from "@views/AboutUs/OurTeamSection";
+import OurWhySection from "@views/AboutUs/OurWhySection";
+import ValuesSection from "@views/AboutUs/ValuesSection";
 
 const AboutUs: React.FC = () => {
-  const router = useRouter();
+  useEffect(() => {
+    trackEvent(PAGE_VIEW_EVENTS.ABOUT_US_PAGE_VIEWED, { page: "About Us Page" });
+  }, []);
 
   return (
     <Layout>
