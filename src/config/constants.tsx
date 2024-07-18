@@ -2,7 +2,7 @@ import AdvocateIcon from "@icons/AdvocateIcon";
 import CareGiverIcon from "@icons/CareGiverIcon";
 
 const checkWindow = () => typeof window !== "undefined";
-const checkIsProd = () => checkWindow() && window.location.href.includes("www.carecove.com");
+const checkIsProd = () => checkWindow() && window.location?.href?.includes("www.carecove.com");
 
 export const CONTACT_US_EMAIL = "partner@carecove.com";
 export const PRESS_EMAIL = "press@carecove.com";
