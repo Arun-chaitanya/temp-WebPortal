@@ -30,7 +30,6 @@ const HeroSection: React.FC = () => {
   );
 
   const handleError = useCallback((error: any) => {
-    console.log(error);
     toast.error(error?.data?.detail || "Something went wrong. Please try again later.");
   }, []);
 

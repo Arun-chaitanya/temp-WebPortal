@@ -21,8 +21,6 @@ export const API_BASE_URL = checkIsProd() ? "https://api.carecove.com" : "https:
 export const APP_ORIGIN = checkIsProd() ? "https://www.carecove.com/" : "https://dev.carecove.com/";
 export const SEGMENT_KEY = checkIsProd() ? "DS81XgpolUyOFxScrAHf928RlgG3L92J" : "DA1v9HSJszN5D0z6Il2ZAgQuuqkXUDgb";
 
-console.log("wow IS_PROD", checkIsProd(), API_BASE_URL, APP_ORIGIN, SEGMENT_KEY);
-
 export enum STEPS_ENUM {
   SIGNUP = 1,
   ROLE,
