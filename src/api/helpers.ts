@@ -1,4 +1,6 @@
-import axios, { AxiosResponse, Method, AxiosRequestConfig, ResponseType } from "axios";
+import axios, { AxiosRequestConfig, AxiosResponse, Method, ResponseType } from "axios";
+
+import { API_BASE_URL } from "@config/constants";
 
 export const getDataFromLocalStorage = (key: string): string | null => {
   if (typeof window === "undefined") return null;
@@ -47,7 +49,7 @@ export const callApi = ({
 
   return new Promise((resolve, reject) => {
     axios({
-      baseURL: "https://api-dev.carecove.com",
+      baseURL: API_BASE_URL,
       url,
       method,
       timeout,
