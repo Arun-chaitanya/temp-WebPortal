@@ -21,4 +21,15 @@ const FOOTER_SOCIALS_TYPE = {
   INSTAGRAM: "Instagram",
 };
 
-export { HEADER_EVENTS, FOOTER_EVENTS, FOOTER_SOCIALS_TYPE };
+const PAGE_VIEW_EVENTS = {
+  HOME_PAGE_VIEWED: "home_page_viewed",
+  ABOUT_US_PAGE_VIEWED: "about_us_page_viewed",
+  PARTNER_PAGE_VIEWED: "partner_page_viewed",
+  CONTACT_US_PAGE_VIEWED: "contact_us_page_viewed",
+};
+
+const HOME_PAGE_EVENTS = {
+  JOIN_WAITLIST_CLICKED: "join_waitlist_clicked",
+};
+
+export { HEADER_EVENTS, FOOTER_EVENTS, FOOTER_SOCIALS_TYPE, PAGE_VIEW_EVENTS, HOME_PAGE_EVENTS };

@@ -2,8 +2,9 @@ import type { NextPage } from "next";
 import { useEffect } from "react";
 import { Container } from "react-grid-system";
 
+import { PAGE_VIEW_EVENTS } from "@config/events";
 import useBreakpoint from "@hooks/useBreakpoint";
-import { analytics } from "@utils/analytics";
+import { analytics, trackEvent } from "@utils/analytics";
 
 import Button from "@components/Button";
 import Layout from "@components/Layout";
@@ -16,9 +17,9 @@ import HowItWorks from "@views/Home/HowItWorks";
 
 const Home: NextPage = () => {
   const isMobile = useBreakpoint({ max: "md" });
+
   useEffect(() => {
-    if (!analytics) return;
-    analytics.track("Home Page Viewed", { page: "Home" });
+    trackEvent(PAGE_VIEW_EVENTS.HOME_PAGE_VIEWED, { page: "Home Page" });
   }, []);
 
   return (
