@@ -1,0 +1,19 @@
+@import "src/styles/variables";
+@import "src/styles/mixins";
+
+.subheading {
+  font-weight: 700;
+}
+
+.description {
+  color: $midnight-lagoon;
+}
+
+.container {
+  p {
+    font-size: 16px;
+  }
+  span {
+    font-size: 16px;
+  }
+}

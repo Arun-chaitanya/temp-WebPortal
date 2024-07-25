@@ -17,7 +17,7 @@ export const APP_DESCRIPTION = "Company Description";
 // export const SEGMENT_KEY = process.env.NEXT_PUBLIC_SEGMENT_KEY || "";
 export const BREAKPOINTS = { xs: 550, sm: 760, md: 1020, lg: 1270, xl: 1420, xxl: 1600 };
 
-export const API_BASE_URL = "https://api-dev.carecove.com";
+export const API_BASE_URL = checkIsProd() ? "https://api.carecove.com" : "https://api-dev.carecove.com";
 export const APP_ORIGIN = checkIsProd() ? "https://www.carecove.com/" : "https://dev.carecove.com/";
 export const SEGMENT_KEY = checkIsProd() ? "DS81XgpolUyOFxScrAHf928RlgG3L92J" : "DA1v9HSJszN5D0z6Il2ZAgQuuqkXUDgb";
 
