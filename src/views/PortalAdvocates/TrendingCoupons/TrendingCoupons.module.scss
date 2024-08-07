@@ -1,0 +1,22 @@
+@import "src/styles/variables";
+
+.couponImage{
+  height: 118px;
+  width: 202px;
+  margin-bottom: 20px;
+}
+
+.cashbackLogo{
+  height: 19px;
+  width: 19px;
+}
+
+.cashbackColor{
+  color: $electric-sunset;
+}
+
+.cashbackContainer{
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}

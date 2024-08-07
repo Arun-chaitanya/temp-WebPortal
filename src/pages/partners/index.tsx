@@ -18,7 +18,7 @@ const Partners: React.FC = () => {
     <Layout>
       <HeroSection />
       <ElevationImpactSection />
-      <Banner src="/assets/partners/banner.png" />
+      <Banner src="/assets/partners/banner.webp" />
       <PartnershipOpportunity />
     </Layout>
   );

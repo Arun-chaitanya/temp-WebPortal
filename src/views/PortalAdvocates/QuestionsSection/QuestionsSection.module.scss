@@ -1,0 +1,31 @@
+@import "src/styles/variables";
+
+.questionLogo{
+  width: 53px;
+  height: 53px;
+}
+
+.fullContainer{
+  background-color: $atomic-mermaid-light;
+  padding: 23px 41px 32px;
+  margin-bottom: 20px;
+}
+
+.flexAlignCenter{
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  margin-bottom: 28px;
+}
+
+.questionTitle{
+  font-size: 55px;
+  font-family: Montserrat;
+  line-height: 65px;
+  letter-spacing: 3px;
+  font-weight: 900;
+}
+
+.submitButton{
+  width: 100%;
+}

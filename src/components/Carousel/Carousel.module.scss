@@ -26,15 +26,16 @@
   right: 2rem;
   top: 50%;
   transform: translate(0, -50%);
-  cursor: pointer;
-  &.prev {
-    left: 2rem;
-  }
-  &.next {
-    right: 2rem;
-  }
+  cursor: pointer; 
   & svg {
     width: 2rem;
     height: 2rem;
   }
+}
+
+.prev {
+  left: 2rem;
+}
+.next {
+  right: 2rem;
 }

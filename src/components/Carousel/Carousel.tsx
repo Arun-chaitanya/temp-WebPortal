@@ -1,11 +1,13 @@
 import clsx from "clsx";
-import { Pagination, Autoplay, Navigation } from "swiper";
-import { Swiper, SwiperSlide, SwiperProps } from "swiper/react";
+import { Autoplay, Navigation, Pagination } from "swiper";
+import { Swiper, SwiperProps, SwiperSlide } from "swiper/react";
 
-import styles from "./Carousel.module.scss";
 import useBreakpoint from "@hooks/useBreakpoint";
+
 import LeftCarouselArrow from "@icons/LeftCarouselArrow";
 import RightCarouselArrow from "@icons/RightCarouselArrow";
+
+import styles from "./Carousel.module.scss";
 
 const Carousel: React.FC<CarouselProps> = ({ components, className, removeNavigators, classes, ...props }) => {
   const isMobile = useBreakpoint({ max: "md" });

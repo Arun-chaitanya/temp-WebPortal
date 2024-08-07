@@ -14,7 +14,7 @@ const teamMembers = [
         Co-Founder
       </>
     ),
-    image: "/assets/coreteam/alice.png",
+    image: "/assets/coreteam/alice.webp",
   },
   {
     name: "Stephen Lane",
@@ -24,7 +24,7 @@ const teamMembers = [
         Co-Founder
       </>
     ),
-    image: "/assets/coreteam/steve.png",
+    image: "/assets/coreteam/steve.webp",
   },
   {
     name: "Matt Hasten",
@@ -34,22 +34,22 @@ const teamMembers = [
   {
     name: "Bruno Botvinik",
     role: "Technical Advisor",
-    image: "/assets/coreteam/bruno.png",
+    image: "/assets/coreteam/bruno.webp",
   },
   {
     name: "Stephanie Euzebio",
     role: <>Head of Design</>,
-    image: "/assets/coreteam/steph.png",
+    image: "/assets/coreteam/steph.webp",
   },
   {
     name: "Preet Singh",
     role: "Design",
-    image: "/assets/coreteam/preet.png",
+    image: "/assets/coreteam/preet.webp",
   },
   {
     name: "Arun Chaitanya",
     role: "Engineer",
-    image: "/assets/coreteam/arun.png",
+    image: "/assets/coreteam/arun.webp",
   },
 ];
 

@@ -24,14 +24,14 @@ const OurWhySection: React.FC = () => {
             </Text>
           </Col>
           <Col xs={12} lg={5.75} className={styles.whyImageContainer}>
-            <Image src="/assets/coreteam/steve-family.png" alt="Steve with Family" className={styles.whyImage} />
+            <Image src="/assets/coreteam/steve-family.webp" alt="Steve with Family" className={styles.whyImage} />
           </Col>
         </Row>
 
         <Row className={styles.ourWhyRow} direction={isMobile ? "row-reverse" : "row"}>
           {!isMobile && (
             <Col xs={12} lg={5.75} className={styles.whyImageContainer}>
-              <Image src="/assets/coreteam/alice-family.png" alt="Alice with Family" className={styles.whyImage} />
+              <Image src="/assets/coreteam/alice-family.webp" alt="Alice with Family" className={styles.whyImage} />
             </Col>
           )}
           <Col xs={12} lg={6.25} className={styles.whyText}>
@@ -43,7 +43,7 @@ const OurWhySection: React.FC = () => {
           </Col>
           {isMobile && (
             <Col xs={12} lg={5.75} className={styles.whyImageContainer}>
-              <Image src="/assets/coreteam/alice-family.png" alt="Steve with Family" className={styles.whyImage} />
+              <Image src="/assets/coreteam/alice-family.webp" alt="Steve with Family" className={styles.whyImage} />
             </Col>
           )}
         </Row>
@@ -57,7 +57,7 @@ const OurWhySection: React.FC = () => {
             </Text>
           </Col>
           <Col xs={12} lg={5.75} className={styles.whyImageContainer}>
-            <Image src="./assets/coreteam/steve-and-alice.png" alt="Steve with Family" className={styles.whyImage} />
+            <Image src="./assets/coreteam/steve-and-alice.webp" alt="Steve with Family" className={styles.whyImage} />
           </Col>
         </Row>
       </FullContainer>

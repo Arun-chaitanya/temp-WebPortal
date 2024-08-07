@@ -1,0 +1,40 @@
+@import "src/styles/variables";
+
+.essentialsMainImage {
+  width: 320px;
+  height: 175px;
+  margin-bottom: 17px;
+}
+
+.essentialsBrandLogo {
+  width: 116px;
+  height: 25px;
+  margin-bottom: 12px;
+}
+
+.cashbackLogo{
+  height: 19px;
+  width: 19px;
+}
+
+.cashbackColor{
+  color: $electric-sunset;
+}
+
+.centerAlign{
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.container{
+  background-color: $atomic-mermaid-light;
+  padding: 30px;
+  margin-bottom: 80px;
+}
+
+.cashbackContainer{
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 30px;
+}

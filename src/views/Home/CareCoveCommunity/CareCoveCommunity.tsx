@@ -11,7 +11,7 @@ import styles from "./CareCoveCommunity.module.scss";
 
 const TESTINOMIALS = [
   {
-    image: "./assets/coreteam/steve-home.png",
+    image: "./assets/coreteam/steve-home.webp",
     quote:
       "The support of friends and family was invaluable for my wife, who had to become a caregiver overnight after I was severely injured by a drunk driver. That’s why Carecove exists – to make it incredibly easy to support caregivers.",
     name: "Stephen Lane",

@@ -21,7 +21,7 @@ const AboutUs: React.FC = () => {
     <Layout>
       <HeroSection />
       <MissionSection />
-      <Banner src="/assets/aboutus/banner.png" />
+      <Banner src="/assets/aboutus/banner.webp" />
       <ValuesSection />
       <OurWhySection />
       <OurTeamSection />

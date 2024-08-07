@@ -1,0 +1,32 @@
+@import "src/styles/variables";
+
+.slideContainer{
+  background-color: $atomic-mermaid-light;
+  margin-bottom: 75px;
+  padding: 32px;
+}
+
+.slideImage{
+  height: 429px;
+  width: 429px;
+}
+
+.column{
+  margin-left: 85px;
+}
+
+.slidesTitle{
+  font-family: Montserrat;
+  font-size: 38.557px;
+  font-style: normal;
+  font-weight: 900;
+  line-height: 120%; /* 46.268px */
+  letter-spacing: 3.52px;
+}
+
+.slidesDescription{
+  margin-bottom: 64px;
+}
+.slidesButton{
+  width: 275px;
+}

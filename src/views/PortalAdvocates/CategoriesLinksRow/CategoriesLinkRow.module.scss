@@ -1,0 +1,31 @@
+@import "src/styles/variables";
+
+
+.CategoryLinkContainer {
+  padding: 10px 60px;
+  margin: 75px 0px;
+  border: 1px solid $outline-grey;
+  display: flex;
+  justify-content: space-evenly;
+  @media (max-width: $screen_md) { /* Adjust breakpoint as needed */
+      overflow-x: scroll;
+      white-space: nowrap; /* Prevent text wrapping */
+      gap: 30px;
+      padding: 10px 20px;
+  }
+}
+
+.LinkHamburger{
+  height: 19px;
+  width: 24px;
+}
+
+.linkColor{
+  color: $text-field;
+}
+
+.navLink{
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}

@@ -1,0 +1,23 @@
+@import "src/styles/variables";
+
+.carouselContainer {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.carousel{
+  width: 100%;
+}
+
+.leftNav{
+  left: 0rem;
+}
+
+.rightNav{
+  right: 0rem;
+}
+
+.joinContainer{
+  margin: 60px 40px;
+}

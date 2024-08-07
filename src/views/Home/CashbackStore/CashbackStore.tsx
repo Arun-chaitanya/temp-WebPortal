@@ -27,13 +27,13 @@ const CashbackStore: React.FC = () => {
         </Container>
 
         <div className={styles.logosRow}>
-          <Image src="/assets/home/companies/walmart.png" alt="Walmart" className={styles.storeLogo} />
-          <Image src="/assets/home/companies/expedia.png" alt="Expedia" className={styles.storeLogo} />
+          <Image src="/assets/home/companies/walmart.webp" alt="Walmart" className={styles.storeLogo} />
+          <Image src="/assets/home/companies/expedia.webp" alt="Expedia" className={styles.storeLogo} />
           {!isMobile && (
-            <Image src="/assets/home/companies/thehomedepot.png" alt="Home Depot" className={styles.storeLogo} />
+            <Image src="/assets/home/companies/thehomedepot.webp" alt="Home Depot" className={styles.storeLogo} />
           )}
-          <Image src="/assets/home/companies/ubereats.png" alt="Uber Eats" className={styles.storeLogo} />
-          <Image src="/assets/home/companies/macys.png" alt="Macy's" className={styles.storeLogo} />
+          <Image src="/assets/home/companies/ubereats.webp" alt="Uber Eats" className={styles.storeLogo} />
+          <Image src="/assets/home/companies/macys.webp" alt="Macy's" className={styles.storeLogo} />
         </div>
       </FullContainer>
     </section>
